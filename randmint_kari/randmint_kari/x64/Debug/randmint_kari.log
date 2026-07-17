@@ -1,0 +1,32 @@
+﻿cl : コマンド ライン  warning D9025: '/sdl' より '/GS-' が優先されます。
+  Card.cpp
+C:\Users\MizukamiYuzu\Documents\GitHub\SummerGame\randmint_kari\Card.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'Card.cpp' をコンパイルしています)
+  
+C:\Users\MizukamiYuzu\Documents\GitHub\SummerGame\randmint_kari\Card.cpp(42,6): error C2065: 'm_card': 定義されていない識別子です。
+C:\Users\MizukamiYuzu\Documents\GitHub\SummerGame\randmint_kari\Card.cpp(43,6): error C2065: 'm_card': 定義されていない識別子です。
+C:\Users\MizukamiYuzu\Documents\GitHub\SummerGame\randmint_kari\Card.cpp(54,4): error C2065: 'm_card': 定義されていない識別子です。
+  CardManager.cpp
+C:\Users\MizukamiYuzu\Documents\GitHub\SummerGame\randmint_kari\CardManager.cpp(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\Users\MizukamiYuzu\Documents\GitHub\SummerGame\randmint_kari\CardManager.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'CardManager.cpp' をコンパイルしています)
+  
+C:\Users\MizukamiYuzu\Documents\GitHub\SummerGame\randmint_kari\Card.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'CardManager.cpp' をコンパイルしています)
+  
+C:\Users\MizukamiYuzu\Documents\GitHub\SummerGame\randmint_kari\CardManager.cpp(86,1): error C1071: コメント内で予期しない EOF が見つかりました。
+  main.cpp
+C:\Users\MizukamiYuzu\Documents\GitHub\SummerGame\randmint_kari\CardManager.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'main.cpp' をコンパイルしています)
+  
+C:\Users\MizukamiYuzu\Documents\GitHub\SummerGame\randmint_kari\Card.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'main.cpp' をコンパイルしています)
+  
+  SceneMain.cpp
+C:\Users\MizukamiYuzu\Documents\GitHub\SummerGame\randmint_kari\CardManager.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'SceneMain.cpp' をコンパイルしています)
+  
+C:\Users\MizukamiYuzu\Documents\GitHub\SummerGame\randmint_kari\Card.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  (ソース ファイル 'SceneMain.cpp' をコンパイルしています)
+  
+  コードを生成中...

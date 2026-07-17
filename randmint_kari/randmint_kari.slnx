@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="randmint_kari.vcxproj" Id="8bf0e341-f37d-4cdc-ba59-f26099a672d7" />
+</Solution>
