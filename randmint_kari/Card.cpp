@@ -37,27 +37,29 @@ void Card::Update()
 	GetMousePoint(&MouseX, &MouseY);
 }
 
-void Card::Draw(int i)
+void Card::Draw(int PlayerCardPosX_s, int y1, int PlayerCardPosX_f, int y2)
 {
-	if (m_card[i]==0)return;
-	if (m_card[i - 1] == 0) 
-	{
-		i = i - 1;
-	}
-	// ↓手札
-	PlayerCardPosX = 100*i+50;
-	if (MouseX >= PlayerCardPosX && MouseX <= PlayerCardPosX + 80 && MouseY >= Game::kScreenHeight / 2 && MouseY <= Game::kScreenHeight / 2 + 100)
-	{
-		DrawExtendGraph(PlayerCardPosX, Game::kScreenHeight / 2 - 10, PlayerCardPosX + 80, Game::kScreenHeight / 2 + 100 - 10, m_graphHand, true);
-		if ((GetMouseInput() & MOUSE_INPUT_LEFT) != 0)
-		{
-			m_card[i] = 0;
-		}
-	}
-	else
-	{
-		DrawExtendGraph(PlayerCardPosX, Game::kScreenHeight / 2, PlayerCardPosX + 80, Game::kScreenHeight / 2 + 100, m_graphHand, true);	// 通常描画
-	}
+	//if (m_card[i]==0)return;
+	//if (m_card[i - 1] == 0) 
+	//{
+	//	i = i - 1;
+	//}
+	//// ↓手札
+	//PlayerCardPosX = 100*i+50;
+	//if (MouseX >= PlayerCardPosX && MouseX <= PlayerCardPosX + 80 && MouseY >= Game::kScreenHeight / 2 && MouseY <= Game::kScreenHeight / 2 + 100)
+	//{
+	//	DrawExtendGraph(PlayerCardPosX, Game::kScreenHeight / 2 - 10, PlayerCardPosX + 80, Game::kScreenHeight / 2 + 100 - 10, m_graphHand, true);
+	//	if ((GetMouseInput() & MOUSE_INPUT_LEFT) != 0)
+	//	{
+	//		m_card[i] = 0;
+	//	}
+	//}
+	//else
+	//{
+	//	DrawExtendGraph(PlayerCardPosX, Game::kScreenHeight / 2, PlayerCardPosX + 80, Game::kScreenHeight / 2 + 100, m_graphHand, true);	// 通常描画
+	//}
+
+	DrawExtendGraph(PlayerCardPosX, Game::kScreenHeight / 2 - 10, PlayerCardPosX + 80, Game::kScreenHeight / 2 + 100 - 10, m_graphHand, true);
 	
 	
 }

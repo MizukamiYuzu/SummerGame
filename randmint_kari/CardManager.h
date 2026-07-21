@@ -1,6 +1,7 @@
 #pragma once
 #include "Card.h"
 #include "Game.h"
+#include <vector>
 
 class CardManager
 {
@@ -26,6 +27,7 @@ private:
 	int PlayerCardPosX;
 
 	std::vector<Card> m_card;		// カードの持ってるか持ってないかの配列
+
 	// カード型の配列	←クラスのデータをいくつか持ってる
 
 //	クラス名

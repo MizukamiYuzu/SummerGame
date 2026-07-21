@@ -10,7 +10,7 @@ public:
 	void Init();
 	void End();
 	void Update();
-	void Draw(int i);
+	void Draw(int PlayerCardPosX_s, int y1, int PlayerCardPosX_f, int y2);
 
 
 	
