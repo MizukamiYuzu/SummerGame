@@ -12,7 +12,7 @@ Card::Card():
 	MouseX(0),
 	MouseY(0),
 	PlayerCardPosX(0),
-	m_isCard(false)
+	_isCard(false)
 {
 }
 
@@ -23,7 +23,7 @@ Card::~Card()
 void Card::Init()
 {
 	m_graphHand = LoadGraph("data/img/hand.png");	// 手札のハンドル
-	m_isCard = (true);
+	_isCard = true;
 	PlayerCardPosX = 50;
 }
 
@@ -58,8 +58,8 @@ void Card::Draw(int PlayerCardPosX_s, int y1, int PlayerCardPosX_f, int y2)
 	//{
 	//	DrawExtendGraph(PlayerCardPosX, Game::kScreenHeight / 2, PlayerCardPosX + 80, Game::kScreenHeight / 2 + 100, m_graphHand, true);	// 通常描画
 	//}
-
-	DrawExtendGraph(PlayerCardPosX, Game::kScreenHeight / 2 - 10, PlayerCardPosX + 80, Game::kScreenHeight / 2 + 100 - 10, m_graphHand, true);
+	
+	DrawExtendGraph(PlayerCardPosX_s, y1, PlayerCardPosX_f, y2, m_graphHand, true);
 	
 	
 }

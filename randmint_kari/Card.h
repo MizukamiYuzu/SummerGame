@@ -12,9 +12,12 @@ public:
 	void Update();
 	void Draw(int PlayerCardPosX_s, int y1, int PlayerCardPosX_f, int y2);
 
-
+	
 	
 	void SetHandleHand(int handleHand) { m_graphHand = handleHand; }	// 手札のハンドル
+
+	bool GetCard() { return _isCard; }	// 戻り値を渡す関数
+	void SetCard(bool card) { _isCard = card; }	// 引数を変数に代入する関数
 
 private:
 	
@@ -25,7 +28,7 @@ private:
 
 	int PlayerCardPosX;
 
-	bool m_isCard;
+	bool _isCard;
 
 
 
