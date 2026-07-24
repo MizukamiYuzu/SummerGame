@@ -1,4 +1,4 @@
-#include "CardManager.h"
+﻿#include "CardManager.h"
 #include "Dxlib.h"
 
 namespace
@@ -18,7 +18,7 @@ CardManager::~CardManager()
 void CardManager::Init()
 {
 	m_graphDeck = LoadGraph("data/img/deck.png");	// 山札のハンドル
-	for (int i = 0; i <= handNum; i++)
+	for (int i = 0; i < handNum; i++)
 	{
 		m_card[i].Init();
 	}
@@ -28,7 +28,7 @@ void CardManager::Init()
 void CardManager::End()
 {
 	DeleteGraph(m_graphDeck);
-	for (int i = 0; i <= handNum; i++)
+	for (int i = 0; i < handNum; i++)
 	{
 		m_card[i].End();
 	}
@@ -36,7 +36,7 @@ void CardManager::End()
 
 void CardManager::Update()
 {
-	for (int i = 0; i <= handNum; i++)
+	for (int i = 0; i < handNum; i++)
 	{
 		m_card[i].Update();
 	}
@@ -47,7 +47,7 @@ void CardManager::Draw()
 {
 	
 	DrawExtendGraph(Game::kScreenWidth / 2, Game::kScreenHeight / 2, Game::kScreenWidth / 2 + 100, Game::kScreenHeight / 2 + 100, m_graphDeck, true);	// 山札描画
-	for (int i = 0; i <= handNum; i++)	// 手札を並ばせる
+	for (int i = 0; i < handNum; i++)	// 手札を並ばせる
 	{
 		PlayerCardPosX = 100 * i + 50;
 		int y1 = Game::kScreenHeight / 2;
