@@ -1,10 +1,5 @@
 ﻿cl : コマンド ライン  warning D9025: '/sdl' より '/GS-' が優先されます。
-  Card.cpp
-C:\Users\user\Documents\GitHub\SummerGame\randmint_kari\Card.cpp(3,10): error C1083: include ファイルを開けません。'Dxlib.h':No such file or directory
-  CardManager.cpp
-C:\Users\user\Documents\GitHub\SummerGame\randmint_kari\CardManager.cpp(2,10): error C1083: include ファイルを開けません。'Dxlib.h':No such file or directory
   main.cpp
-C:\Users\user\Documents\GitHub\SummerGame\randmint_kari\main.cpp(1,10): error C1083: include ファイルを開けません。'DxLib.h':No such file or directory
   SceneMain.cpp
-C:\Users\user\Documents\GitHub\SummerGame\randmint_kari\SceneMain.cpp(2,10): error C1083: include ファイルを開けません。'Dxlib.h':No such file or directory
   コードを生成中...
+LINK : fatal error LNK1104: ファイル 'DxDrawFunc_vs2015_x64_MTd.lib' を開くことができません。
