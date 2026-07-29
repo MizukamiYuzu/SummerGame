@@ -33,7 +33,6 @@ private:
 	int MouseX;			// マウスのX座標取得するための変数
 	int MouseY;			// マウスのY座標取得するための変数
 
-	int handNum;
 
 	int PlayerCardPosX;
 
@@ -41,6 +40,7 @@ private:
 	bool _isClickNow;		// 現在クリックされているか
 
 	std::vector<Card> m_card;		// カードの持ってるか持ってないかの配列
+									// vectorは動的配列
 //	std::vector<クラス名> 変数名;
 
 	// カード型の配列	←クラスのデータをいくつか持ってる

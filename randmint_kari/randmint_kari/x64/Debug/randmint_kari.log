@@ -1,5 +1,1 @@
-﻿cl : コマンド ライン  warning D9025: '/sdl' より '/GS-' が優先されます。
-  main.cpp
-  SceneMain.cpp
-  コードを生成中...
-LINK : fatal error LNK1104: ファイル 'DxDrawFunc_vs2015_x64_MTd.lib' を開くことができません。
+﻿  randmint_kari.vcxproj -> C:\Users\Yuzu\Documents\GitHub\SummerGame\randmint_kari\x64\Debug\randmint_kari.exe
