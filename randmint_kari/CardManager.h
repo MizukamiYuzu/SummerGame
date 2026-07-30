@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "Card.h"
+#include "CardContent.h"
 #include "Game.h"
 #include <vector>
 
@@ -39,8 +40,11 @@ private:
 	bool _isClickBefore;	// 1フレーム前にクリックされたかどうか
 	bool _isClickNow;		// 現在クリックされているか
 
+	CardContent m_cardContent;
+
 	std::vector<Card> m_card;		// カードの持ってるか持ってないかの配列
 									// vectorは動的配列
+									// 
 //	std::vector<クラス名> 変数名;
 
 	// カード型の配列	←クラスのデータをいくつか持ってる

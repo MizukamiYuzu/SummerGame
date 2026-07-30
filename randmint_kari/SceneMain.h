@@ -17,8 +17,9 @@ public:
 private:
 
 private:
+	// 現在のシーンの実行時間(フレーム数)
 	int m_frameCount;
-
-	CardManager m_cardMana;
+	// カードマネージャーのポインター
+	CardManager* m_pCardManager;
 };
 

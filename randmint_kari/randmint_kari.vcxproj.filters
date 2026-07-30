@@ -38,9 +38,6 @@
     <ClInclude Include="SceneMain.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\DxLib_Vec2便利に\Vec2.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Card.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>

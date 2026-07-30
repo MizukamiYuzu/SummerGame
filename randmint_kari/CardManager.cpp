@@ -115,20 +115,14 @@ void CardManager::Draw()
 	
 
 	DrawExtendGraph(Game::kScreenWidth / 2, Game::kScreenHeight / 2 - 50, Game::kScreenWidth / 2 + 100, Game::kScreenHeight / 2 + 50, m_graphDeck, true);	// 山札描画
+ 
 
 	for (int i = 0; i < m_card.size(); i++)
 	{
 		m_card[i].Draw();
 		DrawFormatString(m_card[i].GetDrawPosX()+50, m_card[i].GetDrawPosY()+50,GetColor(255, 0, 0), "%d", i);
 		
-	}
-
 		
-	
-	
-	
-	
-	
-	
+	}
 	
 }
