@@ -1,5 +1,5 @@
-﻿#include "CardManager.h"
-#include "Dxlib.h"
+﻿#include "Dxlib.h"
+#include "CardManager.h"
 
 namespace
 {
@@ -23,8 +23,11 @@ CardManager::~CardManager()
 
 void CardManager::Init()
 {
+	m_pCardContent = new CardContent;
+	m_pCardContent->Init();
 	m_graphDeck = LoadGraph("data/img/deck.png");	// 山札のハンドル
 	m_card.resize(kFirstHandNum);
+	m_cardContent.resize(kFirstHandNum);
 	for (int i = 0; i < kFirstHandNum; i++)
 	{
 		m_card[i].Init();
@@ -34,6 +37,7 @@ void CardManager::Init()
 
 void CardManager::End()
 {
+	m_pCardContent->End();
 	DeleteGraph(m_graphDeck);
 	for (int i = 0; i < m_card.size(); i++)	// m_card.size() <- size()で配列の数を出すことができる
 	{
@@ -43,12 +47,16 @@ void CardManager::End()
 
 void CardManager::Update()
 {
-
+	m_pCardContent->Update();
 	_isClickBefore = _isClickNow;
 	_isClickNow = (GetMouseInput() & MOUSE_INPUT_LEFT);
 	for (int i = 0; i < m_card.size(); i++)
 	{
 		m_card[i].Update();
+		if (m_cardContent[i] == "")
+		{
+			m_cardContent[i] = m_pCardContent->GetContent();
+		}
 	}
 	GetMousePoint(&MouseX, &MouseY);
 
@@ -68,6 +76,7 @@ void CardManager::Update()
 			card.Init();			// 初期化するよ
 			m_card.push_back(card);	// 今ある配列の後ろに一つ要素を追加する
 									// Card型の変数を入れている理由は、m_cardはcard型の動的配列で、Card型の変数を入れてあげることで、もう一つcardを用意する
+			m_cardContent.push_back("");
 
 		}
 	}
@@ -113,7 +122,7 @@ void CardManager::Update()
 void CardManager::Draw()
 {
 	
-
+	m_pCardContent->Draw();
 	DrawExtendGraph(Game::kScreenWidth / 2, Game::kScreenHeight / 2 - 50, Game::kScreenWidth / 2 + 100, Game::kScreenHeight / 2 + 50, m_graphDeck, true);	// 山札描画
  
 
@@ -121,7 +130,8 @@ void CardManager::Draw()
 	{
 		m_card[i].Draw();
 		DrawFormatString(m_card[i].GetDrawPosX()+50, m_card[i].GetDrawPosY()+50,GetColor(255, 0, 0), "%d", i);
-		
+	//	DrawString(100, i+100, m_pCardContent->GetContent().c_str(), GetColor(255, 255, 255));
+		DrawFormatString(100, i * 10, GetColor(255, 255, 255), m_cardContent[i].c_str());
 		
 	}
 	

@@ -148,7 +148,6 @@ std::string CardContent::GetContent()
 			m_cardContent = "相手に%d～%dのランダムな数のダメージを与える", m_randStart, m_randFinish;
 		}
 	}
-	if (m_OverallProbability <= 100)
 
 	return m_cardContent;
 }

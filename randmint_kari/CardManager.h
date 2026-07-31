@@ -3,6 +3,7 @@
 #include "CardContent.h"
 #include "Game.h"
 #include <vector>
+#include <string>
 
 class CardManager
 {
@@ -40,7 +41,9 @@ private:
 	bool _isClickBefore;	// 1フレーム前にクリックされたかどうか
 	bool _isClickNow;		// 現在クリックされているか
 
-	CardContent m_cardContent;
+	std::vector<std::string> m_cardContent;	// カードの効果が入る動的配列
+
+	CardContent* m_pCardContent;
 
 	std::vector<Card> m_card;		// カードの持ってるか持ってないかの配列
 									// vectorは動的配列

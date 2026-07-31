@@ -1,4 +1,3 @@
 ﻿cl : コマンド ライン  warning D9025: '/sdl' より '/GS-' が優先されます。
-  CardContent.cpp
-C:\Users\Yuzu\Documents\GitHub\SummerGame\randmint_kari\CardContent.cpp(154,1): warning C4715: 'CardContent::GetContent': 値を返さないコントロール パスがあります。
+  CardManager.cpp
   randmint_kari.vcxproj -> C:\Users\Yuzu\Documents\GitHub\SummerGame\randmint_kari\x64\Debug\randmint_kari.exe
