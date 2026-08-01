@@ -28,6 +28,8 @@ void CardContent::Update()
 
 void CardContent::Draw()
 {
+	DrawFormatString(50, 50, GetColor(255, 0, 0), "%d", m_randStart);
+	DrawFormatString(50, 70, GetColor(255, 0, 0), "%d", m_randFinish);
 }
 
 std::string CardContent::GetContent()
@@ -116,7 +118,7 @@ std::string CardContent::GetContent()
 		{
 			m_randStart = GetRand(50 / 10);
 			m_randFinish = GetRand(100 / 10);
-			if (m_randFinish <= m_randStart) m_randFinish = GetRand(100 / 10);
+			while (m_randFinish <= m_randStart) m_randFinish = GetRand(100 / 10);
 			m_cardContent = "ミントに%d～%dのランダな数のエネルギーを与える", m_randStart, m_randFinish;
 		}
 	}
@@ -132,7 +134,7 @@ std::string CardContent::GetContent()
 		{
 			m_randStart = GetRand(50 / 10);
 			m_randFinish = GetRand(100 / 10);
-			if (m_randFinish <= m_randStart) m_randFinish = GetRand(100 / 10);
+			while (m_randFinish <= m_randStart) m_randFinish = GetRand(100 / 10);
 			m_cardContent = "%d～%dのランダな数回復する", m_randStart, m_randFinish;
 		}
 		if (m_ContentProbability <= 2)
@@ -144,7 +146,7 @@ std::string CardContent::GetContent()
 		{
 			m_randStart = GetRand(50 / 10);
 			m_randFinish = GetRand(100 / 10);
-			if (m_randFinish <= m_randStart) m_randFinish = GetRand(100 / 10);
+			while (m_randFinish <= m_randStart) m_randFinish = GetRand(100 / 10);
 			m_cardContent = "相手に%d～%dのランダムな数のダメージを与える", m_randStart, m_randFinish;
 		}
 	}
