@@ -1,5 +1,8 @@
 ﻿#include "Dxlib.h"
 #include "CardManager.h"
+#include "CardEffect.h"
+#include "Game.h"
+#include "Player.h"
 
 namespace
 {
@@ -23,11 +26,15 @@ CardManager::~CardManager()
 
 void CardManager::Init()
 {
+	//プレイヤーと敵作成
+	m_player = new Player();
+	m_enemy = new Player();
+
 	m_pCardContent = new CardContent;
 	m_pCardContent->Init();
 	m_graphDeck = LoadGraph("data/img/deck.png");	// 山札のハンドル
 	m_card.resize(kFirstHandNum);
-	m_cardContent.resize(kFirstHandNum);
+	m_cardEffect.resize(kFirstHandNum);
 	for (int i = 0; i < kFirstHandNum; i++)
 	{
 		m_card[i].Init();
@@ -52,10 +59,13 @@ void CardManager::Update()
 	_isClickNow = (GetMouseInput() & MOUSE_INPUT_LEFT);
 	for (int i = 0; i < m_card.size(); i++)
 	{
+		if (!m_card[i].GetCard())continue;
 		m_card[i].Update();
-		if (m_cardContent[i] == "")
+		//カードの効果が空なら
+		if (m_cardEffect[i].GetEffect() == CardEffect::Effect::None)
 		{
-			m_cardContent[i] = m_pCardContent->GetContent();
+			//カード効果を得る
+			m_cardEffect[i] = m_pCardContent->CreateCardEffect();
 		}
 	}
 	GetMousePoint(&MouseX, &MouseY);
@@ -68,15 +78,20 @@ void CardManager::Update()
 	bool isMouseOutDown_y = MouseY <= Game::kScreenHeight / 2 + 50;
 	bool isInsideCard_y = isMouseOutLeft_y && isMouseOutRight_y && isMouseOutUp_y && isMouseOutDown_y;
 
+	//山札からカードを引いたとき
 	if (isInsideCard_y)
 	{
 		if ((_isClickBefore == false) && (_isClickNow == true))
 		{
+			//カード作成
 			Card card;				// 新しくCard型の変数を宣言(push_backに追加する時にしか使わない)
 			card.Init();			// 初期化するよ
 			m_card.push_back(card);	// 今ある配列の後ろに一つ要素を追加する
 									// Card型の変数を入れている理由は、m_cardはcard型の動的配列で、Card型の変数を入れてあげることで、もう一つcardを用意する
-			m_cardContent.push_back("");
+			
+			//カードの効果を作成(中身は空)
+			CardEffect cardEffect;
+			m_cardEffect.push_back(cardEffect);
 
 		}
 	}
@@ -108,8 +123,13 @@ void CardManager::Update()
 
 			if (isClickThisFrame && _isDeleteCard == false)
 			{
+				//カードを使う処理(敵に対して)
+				UseCard(m_enemy ,m_cardEffect[i]);
+
 				// カードを無効にする
 				m_card[i].SetCard(false); // m_card[i]に引数をぶち込む
+				//m_cardContent.erase(m_cardContent.begin() + i);
+				
 				_isDeleteCard = true;
 			}
 		}
@@ -131,8 +151,32 @@ void CardManager::Draw()
 		m_card[i].Draw();
 		DrawFormatString(m_card[i].GetDrawPosX()+50, m_card[i].GetDrawPosY()+50,GetColor(255, 0, 0), "%d", i);
 	//	DrawString(100, i+100, m_pCardContent->GetContent().c_str(), GetColor(255, 255, 255));
-		DrawFormatString(100, i * 10, GetColor(255, 255, 255), m_cardContent[i].c_str());
+		DrawFormatString(100, i * 20, GetColor(255, 255, 255), m_cardEffect[i].GetContent().c_str());
 		
 	}
 	
+}
+
+void CardManager::UseCard(Player* target, CardEffect& cardEffect)
+{
+	switch (cardEffect.GetEffect())
+	{
+	case CardEffect::Effect::Damage:
+		if (cardEffect.GetRandStart() == 0 && cardEffect.GetRandFinish() == 0)
+		{
+			//固定値
+			target->Damage(cardEffect.GetValue());
+		}
+		else
+		{
+			//ランダムなダメージ
+			target->Damage(MyRandom(cardEffect.GetRandStart(), cardEffect.GetRandFinish()));
+		}
+		break;
+		
+	default:
+		break;
+	}
+
+	cardEffect.SetContent("");
 }

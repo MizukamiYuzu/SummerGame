@@ -1,5 +1,4 @@
 ﻿#include "Card.h"
-#include "Game.h"
 #include "Dxlib.h"
 
 namespace

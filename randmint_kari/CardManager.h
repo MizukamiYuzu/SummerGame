@@ -1,10 +1,10 @@
 ﻿#pragma once
 #include "Card.h"
 #include "CardContent.h"
-#include "Game.h"
 #include <vector>
-#include <string>
 
+class CardEffect;
+class Player;
 class CardManager
 {
 public:
@@ -27,6 +27,9 @@ public:
 	// ゲッター(値を受け取りたいときに使う)
 	void SetHandleDeck(int handleDeck) { m_graphDeck = handleDeck; }	// 山札のハンドル
 
+	
+	//カードを使う処理
+	void UseCard(Player* target, CardEffect& cardEffect);
 
 private:
 	// 画像の場合は
@@ -41,7 +44,12 @@ private:
 	bool _isClickBefore;	// 1フレーム前にクリックされたかどうか
 	bool _isClickNow;		// 現在クリックされているか
 
-	std::vector<std::string> m_cardContent;	// カードの効果が入る動的配列
+	//プレイヤー
+	Player* m_player;
+	//敵
+	Player* m_enemy;
+
+	std::vector<CardEffect> m_cardEffect;	// カードの効果が入る動的配列
 
 	CardContent* m_pCardContent;
 

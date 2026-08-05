@@ -1,5 +1,5 @@
 ﻿#include "CardContent.h"
-
+#include "CardEffect.h"
 
 CardContent::CardContent() :
 	m_OverallProbability(0),
@@ -28,98 +28,208 @@ void CardContent::Update()
 
 void CardContent::Draw()
 {
-	DrawFormatString(50, 50, GetColor(255, 0, 0), "%d", m_randStart);
-	DrawFormatString(50, 70, GetColor(255, 0, 0), "%d", m_randFinish);
+	DrawFormatString(50, 50, GetColor(255, 0, 0), "m_randStart:%d", m_randStart);
+	DrawFormatString(50, 70, GetColor(255, 0, 0), "m_randFinish:%d", m_randFinish);
+	DrawFormatString(50, 90, GetColor(255, 0, 0), m_cardContent.c_str());
+	DrawFormatString(50, 110, GetColor(255, 0, 0), "m_OverallProbability:%d", m_OverallProbability);
 }
-
-std::string CardContent::GetContent()
+//山札からカード引く
+CardEffect CardContent::CreateCardEffect()
 {
+	CardEffect cardEffect;
+
 	m_OverallProbability = GetRand(100);
+
 	if (m_OverallProbability <= 10)
 	{
 		m_ContentProbability = GetRand(1);
 		if (m_ContentProbability <= 0)
 		{
 			m_cardContent = "ミントを植える";
+
+			//植える効果を持つカードだよ
+			cardEffect.SetEffect(CardEffect::Effect::Plant);
+			//テキスト
+			cardEffect.SetContent(m_cardContent);
 		}
 		else
 		{
 			m_cardContent = "ミントを枯らす";
+
+			//枯らす効果を持つカードだよ
+			cardEffect.SetEffect(CardEffect::Effect::Wither);
+			//テキスト
+			cardEffect.SetContent(m_cardContent);
 		}
 	}
-	if (m_OverallProbability <= 30)
+	else if (m_OverallProbability <= 30)
 	{
+		//ルール追加効果
+		cardEffect.SetEffect(CardEffect::Effect::Rule);
+
 		m_ContentProbability = GetRand(9);
 		if (m_ContentProbability <= 0)
 		{
 			m_variable = 3;
-			m_cardContent = "自分のHPが%dの倍数になったら勝利",m_variable;
+			m_cardContent = "自分のHPが"+std::to_string(m_variable)+"の倍数になったら勝利";
+
+			//ルールの種類
+			cardEffect.SetRuleEffect(CardEffect::RuleEffect::MyMltiWin);
+			//効果量
+			cardEffect.SetValue(m_variable);
+			//テキスト
+			cardEffect.SetContent(m_cardContent);
 		}
 		if (m_ContentProbability <= 1)
 		{
 			m_variable = 4;
-			m_cardContent = "自分のHPが%dの倍数になったら勝利", m_variable;
+			m_cardContent = "自分のHPが" + std::to_string(m_variable) + "の倍数になったら勝利";
+
+			//ルールの種類
+			cardEffect.SetRuleEffect(CardEffect::RuleEffect::MyMltiWin);
+			//効果量
+			cardEffect.SetValue(m_variable);
+			//テキスト
+			cardEffect.SetContent(m_cardContent);
 		}
 		if (m_ContentProbability <= 2)
 		{
 			m_variable = 6;
-			m_cardContent = "相手のHPが%dの倍数になったら勝利", m_variable;
+			m_cardContent = "相手のHPが" + std::to_string(m_variable) + "の倍数になったら勝利";
+
+			//ルールの種類
+			cardEffect.SetRuleEffect(CardEffect::RuleEffect::YourMltiWin);
+			//効果量
+			cardEffect.SetValue(m_variable);
+			//テキスト
+			cardEffect.SetContent(m_cardContent);
 		}
 		if (m_ContentProbability <= 3)
 		{
 			m_rand = GetRand(100);
-			m_cardContent = "自分のHPが残り%dになったら勝利", m_rand;
+			m_cardContent = "自分のHPが残り" + std::to_string(m_rand) + "になったら勝利";
+
+			//ルールの種類
+			cardEffect.SetRuleEffect(CardEffect::RuleEffect::MySameWin);
+			//効果量
+			cardEffect.SetValue(m_rand);
+			//テキスト
+			cardEffect.SetContent(m_cardContent);
 		}
 		if (m_ContentProbability <= 4)
 		{
 			m_rand = GetRand(100);
-			m_cardContent = "相手のHPが残り%dになったら勝利", m_rand;
+			m_cardContent = "相手のHPが残り" + std::to_string(m_rand) + "になったら勝利";
+
+			//ルールの種類
+			cardEffect.SetRuleEffect(CardEffect::RuleEffect::YourSameWin);
+			//効果量
+			cardEffect.SetValue(m_rand);
+			//テキスト
+			cardEffect.SetContent(m_cardContent);
 		}
 		if (m_ContentProbability <= 5)
 		{
 			m_variable = 9;
-			m_cardContent = "相手のHPが%dの倍数になったら勝利", m_variable;
+			m_cardContent = "相手のHPが" + std::to_string(m_variable) + "の倍数になったら勝利";
+
+			//ルールの種類
+			cardEffect.SetRuleEffect(CardEffect::RuleEffect::YourMltiWin);
+			//効果量
+			cardEffect.SetValue(m_variable);
+			//テキスト
+			cardEffect.SetContent(m_cardContent);
 		}
 		if (m_ContentProbability <= 6)
 		{
 			m_rand = GetRand(100);
-			m_cardContent = "ミントのエネルギーが%dになったらミントが育つ", m_rand;
+			m_cardContent = "ミントのエネルギーが" + std::to_string(m_rand) + "になったらミントが育つ";
+
+			
+			//ルールの種類
+			cardEffect.SetRuleEffect(CardEffect::RuleEffect::MintoSameGrow);
+			//効果量
+			cardEffect.SetValue(m_rand);
+			//テキスト
+			cardEffect.SetContent(m_cardContent);
 		}
 		if (m_ContentProbability <= 7)
 		{
 			m_variable = 8;
-			m_cardContent = "ミントのエネルギーが%dの倍数になったら勝利", m_variable;
+			m_cardContent = "ミントのエネルギーが" + std::to_string(m_variable) + "の倍数になったら勝利";
+
+			//ルールの種類
+			cardEffect.SetRuleEffect(CardEffect::RuleEffect::MintoMltiWin);
+			//効果量
+			cardEffect.SetValue(m_variable);
+			//テキスト
+			cardEffect.SetContent(m_cardContent);
 		}
 		if (m_ContentProbability <= 8)
 		{
 			m_variable = 12;
-			m_cardContent = "ミントのエネルギーが%dの倍数になったら勝利", m_variable;
+			m_cardContent = "ミントのエネルギーが" + std::to_string(m_variable) + "の倍数になったら勝利";
+
+			//ルールの種類
+			cardEffect.SetRuleEffect(CardEffect::RuleEffect::MintoMltiWin);
+			//効果量
+			cardEffect.SetValue(m_variable);
+			//テキスト
+			cardEffect.SetContent(m_cardContent);
 		}
 		if (m_ContentProbability <= 9)
 		{
 			m_variable = 25;
-			m_cardContent = "ミントのエネルギーが%dの倍数になったら勝利", m_variable;
+			m_cardContent = "ミントのエネルギーが" + std::to_string(m_variable) + "の倍数になったら勝利";
+
+			//ルールの種類
+			cardEffect.SetRuleEffect(CardEffect::RuleEffect::MintoMltiWin);
+			//効果量
+			cardEffect.SetValue(m_variable);
+			//テキスト
+			cardEffect.SetContent(m_cardContent);
 		}
 		if (m_ContentProbability <= 10)
 		{
-			m_cardContent = "勝利条件の1番古い条件を削除する", m_rand;
+			m_cardContent = "勝利条件の1番古い条件を削除する";
+
+			//ルールの種類
+			cardEffect.SetRuleEffect(CardEffect::RuleEffect::Delete);
+			//テキスト
+			cardEffect.SetContent(m_cardContent);
 		}
 
 	}
-	if (m_OverallProbability <= 60)
+	else if (m_OverallProbability <= 60)
 	{
 		m_ContentProbability = GetRand(1);
+
 		if (m_ContentProbability <= 0)
 		{
 			m_rand = GetRand(100);
-			m_cardContent = "ミントにエネルギーを%d与える", m_rand;
+			m_cardContent = "ミントにエネルギーを" + std::to_string(m_rand) + "与える";
+
+			//カードの効果
+			cardEffect.SetEffect(CardEffect::Effect::Grow);
+			//効果量
+			cardEffect.SetValue(m_rand);
+			//テキスト
+			cardEffect.SetContent(m_cardContent);
 		}
 		if (m_ContentProbability <= 1)
 		{
-			m_randStart = GetRand(50 / 10);
-			m_randFinish = GetRand(100 / 10);
-			while (m_randFinish <= m_randStart) m_randFinish = GetRand(100 / 10);
-			m_cardContent = "ミントに%d～%dのランダな数のエネルギーを与える", m_randStart, m_randFinish;
+			m_randStart = GetRand(5);
+			m_randFinish = GetRand(10);
+			while (m_randFinish <= m_randStart) m_randFinish = GetRand(10);
+			m_cardContent = "ミントに" + std::to_string(m_randStart * 10) + "～" + std::to_string(m_randFinish * 10) + "のランダな数のエネルギーを与える";
+
+			//カードの効果
+			cardEffect.SetEffect(CardEffect::Effect::Grow);
+			//はじめとおわり
+			cardEffect.SetRandStart(m_randStart);
+			cardEffect.SetRandFinish(m_randFinish);
+			//テキスト
+			cardEffect.SetContent(m_cardContent);
 		}
 	}
 	else
@@ -128,28 +238,58 @@ std::string CardContent::GetContent()
 		if (m_ContentProbability <= 0)
 		{
 			m_rand = GetRand(100);
-			m_cardContent = "自分のHPを%d回復する", m_rand;
+			m_cardContent = "自分のHPを" + std::to_string(m_rand) + "回復する";
+
+			//カードの効果
+			cardEffect.SetEffect(CardEffect::Effect::Heal);
+			//効果量
+			cardEffect.SetValue(m_rand);
+			//テキスト
+			cardEffect.SetContent(m_cardContent);
 		}
 		if (m_ContentProbability <= 1)
 		{
-			m_randStart = GetRand(50 / 10);
-			m_randFinish = GetRand(100 / 10);
-			while (m_randFinish <= m_randStart) m_randFinish = GetRand(100 / 10);
-			m_cardContent = "%d～%dのランダな数回復する", m_randStart, m_randFinish;
+			m_randStart = GetRand(5);
+			m_randFinish = GetRand(10);
+			while (m_randFinish <= m_randStart) m_randFinish = GetRand(10);
+			m_cardContent = std::to_string(m_randStart * 10) + "～" + std::to_string(m_randFinish * 10) + "のランダムな数回復する";
+
+			//カードの効果
+			cardEffect.SetEffect(CardEffect::Effect::Heal);
+			//はじめとおわり
+			cardEffect.SetRandStart(m_randStart);
+			cardEffect.SetRandFinish(m_randFinish);
+			//テキスト
+			cardEffect.SetContent(m_cardContent);
 		}
 		if (m_ContentProbability <= 2)
 		{
 			m_rand = GetRand(100);
-			m_cardContent = "相手に%dダメージを与える", m_rand;
+			m_cardContent = "相手に" + std::to_string(m_rand) + "ダメージを与える";
+
+			//カードの効果
+			cardEffect.SetEffect(CardEffect::Effect::Damage);
+			//効果量
+			cardEffect.SetValue(m_rand);
+			//テキスト
+			cardEffect.SetContent(m_cardContent);
 		}
 		if (m_ContentProbability <= 3)
 		{
-			m_randStart = GetRand(50 / 10);
-			m_randFinish = GetRand(100 / 10);
-			while (m_randFinish <= m_randStart) m_randFinish = GetRand(100 / 10);
-			m_cardContent = "相手に%d～%dのランダムな数のダメージを与える", m_randStart, m_randFinish;
+			m_randStart = GetRand(5);
+			m_randFinish = GetRand(10);
+			while (m_randFinish <= m_randStart) m_randFinish = GetRand(10);
+			m_cardContent = "相手に" + std::to_string(m_randStart * 10) + "～" + std::to_string(m_randFinish * 10) + "のランダムな数のダメージを与える";
+
+			//カードの効果
+			cardEffect.SetEffect(CardEffect::Effect::Damage);
+			//はじめとおわり
+			cardEffect.SetRandStart(m_randStart);
+			cardEffect.SetRandFinish(m_randFinish);
+			//テキスト
+			cardEffect.SetContent(m_cardContent);
 		}
 	}
 
-	return m_cardContent;
+	return cardEffect;
 }

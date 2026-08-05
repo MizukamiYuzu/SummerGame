@@ -1,1 +1,6 @@
-﻿  randmint_kari.vcxproj -> C:\Users\user\Documents\GitHub\SummerGame\randmint_kari\x64\Debug\randmint_kari.exe
+﻿cl : コマンド ライン  warning D9025: '/sdl' より '/GS-' が優先されます。
+  CardManager.cpp
+  SceneMain.cpp
+  main.cpp
+  コードを生成中...
+  randmint_kari.vcxproj -> C:\Users\Yuzu\Documents\GitHub\SummerGame\randmint_kari\x64\Debug\randmint_kari.exe

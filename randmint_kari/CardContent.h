@@ -3,6 +3,7 @@
 #include <string>
 #include "Dxlib.h"
 
+class CardEffect;
 class CardContent
 {
 public:
@@ -14,7 +15,9 @@ public:
 	void Update();
 	void Draw();
 
-	std::string GetContent();
+
+	//ドローしたカードの作成
+	CardEffect CreateCardEffect();
 
 
 private:
