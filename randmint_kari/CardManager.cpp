@@ -173,6 +173,23 @@ void CardManager::UseCard(Player* target, CardEffect& cardEffect)
 			target->Damage(MyRandom(cardEffect.GetRandStart(), cardEffect.GetRandFinish()));
 		}
 		break;
+
+
+	case CardEffect::Effect::Heal:
+		if (cardEffect.GetRandStart() == 0 && cardEffect.GetRandFinish() == 0)
+		{
+			//固定値
+			target->Heal(cardEffect.GetValue());
+		}
+		else
+		{
+			//ランダムな値で回復
+			target->Heal(MyRandom(cardEffect.GetRandStart(), cardEffect.GetRandFinish()));
+		}
+		break;
+
+	case CardEffect::Effect::Grow:
+
 		
 	default:
 		break;

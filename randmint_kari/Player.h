@@ -6,6 +6,8 @@ public :
 	~Player();
 
 	void Damage(int damage);
+
+	void Heal(int heal);
 private :
 	//体力
 	int m_hp = 100;
