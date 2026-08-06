@@ -1,6 +1,8 @@
 ﻿cl : コマンド ライン  warning D9025: '/sdl' より '/GS-' が優先されます。
-  CardManager.cpp
+  minto.cpp
+  Player.cpp
   SceneMain.cpp
-  main.cpp
   コードを生成中...
-  randmint_kari.vcxproj -> C:\Users\Yuzu\Documents\GitHub\SummerGame\randmint_kari\x64\Debug\randmint_kari.exe
+  LINK : 前回のインクリメンタル リンクで C:\Users\user\Documents\GitHub\SummerGame\randmint_kari\x64\Debug\randmint_kari.exe が見つからなかったか、ビルドされませんでした。フル リンクを行います。
+CardManager.obj : error LNK2019: 未解決の外部シンボル "public: void __cdecl Player::Heal(int)" (?Heal@Player@@QEAAXH@Z) が関数 "public: void __cdecl CardManager::UseCard(class Player *,class CardEffect &)" (?UseCard@CardManager@@QEAAXPEAVPlayer@@AEAVCardEffect@@@Z) で参照されました
+C:\Users\user\Documents\GitHub\SummerGame\randmint_kari\x64\Debug\randmint_kari.exe : fatal error LNK1120: 1 件の未解決の外部参照
