@@ -13,3 +13,4 @@ void minto::GetWither()
 	m_plant = false;
 	m_energy = 0;
 }
+

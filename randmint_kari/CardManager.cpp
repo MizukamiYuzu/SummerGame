@@ -189,6 +189,17 @@ void CardManager::UseCard(Player* target, CardEffect& cardEffect)
 		break;
 
 	case CardEffect::Effect::Grow:
+		if (cardEffect.GetRandStart() == 0 && cardEffect.GetRandFinish() == 0)
+		{
+			//固定値
+			Grow(cardEffect.GetValue());
+		}
+		else
+		{
+			//ランダムな値で回復
+			Grow(MyRandom(cardEffect.GetRandStart(), cardEffect.GetRandFinish()));
+		}
+		break;
 
 		
 	default:

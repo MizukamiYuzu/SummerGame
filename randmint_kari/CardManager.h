@@ -49,6 +49,9 @@ private:
 	//敵
 	Player* m_enemy;
 
+	// ミント
+	
+
 	std::vector<CardEffect> m_cardEffect;	// カードの効果が入る動的配列
 
 	CardContent* m_pCardContent;
