@@ -28,10 +28,10 @@ void CardContent::Update()
 
 void CardContent::Draw()
 {
-	DrawFormatString(50, 50, GetColor(255, 0, 0), "m_randStart:%d", m_randStart);
+	/*DrawFormatString(50, 50, GetColor(255, 0, 0), "m_randStart:%d", m_randStart);
 	DrawFormatString(50, 70, GetColor(255, 0, 0), "m_randFinish:%d", m_randFinish);
 	DrawFormatString(50, 90, GetColor(255, 0, 0), m_cardContent.c_str());
-	DrawFormatString(50, 110, GetColor(255, 0, 0), "m_OverallProbability:%d", m_OverallProbability);
+	DrawFormatString(50, 110, GetColor(255, 0, 0), "m_OverallProbability:%d", m_OverallProbability);*/
 }
 //山札からカード引く
 CardEffect CardContent::CreateCardEffect()

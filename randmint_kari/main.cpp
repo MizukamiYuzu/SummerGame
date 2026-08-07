@@ -1,6 +1,16 @@
 ﻿#include "DxLib.h"
 #include "Game.h"
 #include "SceneMain.h"
+#include "SceneTitle.h"
+
+namespace
+{
+	enum SceneType
+	{
+		kSceneTitle,
+		kSceneMain,
+	};
+}
 
 // プログラムは WinMain から始まります
 int WINAPI WinMain(HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ LPSTR lpCmdLine, _In_ int nCmdShow)
@@ -22,9 +32,23 @@ int WINAPI WinMain(HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ L
 	SetDrawScreen(DX_SCREEN_BACK);
 
 	// ゲームシーンの作成
-	SceneMain scene;
-	scene.Init();
+	SceneTitle  sceneTitle;
+	SceneMain sceneMain;
+	sceneTitle.Init();
+	sceneMain.Init();
 
+	// 現在実行したいシーンを変数で持つ
+	SceneType type = kSceneTitle;
+
+	switch (type)
+	{
+	case kSceneTitle:
+		sceneTitle.Init();
+		break;
+	case kSceneMain:
+		sceneMain.Init();
+		break;
+	}
 
 	while (ProcessMessage()==0)
 	{
@@ -35,8 +59,10 @@ int WINAPI WinMain(HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ L
 		ClearDrawScreen();
 
 		// ゲームの処理
-		scene.Update();
-		scene.Draw();
+		sceneTitle.Update();
+		sceneMain.Update();
+		sceneTitle.Draw();
+		sceneMain.Draw();
 	
 
 		// 画面の書き換えを待つ
@@ -55,7 +81,8 @@ int WINAPI WinMain(HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ L
 		}
 
 	}
-	scene.End();
+	sceneTitle.End();
+	sceneMain.End();
 	DxLib_End();				// ＤＸライブラリ使用の終了処理
 
 	return 0;				// ソフトの終了 

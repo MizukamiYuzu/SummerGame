@@ -162,7 +162,9 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="minto.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Rule.cpp" />
     <ClCompile Include="SceneMain.cpp" />
+    <ClCompile Include="SceneTitle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Card.h" />
@@ -172,7 +174,9 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="minto.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Rule.h" />
     <ClInclude Include="SceneMain.h" />
+    <ClInclude Include="SceneTitle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

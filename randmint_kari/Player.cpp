@@ -17,3 +17,7 @@ void Player::Damage(int damage)
 		m_hp = 0;
 	}
 }
+
+void Player::Heal(int heal)
+{
+}

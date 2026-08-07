@@ -30,6 +30,7 @@ void CardManager::Init()
 	m_player = new Player();
 	m_enemy = new Player();
 
+	m_pMinto = new minto();
 	m_pCardContent = new CardContent;
 	m_pCardContent->Init();
 	m_graphDeck = LoadGraph("data/img/deck.png");	// 山札のハンドル
@@ -39,7 +40,7 @@ void CardManager::Init()
 	{
 		m_card[i].Init();
 	}
-	
+
 }
 
 void CardManager::End()
@@ -74,7 +75,7 @@ void CardManager::Update()
 		// ↓山札カード
 	bool isMouseOutLeft_y = MouseX >= Game::kScreenWidth / 2;
 	bool isMouseOutRight_y = MouseX <= Game::kScreenWidth / 2 + 100;
-	bool isMouseOutUp_y = MouseY >= Game::kScreenHeight / 2-50;
+	bool isMouseOutUp_y = MouseY >= Game::kScreenHeight / 2 - 50;
 	bool isMouseOutDown_y = MouseY <= Game::kScreenHeight / 2 + 50;
 	bool isInsideCard_y = isMouseOutLeft_y && isMouseOutRight_y && isMouseOutUp_y && isMouseOutDown_y;
 
@@ -87,9 +88,9 @@ void CardManager::Update()
 			Card card;				// 新しくCard型の変数を宣言(push_backに追加する時にしか使わない)
 			card.Init();			// 初期化するよ
 			m_card.push_back(card);	// 今ある配列の後ろに一つ要素を追加する
-									// Card型の変数を入れている理由は、m_cardはcard型の動的配列で、Card型の変数を入れてあげることで、もう一つcardを用意する
-			
-			//カードの効果を作成(中身は空)
+			// Card型の変数を入れている理由は、m_cardはcard型の動的配列で、Card型の変数を入れてあげることで、もう一つcardを用意する
+
+//カードの効果を作成(中身は空)
 			CardEffect cardEffect;
 			m_cardEffect.push_back(cardEffect);
 
@@ -103,8 +104,8 @@ void CardManager::Update()
 	{
 		if (!m_card[i].GetCard())continue;	// カードが存在してなかったら次のループに移動
 
-		int cardPosX = 100 * (drawCount % kCardWidthMaxCount) +50;
-		int cardPosY = Game::kScreenHeight / 2 + 100 * (drawCount / kCardWidthMaxCount) +50;
+		int cardPosX = 100 * (drawCount % kCardWidthMaxCount) + 50;
+		int cardPosY = Game::kScreenHeight / 2 + 100 * (drawCount / kCardWidthMaxCount) + 50;
 
 		// ↓手札カード
 		bool isMouseOutLeft = MouseX >= cardPosX;//カードの左側より内側にマウスがいる
@@ -124,37 +125,37 @@ void CardManager::Update()
 			if (isClickThisFrame && _isDeleteCard == false)
 			{
 				//カードを使う処理(敵に対して)
-				UseCard(m_enemy ,m_cardEffect[i]);
+				UseCard(m_enemy, m_cardEffect[i]);
 
 				// カードを無効にする
 				m_card[i].SetCard(false); // m_card[i]に引数をぶち込む
 				//m_cardContent.erase(m_cardContent.begin() + i);
-				
+
 				_isDeleteCard = true;
 			}
 		}
 		m_card[i].SetDrawPos(cardPosX, cardPosY);
 		drawCount++;
-		
+
 	}
 }
 
 void CardManager::Draw()
 {
-	
+
 	m_pCardContent->Draw();
 	DrawExtendGraph(Game::kScreenWidth / 2, Game::kScreenHeight / 2 - 50, Game::kScreenWidth / 2 + 100, Game::kScreenHeight / 2 + 50, m_graphDeck, true);	// 山札描画
- 
+
 
 	for (int i = 0; i < m_card.size(); i++)
 	{
 		m_card[i].Draw();
-		DrawFormatString(m_card[i].GetDrawPosX()+50, m_card[i].GetDrawPosY()+50,GetColor(255, 0, 0), "%d", i);
-	//	DrawString(100, i+100, m_pCardContent->GetContent().c_str(), GetColor(255, 255, 255));
+		DrawFormatString(m_card[i].GetDrawPosX() + 50, m_card[i].GetDrawPosY() + 50, GetColor(255, 0, 0), "%d", i);
+		//	DrawString(100, i+100, m_pCardContent->GetContent().c_str(), GetColor(255, 255, 255));
 		DrawFormatString(100, i * 20, GetColor(255, 255, 255), m_cardEffect[i].GetContent().c_str());
-		
+
 	}
-	
+
 }
 
 void CardManager::UseCard(Player* target, CardEffect& cardEffect)
@@ -189,21 +190,43 @@ void CardManager::UseCard(Player* target, CardEffect& cardEffect)
 		break;
 
 	case CardEffect::Effect::Grow:
-		if (cardEffect.GetRandStart() == 0 && cardEffect.GetRandFinish() == 0)
+		if (m_pMinto->GetPlant())
 		{
-			//固定値
-			Grow(cardEffect.GetValue());
-		}
-		else
-		{
-			//ランダムな値で回復
-			Grow(MyRandom(cardEffect.GetRandStart(), cardEffect.GetRandFinish()));
+			if (cardEffect.GetRandStart() == 0 && cardEffect.GetRandFinish() == 0)
+			{
+				//固定値
+				m_pMinto->GetAddEnergy(cardEffect.GetValue());
+			}
+			else
+			{
+				//ランダムな値で回復
+				m_pMinto->GetAddEnergy(MyRandom(cardEffect.GetRandStart(), cardEffect.GetRandFinish()));
+			}
 		}
 		break;
-
-		
+	case CardEffect::Effect::Rule:
+		//ルールを追加
+		m_rules.push_back(cardEffect);
+		break;
 	default:
 		break;
+	}
+
+	//ルールチェック
+	for (CardEffect rule : m_rules)
+	{
+		switch (rule.GetRuleEffect())
+		{
+		case CardEffect::RuleEffect::MyMltiWin:
+		{
+			int value = rule.GetValue();
+			//自分の体力がvalue倍なら勝利
+
+			break;
+		}
+		default:
+			break;
+		}
 	}
 
 	cardEffect.SetContent("");

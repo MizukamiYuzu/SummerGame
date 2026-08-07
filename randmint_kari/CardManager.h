@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "Card.h"
 #include "CardContent.h"
+#include "minto.h"
 #include <vector>
 
 class CardEffect;
@@ -50,9 +51,12 @@ private:
 	Player* m_enemy;
 
 	// ミント
-	
+	minto* m_pMinto;
 
 	std::vector<CardEffect> m_cardEffect;	// カードの効果が入る動的配列
+
+	//ルール
+	std::vector<CardEffect> m_rules;
 
 	CardContent* m_pCardContent;
 

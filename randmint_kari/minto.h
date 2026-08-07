@@ -5,8 +5,11 @@ public:
 	minto();
 	~minto();
 
-	void SetPlant(int plant) { m_plant = plant; }
+	void SetPlant(bool plant) { m_plant = plant; }
+	bool GetPlant() { return m_plant; }
+	void GetAddEnergy(int addEnergy);
 	void GetWither();
+
 
 
 private:
@@ -17,7 +20,5 @@ private:
 	
 };
 
-class minto
-{
-};
+
 
