@@ -9,6 +9,8 @@ namespace
 }
 
 SceneMain::SceneMain() : 
+	m_isEnd(false),
+	m_isKeyDownBefore(false),
 	m_frameCount(0),
 	m_pCardManager(nullptr)
 {
@@ -20,6 +22,8 @@ SceneMain::~SceneMain()
 
 void SceneMain::Init()
 {
+	m_isEnd = false;
+	m_isKeyDownBefore = false;
 	// カードマネージャーの作成
 	m_pCardManager = new CardManager;
 	// カードマネージャーの初期化
@@ -36,10 +40,24 @@ void SceneMain::End()
 
 void SceneMain::Update()
 {
+
+	bool isKeyDownNow = (CheckHitKey(KEY_INPUT_RETURN) != 0);
+
+	bool isKeyPressedThisFrame = (!m_isKeyDownBefore) && isKeyDownNow;
+
+
+
 	// カードマネージャーの更新
 	m_pCardManager->Update();
 	// フレームカウントの更新
 	m_frameCount++;
+
+	if (CheckHitKey(KEY_INPUT_RETURN))
+	{
+		m_isEnd = true;
+	}
+
+	m_isKeyDownBefore = isKeyDownNow;
 }
 
 void SceneMain::Draw()

@@ -1,4 +1,6 @@
 ﻿#pragma once
+#include "Dxlib.h"
+
 class SceneTitle
 {
 public:
@@ -10,6 +12,11 @@ public:
 	void Update();
 	void Draw();
 
+	bool isEnd() const { return m_isEnd; }
+
 private:
+
+	bool m_isEnd;
+	bool m_isKeyDownBefore;
 };
 

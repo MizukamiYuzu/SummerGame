@@ -22,7 +22,7 @@ int WINAPI WinMain(HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ L
 	SetGraphMode(Game::kScreenWidth, Game::kScreenHeight, Game::kScreenDepth);
 
 	// ウィンドウのタイトル表示を変更
-	SetMainWindowText("DxLibTemlate");
+	SetMainWindowText("RandMint");
 
 	if (DxLib_Init() == -1)		// ＤＸライブラリ初期化処理
 	{
@@ -32,10 +32,10 @@ int WINAPI WinMain(HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ L
 	SetDrawScreen(DX_SCREEN_BACK);
 
 	// ゲームシーンの作成
-	SceneTitle  sceneTitle;
 	SceneMain sceneMain;
-	sceneTitle.Init();
+	SceneTitle  sceneTitle;/*
 	sceneMain.Init();
+	sceneTitle.Init();*/
 
 	// 現在実行したいシーンを変数で持つ
 	SceneType type = kSceneTitle;
@@ -58,11 +58,40 @@ int WINAPI WinMain(HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ L
 		// 画面をクリア
 		ClearDrawScreen();
 
-		// ゲームの処理
-		sceneTitle.Update();
-		sceneMain.Update();
-		sceneTitle.Draw();
-		sceneMain.Draw();
+		switch (type)
+		{
+		case kSceneTitle:
+			sceneTitle.Update();
+			sceneTitle.Draw();
+			if (sceneTitle.isEnd())
+			{
+				sceneTitle.End();
+
+				type = kSceneMain;
+
+				sceneMain.Init();
+			}
+
+			break;
+		case kSceneMain:
+			sceneMain.Update();
+			sceneMain.Draw();
+			if (sceneMain.isEnd())
+			{
+				sceneMain.End();
+
+				type = kSceneTitle;
+
+				sceneTitle.Init();
+			}
+			break;
+		}
+
+		//// ゲームの処理
+		//sceneTitle.Update();
+		//sceneMain.Update();
+		//sceneTitle.Draw();
+		//sceneMain.Draw();
 	
 
 		// 画面の書き換えを待つ
@@ -81,8 +110,9 @@ int WINAPI WinMain(HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ L
 		}
 
 	}
+	/*
 	sceneTitle.End();
-	sceneMain.End();
+	sceneMain.End();*/
 	DxLib_End();				// ＤＸライブラリ使用の終了処理
 
 	return 0;				// ソフトの終了 
