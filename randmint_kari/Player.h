@@ -1,9 +1,18 @@
 ﻿#pragma once
+#include "TurnManager.h"
+
 class Player
 {
 public :
+	// コンストラクタ
 	Player();
+	// デストラクタ
 	~Player();
+
+	void Init();
+	void End();
+	void Update();
+	void Draw();
 
 	void Damage(int damage);
 

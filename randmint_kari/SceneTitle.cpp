@@ -24,7 +24,7 @@ void SceneTitle::Update()
 {
 	bool isKeyDownNow = (CheckHitKey(KEY_INPUT_RETURN) != 0);
 	bool isKeyPressedThisFrame = (!m_isKeyDownBefore) && isKeyDownNow;
-	if (CheckHitKey(KEY_INPUT_RETURN))
+	if (isKeyPressedThisFrame)
 	{
 		m_isEnd = true;
 	}

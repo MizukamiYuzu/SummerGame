@@ -30,29 +30,37 @@ void SceneMain::Init()
 	m_pCardManager->Init();
 	// フレームカウントの初期化
 	m_frameCount = 0;
+
+	// ミントの作成
+	m_minto = new minto;
+	// ミントの初期化
+	m_minto->Init();
 	
 }
 
 void SceneMain::End()
 {
 	m_pCardManager->End();
+	// ミントの終了処理
+	m_minto->End();
 }
 
 void SceneMain::Update()
 {
 
-	bool isKeyDownNow = (CheckHitKey(KEY_INPUT_RETURN) != 0);
+	bool isKeyDownNow = (CheckHitKey(KEY_INPUT_A) != 0);
 
 	bool isKeyPressedThisFrame = (!m_isKeyDownBefore) && isKeyDownNow;
 
-
+	// ミントの更新
+	m_minto->Update();
 
 	// カードマネージャーの更新
 	m_pCardManager->Update();
 	// フレームカウントの更新
 	m_frameCount++;
 
-	if (CheckHitKey(KEY_INPUT_RETURN))
+	if (isKeyPressedThisFrame)
 	{
 		m_isEnd = true;
 	}
@@ -64,6 +72,8 @@ void SceneMain::Draw()
 {
 	// カードマネージャーの描画
 	m_pCardManager->Draw();
+	// ミントの描画
+	m_minto->Draw();
 	// 現在のシーン名の表示
 	DrawString(0, 0, "SceneMain", GetColor(255, 255, 255));
 	// 現在のシーンの実行時間(フレーム数)の表示

@@ -165,6 +165,7 @@
     <ClCompile Include="Rule.cpp" />
     <ClCompile Include="SceneMain.cpp" />
     <ClCompile Include="SceneTitle.cpp" />
+    <ClCompile Include="TurnManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Card.h" />
@@ -177,6 +178,7 @@
     <ClInclude Include="Rule.h" />
     <ClInclude Include="SceneMain.h" />
     <ClInclude Include="SceneTitle.h" />
+    <ClInclude Include="TurnManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

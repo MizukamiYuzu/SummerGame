@@ -144,9 +144,11 @@ void CardManager::Draw()
 {
 
 	m_pCardContent->Draw();
-	DrawExtendGraph(Game::kScreenWidth / 2, Game::kScreenHeight / 2 - 50, Game::kScreenWidth / 2 + 100, Game::kScreenHeight / 2 + 50, m_graphDeck, true);	// 山札描画
 
+	// 山札描画
+	DrawExtendGraph(Game::kScreenWidth / 2, Game::kScreenHeight / 2 - 50, Game::kScreenWidth / 2 + 100, Game::kScreenHeight / 2 + 50, m_graphDeck, true);	
 
+	// 手札描画
 	for (int i = 0; i < m_card.size(); i++)
 	{
 		m_card[i].Draw();
@@ -162,6 +164,7 @@ void CardManager::UseCard(Player* target, CardEffect& cardEffect)
 {
 	switch (cardEffect.GetEffect())
 	{
+	// ダメージ
 	case CardEffect::Effect::Damage:
 		if (cardEffect.GetRandStart() == 0 && cardEffect.GetRandFinish() == 0)
 		{
@@ -175,7 +178,7 @@ void CardManager::UseCard(Player* target, CardEffect& cardEffect)
 		}
 		break;
 
-
+	// 回復
 	case CardEffect::Effect::Heal:
 		if (cardEffect.GetRandStart() == 0 && cardEffect.GetRandFinish() == 0)
 		{
@@ -189,6 +192,7 @@ void CardManager::UseCard(Player* target, CardEffect& cardEffect)
 		}
 		break;
 
+	// 成長(ミントにエネルギーを与える)
 	case CardEffect::Effect::Grow:
 		if (m_pMinto->GetPlant())
 		{
@@ -204,15 +208,17 @@ void CardManager::UseCard(Player* target, CardEffect& cardEffect)
 			}
 		}
 		break;
+	// ルール
 	case CardEffect::Effect::Rule:
 		//ルールを追加
 		m_rules.push_back(cardEffect);
 		break;
 	default:
 		break;
+
 	}
 
-	//ルールチェック
+	//ルールチェック　(また後で行う)
 	for (CardEffect rule : m_rules)
 	{
 		switch (rule.GetRuleEffect())
@@ -221,6 +227,48 @@ void CardManager::UseCard(Player* target, CardEffect& cardEffect)
 		{
 			int value = rule.GetValue();
 			//自分の体力がvalue倍なら勝利
+
+			break;
+		}
+		case CardEffect::RuleEffect::YourMltiWin:
+		{
+			int value = rule.GetValue();
+			// 相手の体力がvalue倍なら勝利
+
+			break;
+		}
+		case CardEffect::RuleEffect::MySameWin:
+		{
+			int value = rule.GetValue();
+			// 自分のHPがvalueなら勝利
+
+			break;
+		}
+		case CardEffect::RuleEffect::YourSameWin:
+		{
+			int value = rule.GetValue();
+			// 相手のHPがvalueなら勝利
+
+			break;
+		}
+		case CardEffect::RuleEffect::MintoSameGrow:
+		{
+			int value = rule.GetValue();
+			// ミントのエネルギーがNなら育つ
+
+			break;
+		}
+		case CardEffect::RuleEffect::MintoMltiWin:
+		{
+			int value = rule.GetValue();
+			// ミントのエネルギーがN倍なら勝利
+
+			break;
+		}
+		case CardEffect::RuleEffect::Delete:
+		{
+			// 一番古いルールを削除
+			m_rules.erase(m_rules.begin());
 
 			break;
 		}

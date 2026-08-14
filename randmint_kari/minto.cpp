@@ -1,11 +1,55 @@
 ﻿#include "minto.h"
 
+namespace
+{
+	constexpr int kWidth = 100;
+	constexpr int kHeight = 250;
+}
+
 minto::minto()
 {
 }
 
 minto::~minto()
 {
+}
+
+void minto::Init()
+{
+	m_handle = LoadGraph("data/img/minto.png");
+	SetHandle(m_handle);
+}
+
+void minto::End()
+{
+	DeleteGraph(m_handle);
+}
+
+void minto::Update()
+{
+}
+
+void minto::Draw()
+{
+	int posX = 0;
+	int posY = 0;
+	if (m_energy >= 50)
+	{
+		posX = m_energy / 10;
+		posY = 1;
+	}
+	else
+	{
+		posX = (m_energy - 50) / 10;
+	}
+	DrawRectRotaGraph
+	(Game::kScreenWidth / 2 - 100, Game::kScreenHeight / 2,
+		posX * kWidth, posY * kHeight,
+		kWidth, kHeight, 1.0,1.0,
+		m_handle, true);
+	
+	
+	
 }
 
 void minto::GetAddEnergy(int addEnergy)

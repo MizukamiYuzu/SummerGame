@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "Dxlib.h"
 #include "CardManager.h"
+#include "minto.h"
 
 class SceneMain
 {
@@ -24,10 +25,13 @@ private:
 
 	bool m_isKeyDownBefore;
 
+
+
 	// 現在のシーンの実行時間(フレーム数)
 	int m_frameCount;
 	// カードマネージャーのポインター
 	CardManager* m_pCardManager;
+	minto* m_minto;
 
 	
 };
