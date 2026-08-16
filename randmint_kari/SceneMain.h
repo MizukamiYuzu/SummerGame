@@ -2,6 +2,8 @@
 #include "Dxlib.h"
 #include "CardManager.h"
 #include "minto.h"
+#include "Player.h"
+
 
 class SceneMain
 {
@@ -32,7 +34,8 @@ private:
 	// カードマネージャーのポインター
 	CardManager* m_pCardManager;
 	minto* m_minto;
-
+	Player* m_myself;	// 自分
+	Player* m_opponent;	// 相手
 	
 };
 

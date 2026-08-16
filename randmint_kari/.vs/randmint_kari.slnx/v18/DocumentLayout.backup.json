@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\minto.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|solutionrelative:minto.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\minto.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|solutionrelative:minto.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\CardEffect.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|solutionrelative:CardEffect.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\SceneMain.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|solutionrelative:SceneMain.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -11,24 +23,12 @@
       "RelativeMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|solutionrelative:CardManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\CardEffect.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|solutionrelative:CardEffect.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|solutionrelative:Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\TurnManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|solutionrelative:TurnManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\minto.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|solutionrelative:minto.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\minto.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|solutionrelative:minto.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\SceneTitle.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -98,7 +98,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 197,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
@@ -110,8 +110,7 @@
               "RelativeToolTip": "main.cpp",
               "ViewState": "AgIAADAAAAAAAAAAAAAAAE4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-07-28T02:56:24.942Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-28T02:56:24.942Z"
             },
             {
               "$type": "Document",
@@ -123,12 +122,11 @@
               "RelativeToolTip": "SceneTitle.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-08-07T07:14:39.437Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-07T07:14:39.437Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "CardManager.cpp",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\CardManager.cpp",
               "RelativeDocumentMoniker": "CardManager.cpp",
@@ -136,31 +134,30 @@
               "RelativeToolTip": "CardManager.cpp",
               "ViewState": "AgIAAHsAAAAAAAAAAAAAABEBAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-07-28T02:34:05.608Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-28T02:34:05.608Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "SceneMain.cpp",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\SceneMain.cpp",
               "RelativeDocumentMoniker": "SceneMain.cpp",
               "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\SceneMain.cpp",
               "RelativeToolTip": "SceneMain.cpp",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAAAEoAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAAE8AAABMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2026-07-17T00:48:39.927Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "minto.cpp",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\minto.cpp",
               "RelativeDocumentMoniker": "minto.cpp",
               "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\minto.cpp",
               "RelativeToolTip": "minto.cpp",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAkwBsAAAASAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAADAAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2026-08-07T03:13:23.591Z",
               "EditorCaption": ""
@@ -175,12 +172,11 @@
               "RelativeToolTip": "Card.cpp",
               "ViewState": "AgIAABgAAAAAAAAAAAAAAAAAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-07-28T13:04:24.128Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-28T13:04:24.128Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Player.cpp",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\Player.cpp",
               "RelativeDocumentMoniker": "Player.cpp",
@@ -188,12 +184,11 @@
               "RelativeToolTip": "Player.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAMwBYAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-08-05T07:42:53.225Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-05T07:42:53.225Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "TurnManager.cpp",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\TurnManager.cpp",
               "RelativeDocumentMoniker": "TurnManager.cpp",
@@ -201,8 +196,7 @@
               "RelativeToolTip": "TurnManager.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-08-13T15:34:44.727Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-13T15:34:44.727Z"
             },
             {
               "$type": "Document",
@@ -233,8 +227,7 @@
               "RelativeToolTip": "Rule.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-08-14T04:20:28.158Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-14T04:20:28.158Z"
             },
             {
               "$type": "Document",
@@ -246,8 +239,7 @@
               "RelativeToolTip": "SceneTitle.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-08-07T07:13:41.589Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-07T07:13:41.589Z"
             },
             {
               "$type": "Document",
@@ -259,8 +251,7 @@
               "RelativeToolTip": "SceneMain.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-07-28T13:04:30.223Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-28T13:04:30.223Z"
             },
             {
               "$type": "Document",
@@ -272,8 +263,7 @@
               "RelativeToolTip": "Player.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-08-05T07:42:00.505Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-05T07:42:00.505Z"
             },
             {
               "$type": "Document",
@@ -285,8 +275,7 @@
               "RelativeToolTip": "Rule.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-08-07T05:27:32.317Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-07T05:27:32.317Z"
             },
             {
               "$type": "Document",
@@ -310,8 +299,7 @@
               "RelativeToolTip": "CardContent.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-07-30T02:03:34.808Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-30T02:03:34.808Z"
             },
             {
               "$type": "Document",
@@ -323,8 +311,7 @@
               "RelativeToolTip": "CardContent.cpp",
               "ViewState": "AgIAAMMAAAAAAAAAAAAAACYAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-07-29T07:52:44.172Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-29T07:52:44.172Z"
             },
             {
               "$type": "Document",
@@ -336,18 +323,17 @@
               "RelativeToolTip": "CardEffect.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-08-05T06:31:14.766Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-05T06:31:14.766Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
               "Title": "minto.h",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\minto.h",
               "RelativeDocumentMoniker": "minto.h",
               "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\minto.h",
               "RelativeToolTip": "minto.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2026-08-07T03:13:30.111Z",
               "EditorCaption": ""
@@ -362,8 +348,7 @@
               "RelativeToolTip": "Card.h",
               "ViewState": "AgIAABgAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-07-28T13:04:28.487Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-28T13:04:28.487Z"
             },
             {
               "$type": "Document",
@@ -375,8 +360,7 @@
               "RelativeToolTip": "CardManager.h",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-07-30T06:05:09.43Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-30T06:05:09.43Z"
             },
             {
               "$type": "Document",
@@ -388,8 +372,7 @@
               "RelativeToolTip": "TurnManager.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-08-13T15:25:22.981Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-13T15:25:22.981Z"
             }
           ]
         }

@@ -35,6 +35,14 @@ void SceneMain::Init()
 	m_minto = new minto;
 	// ミントの初期化
 	m_minto->Init();
+
+	// 自分と相手の作成
+	m_myself = new Player;
+	m_opponent = new Player;
+
+	// 自分と相手の初期化
+	m_myself->Init();
+	m_opponent->Init();
 	
 }
 

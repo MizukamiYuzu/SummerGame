@@ -2,8 +2,8 @@
 
 namespace
 {
-	constexpr int kWidth = 100;
-	constexpr int kHeight = 250;
+	constexpr int kWidth = 135;
+	constexpr int kHeight = 185;
 }
 
 minto::minto()
@@ -43,9 +43,11 @@ void minto::Draw()
 		posX = (m_energy - 50) / 10;
 	}
 	DrawRectRotaGraph
-	(Game::kScreenWidth / 2 - 100, Game::kScreenHeight / 2,
-		posX * kWidth, posY * kHeight,
-		kWidth, kHeight, 1.0,1.0,
+	(Game::kScreenWidth / 2 - 100 , Game::kScreenHeight / 2 - 50,
+	//	0,0,
+	//	posX * kWidth, posY * kHeight,
+		kWidth*0, kHeight*0,
+		kWidth, kHeight, 1.0,0,
 		m_handle, true);
 	
 	
