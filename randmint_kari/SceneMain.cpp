@@ -31,26 +31,12 @@ void SceneMain::Init()
 	// フレームカウントの初期化
 	m_frameCount = 0;
 
-	// ミントの作成
-	m_minto = new minto;
-	// ミントの初期化
-	m_minto->Init();
-
-	// 自分と相手の作成
-	m_myself = new Player;
-	m_opponent = new Player;
-
-	// 自分と相手の初期化
-	m_myself->Init();
-	m_opponent->Init();
 	
 }
 
 void SceneMain::End()
 {
 	m_pCardManager->End();
-	// ミントの終了処理
-	m_minto->End();
 }
 
 void SceneMain::Update()
@@ -60,15 +46,13 @@ void SceneMain::Update()
 
 	bool isKeyPressedThisFrame = (!m_isKeyDownBefore) && isKeyDownNow;
 
-	// ミントの更新
-	m_minto->Update();
 
 	// カードマネージャーの更新
 	m_pCardManager->Update();
 	// フレームカウントの更新
 	m_frameCount++;
 
-	if (isKeyPressedThisFrame)
+	if (m_pCardManager->GetDead() == true)
 	{
 		m_isEnd = true;
 	}
@@ -80,10 +64,10 @@ void SceneMain::Draw()
 {
 	// カードマネージャーの描画
 	m_pCardManager->Draw();
-	// ミントの描画
-	m_minto->Draw();
 	// 現在のシーン名の表示
 	DrawString(0, 0, "SceneMain", GetColor(255, 255, 255));
 	// 現在のシーンの実行時間(フレーム数)の表示
 	DrawFormatString(0, 16, GetColor(255, 255, 255), "FRAME:%d", m_frameCount);
+
+	
 }

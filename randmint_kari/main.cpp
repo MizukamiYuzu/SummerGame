@@ -2,6 +2,7 @@
 #include "Game.h"
 #include "SceneMain.h"
 #include "SceneTitle.h"
+#include "CardManager.h"
 
 namespace
 {
@@ -33,7 +34,8 @@ int WINAPI WinMain(HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ L
 
 	// ゲームシーンの作成
 	SceneMain sceneMain;
-	SceneTitle  sceneTitle;/*
+	SceneTitle  sceneTitle;
+	/*
 	sceneMain.Init();
 	sceneTitle.Init();*/
 
@@ -81,7 +83,6 @@ int WINAPI WinMain(HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ L
 				sceneMain.End();
 
 				type = kSceneTitle;
-
 				sceneTitle.Init();
 			}
 			break;

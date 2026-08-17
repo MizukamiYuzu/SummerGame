@@ -12,11 +12,11 @@ namespace
 
 CardManager::CardManager() :
 	m_graphDeck(-1),
-	MouseX(0),
-	MouseY(0),
-	PlayerCardPosX(0),
-	_isClickBefore(false),
-	_isClickNow(false)
+	m_mouseX(0),
+	m_mouseY(0),
+	m_playerCardPosX(0),
+	m_isClickBefore(false),
+	m_isClickNow(false)
 {
 }
 
@@ -31,6 +31,7 @@ void CardManager::Init()
 	m_enemy = new Player();
 
 	m_pMinto = new minto();
+	m_pMinto->Init();
 	m_pCardContent = new CardContent;
 	m_pCardContent->Init();
 	m_graphDeck = LoadGraph("data/img/deck.png");	// 山札のハンドル
@@ -45,6 +46,7 @@ void CardManager::Init()
 
 void CardManager::End()
 {
+	m_pMinto->End();
 	m_pCardContent->End();
 	DeleteGraph(m_graphDeck);
 	for (int i = 0; i < m_card.size(); i++)	// m_card.size() <- size()で配列の数を出すことができる
@@ -55,9 +57,10 @@ void CardManager::End()
 
 void CardManager::Update()
 {
+	m_pMinto->Update();
 	m_pCardContent->Update();
-	_isClickBefore = _isClickNow;
-	_isClickNow = (GetMouseInput() & MOUSE_INPUT_LEFT);
+	m_isClickBefore = m_isClickNow;
+	m_isClickNow = (GetMouseInput() & MOUSE_INPUT_LEFT);
 	for (int i = 0; i < m_card.size(); i++)
 	{
 		if (!m_card[i].GetCard())continue;
@@ -69,20 +72,20 @@ void CardManager::Update()
 			m_cardEffect[i] = m_pCardContent->CreateCardEffect();
 		}
 	}
-	GetMousePoint(&MouseX, &MouseY);
+	GetMousePoint(&m_mouseX, &m_mouseY);
 
 	/*条件掃出し*/
 		// ↓山札カード
-	bool isMouseOutLeft_y = MouseX >= Game::kScreenWidth / 2;
-	bool isMouseOutRight_y = MouseX <= Game::kScreenWidth / 2 + 100;
-	bool isMouseOutUp_y = MouseY >= Game::kScreenHeight / 2 - 50;
-	bool isMouseOutDown_y = MouseY <= Game::kScreenHeight / 2 + 50;
+	bool isMouseOutLeft_y = m_mouseX >= Game::kScreenWidth / 2;
+	bool isMouseOutRight_y = m_mouseX <= Game::kScreenWidth / 2 + 100;
+	bool isMouseOutUp_y = m_mouseY >= Game::kScreenHeight / 2 - 50;
+	bool isMouseOutDown_y = m_mouseY <= Game::kScreenHeight / 2 + 50;
 	bool isInsideCard_y = isMouseOutLeft_y && isMouseOutRight_y && isMouseOutUp_y && isMouseOutDown_y;
 
 	//山札からカードを引いたとき
 	if (isInsideCard_y)
 	{
-		if ((_isClickBefore == false) && (_isClickNow == true))
+		if ((m_isClickBefore == false) && (m_isClickNow == true))
 		{
 			//カード作成
 			Card card;				// 新しくCard型の変数を宣言(push_backに追加する時にしか使わない)
@@ -108,10 +111,10 @@ void CardManager::Update()
 		int cardPosY = Game::kScreenHeight / 2 + 100 * (drawCount / kCardWidthMaxCount) + 50;
 
 		// ↓手札カード
-		bool isMouseOutLeft = MouseX >= cardPosX;//カードの左側より内側にマウスがいる
-		bool isMouseOutRight = MouseX <= cardPosX + m_card[i].GetCardWidth();
-		bool isMouseOutUp = MouseY >= cardPosY;
-		bool isMouseOutDown = MouseY <= cardPosY + m_card[i].GetCardHeight();
+		bool isMouseOutLeft = m_mouseX >= cardPosX;//カードの左側より内側にマウスがいる
+		bool isMouseOutRight = m_mouseX <= cardPosX + m_card[i].GetCardWidth();
+		bool isMouseOutUp = m_mouseY >= cardPosY;
+		bool isMouseOutDown = m_mouseY <= cardPosY + m_card[i].GetCardHeight();
 		bool isInsideCard = isMouseOutLeft && isMouseOutRight && isMouseOutUp && isMouseOutDown;	// マウスカーソルがカードの上に乗っているとき
 
 		// ↓手札
@@ -120,7 +123,7 @@ void CardManager::Update()
 		{
 			cardPosY -= 10;
 
-			bool isClickThisFrame = !_isClickBefore && _isClickNow;	// このフレームでクリックされた
+			bool isClickThisFrame = !m_isClickBefore && m_isClickNow;	// このフレームでクリックされた
 
 			if (isClickThisFrame && _isDeleteCard == false)
 			{
@@ -138,13 +141,17 @@ void CardManager::Update()
 		drawCount++;
 
 	}
+	if (m_enemy->GetHp() <= 0)
+	{
+		m_isDead = true;
+	}
 }
 
 void CardManager::Draw()
 {
 
 	m_pCardContent->Draw();
-
+	m_pMinto->Draw();
 	// 山札描画
 	DrawExtendGraph(Game::kScreenWidth / 2, Game::kScreenHeight / 2 - 50, Game::kScreenWidth / 2 + 100, Game::kScreenHeight / 2 + 50, m_graphDeck, true);	
 
@@ -155,7 +162,8 @@ void CardManager::Draw()
 		DrawFormatString(m_card[i].GetDrawPosX() + 50, m_card[i].GetDrawPosY() + 50, GetColor(255, 0, 0), "%d", i);
 		//	DrawString(100, i+100, m_pCardContent->GetContent().c_str(), GetColor(255, 255, 255));
 		DrawFormatString(100, i * 20, GetColor(255, 255, 255), m_cardEffect[i].GetContent().c_str());
-
+		
+	//	DrawFormatString(0, 32, GetColor(255, 255, 255), "HP:%d", );
 	}
 
 }

@@ -32,18 +32,25 @@ public:
 	//カードを使う処理
 	void UseCard(Player* target, CardEffect& cardEffect);
 
+	bool GetDead() { return m_isDead; }
+
+
 private:
 	// 画像の場合は
 	int m_graphDeck;	// 山札の画像ハンドル
 
-	int MouseX;			// マウスのX座標取得するための変数
-	int MouseY;			// マウスのY座標取得するための変数
+	int m_mouseX;			// マウスのX座標取得するための変数
+	int m_mouseY;			// マウスのY座標取得するための変数
 
 
-	int PlayerCardPosX;
+	int m_playerCardPosX;
 
-	bool _isClickBefore;	// 1フレーム前にクリックされたかどうか
-	bool _isClickNow;		// 現在クリックされているか
+	bool m_isClickBefore;	// 1フレーム前にクリックされたかどうか
+	bool m_isClickNow;		// 現在クリックされているか
+
+	bool m_isDead = false;
+
+	
 
 	//プレイヤー
 	Player* m_player;
@@ -52,6 +59,8 @@ private:
 
 	// ミント
 	minto* m_pMinto;
+
+
 
 	std::vector<CardEffect> m_cardEffect;	// カードの効果が入る動的配列
 

@@ -18,6 +18,8 @@ public :
 
 	void Heal(int heal);
 
+	int GetHp()const{ return m_hp; }
+
 
 private :
 	//体力

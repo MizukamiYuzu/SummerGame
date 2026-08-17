@@ -226,8 +226,8 @@ CardEffect CardContent::CreateCardEffect()
 			//カードの効果
 			cardEffect.SetEffect(CardEffect::Effect::Grow);
 			//はじめとおわり
-			cardEffect.SetRandStart(m_randStart);
-			cardEffect.SetRandFinish(m_randFinish);
+			cardEffect.SetRandStart(m_randStart*10);
+			cardEffect.SetRandFinish(m_randFinish*10);
 			//テキスト
 			cardEffect.SetContent(m_cardContent);
 		}
@@ -257,8 +257,8 @@ CardEffect CardContent::CreateCardEffect()
 			//カードの効果
 			cardEffect.SetEffect(CardEffect::Effect::Heal);
 			//はじめとおわり
-			cardEffect.SetRandStart(m_randStart);
-			cardEffect.SetRandFinish(m_randFinish);
+			cardEffect.SetRandStart(m_randStart*10);
+			cardEffect.SetRandFinish(m_randFinish*10);
 			//テキスト
 			cardEffect.SetContent(m_cardContent);
 		}
@@ -284,8 +284,8 @@ CardEffect CardContent::CreateCardEffect()
 			//カードの効果
 			cardEffect.SetEffect(CardEffect::Effect::Damage);
 			//はじめとおわり
-			cardEffect.SetRandStart(m_randStart);
-			cardEffect.SetRandFinish(m_randFinish);
+			cardEffect.SetRandStart(m_randStart*10);
+			cardEffect.SetRandFinish(m_randFinish*10);
 			//テキスト
 			cardEffect.SetContent(m_cardContent);
 		}

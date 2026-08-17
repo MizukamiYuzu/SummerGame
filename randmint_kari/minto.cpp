@@ -2,8 +2,8 @@
 
 namespace
 {
-	constexpr int kWidth = 135;
-	constexpr int kHeight = 185;
+	constexpr int kWidth = 300;
+	constexpr int kHeight = 400;
 }
 
 minto::minto()
@@ -16,7 +16,7 @@ minto::~minto()
 
 void minto::Init()
 {
-	m_handle = LoadGraph("data/img/minto.png");
+	m_handle = LoadGraph("data/img/minto_1.png");
 	SetHandle(m_handle);
 }
 
@@ -42,13 +42,19 @@ void minto::Draw()
 	{
 		posX = (m_energy - 50) / 10;
 	}
+	if (posX <= 0)
+	{
+		posX = 0;
+	}
 	DrawRectRotaGraph
 	(Game::kScreenWidth / 2 - 100 , Game::kScreenHeight / 2 - 50,
 	//	0,0,
 	//	posX * kWidth, posY * kHeight,
-		kWidth*0, kHeight*0,
-		kWidth, kHeight, 1.0,0,
+		kWidth* posX + 50, kHeight* posY,
+		kWidth, kHeight, 0.4,0,
 		m_handle, true);
+
+	DrawFormatString(0, 32, GetColor(255, 255, 255), "minto : %d", m_energy);
 	
 	
 	
