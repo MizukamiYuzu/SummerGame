@@ -2,6 +2,7 @@
 #include "Card.h"
 #include "CardContent.h"
 #include "minto.h"
+#include "TurnManager.h"
 #include <vector>
 
 class CardEffect;
@@ -34,6 +35,8 @@ public:
 
 	bool GetDead() { return m_isDead; }
 
+	bool GetGrow() { return m_isGrow; }
+
 
 private:
 	// 画像の場合は
@@ -49,6 +52,8 @@ private:
 	bool m_isClickNow;		// 現在クリックされているか
 
 	bool m_isDead = false;
+	
+	bool m_isGrow = false;
 
 	
 
@@ -60,6 +65,9 @@ private:
 	// ミント
 	minto* m_pMinto;
 
+	// ターンマネージャー
+	TurnManager* m_pTurnManager;
+
 
 
 	std::vector<CardEffect> m_cardEffect;	// カードの効果が入る動的配列
@@ -69,9 +77,11 @@ private:
 
 	CardContent* m_pCardContent;
 
-	std::vector<Card> m_card;		// カードの持ってるか持ってないかの配列
+	std::vector<Card> m_MyCard;		// カードの持ってるか持ってないかの配列
 									// vectorは動的配列
 									// 
+	std::vector<Card> m_EnemyCard;
+
 //	std::vector<クラス名> 変数名;
 
 	// カード型の配列	←クラスのデータをいくつか持ってる

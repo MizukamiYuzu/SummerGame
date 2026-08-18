@@ -20,6 +20,8 @@ public:
 
 	void SetHandle(int handle) { m_handle = handle; }
 
+	int GetGrow() { return m_energy; }
+
 
 
 private:

@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "randmint_kari\\x64\\Debug\\CardContent.obj",
+            "outputs": [
+                "randmint_kari\\x64\\Debug\\CardContent.cpp.obj.dt.module.json",
+                "randmint_kari\\x64\\Debug\\CardContent.cpp.obj.dt.d.json"
+            ],
+            "requires": []
+        }
+    ]
+}

@@ -1,0 +1,12 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\users\\yuzu\\documents\\github\\summergame\\randmint_kari\\rule.cpp",
+        "ProvidedModule": "",
+        "Includes": [
+            "c:\\users\\yuzu\\documents\\github\\summergame\\randmint_kari\\rule.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

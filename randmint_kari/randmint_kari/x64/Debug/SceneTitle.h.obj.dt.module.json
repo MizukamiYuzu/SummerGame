@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "randmint_kari\\x64\\Debug\\SceneTitle.obj",
+            "outputs": [
+                "randmint_kari\\x64\\Debug\\SceneTitle.h.obj.dt.module.json",
+                "randmint_kari\\x64\\Debug\\SceneTitle.h.obj.dt.d.json"
+            ],
+            "requires": []
+        }
+    ]
+}

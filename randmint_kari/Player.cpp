@@ -19,11 +19,6 @@ void Player::End()
 void Player::Update()
 {
 	TurnManager turnManager;
-	switch (TurnManager::Player::Player1)
-	{
-	default:
-		break;
-	}
 }
 
 void Player::Draw()

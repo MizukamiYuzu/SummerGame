@@ -28,6 +28,8 @@ void SceneMain::Init()
 	m_pCardManager = new CardManager;
 	// カードマネージャーの初期化
 	m_pCardManager->Init();
+
+
 	// フレームカウントの初期化
 	m_frameCount = 0;
 
@@ -52,7 +54,7 @@ void SceneMain::Update()
 	// フレームカウントの更新
 	m_frameCount++;
 
-	if (m_pCardManager->GetDead() == true)
+	if (m_pCardManager->GetDead() == true || m_pCardManager->GetGrow())
 	{
 		m_isEnd = true;
 	}
