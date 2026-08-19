@@ -5,6 +5,7 @@
 #include "TurnManager.h"
 #include <vector>
 
+
 class CardEffect;
 class Player;
 class CardManager
@@ -37,6 +38,9 @@ public:
 
 	bool GetGrow() { return m_isGrow; }
 
+	bool GetWin() { return m_isWin; }
+
+	void CheckRule(CardEffect& cardEffect);
 
 private:
 	// 画像の場合は
@@ -54,6 +58,8 @@ private:
 	bool m_isDead = false;
 	
 	bool m_isGrow = false;
+
+	bool m_isWin = false;
 
 	
 

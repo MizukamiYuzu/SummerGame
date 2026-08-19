@@ -159,12 +159,10 @@ void CardManager::Update()
 						//m_cardContent.erase(m_cardContent.begin() + i);
 
 						_isDeleteCard = true;
+						m_pTurnManager->SetMyTurn(false);
+						
 					}
 					
-				}
-				if (CheckHitKey(KEY_INPUT_DOWN))
-				{
-					m_pTurnManager->SetMyTurn(false);
 				}
 			}
 			m_MyCard[i].SetDrawPos(cardMyPosX, cardMyPosY);
@@ -176,12 +174,12 @@ void CardManager::Update()
 			if (!m_EnemyCard[i].GetCard())continue;	// カードが存在してなかったら次のループに移動
 
 			int cardEnemyPosX = Game::kScreenWidth-200 - (100 * (drawEnemyCount % kCardWidthMaxCount) - 50);
-			int cardEnemyPosY = Game::kScreenHeight -( Game::kScreenHeight / 2 + 100 * (drawEnemyCount / kCardWidthMaxCount) + 50);
+			int cardEnemyPosY =( Game::kScreenHeight / 2-200 -( 100 *(drawEnemyCount / kCardWidthMaxCount) -50));
 
 			
-			if (CheckHitKey(KEY_INPUT_DOWN))
+			if (CheckHitKey(KEY_INPUT_UP))
 			{
-				m_pTurnManager->SetMyTurn(false);
+				m_pTurnManager->SetMyTurn(true);
 			}
 
 			m_EnemyCard[i].SetDrawPos(cardEnemyPosX, cardEnemyPosY);
@@ -264,7 +262,11 @@ void CardManager::UseCard(Player* target, CardEffect& cardEffect)
 
 	// ミントを植える
 	case CardEffect::Effect::Plant:
-		m_pMinto->SetPlant(true);
+		if (!m_pMinto->GetPlant())
+		{
+			m_pMinto->SetPlant(true);
+		}
+		
 
 	case CardEffect::Effect::Wither:
 		m_pMinto->GetWither();
@@ -295,8 +297,15 @@ void CardManager::UseCard(Player* target, CardEffect& cardEffect)
 
 	}
 
+	
 	//ルールチェック　(また後で行う)
-	for (CardEffect rule : m_rules)
+	CheckRule(cardEffect);
+}
+
+void CardManager::CheckRule(CardEffect& cardEffect)
+{
+	int deleteCount = 0;
+	for (CardEffect rule : m_rules)		// <- for (int i = 0; i < m_rules.size(); i++) と同じ
 	{
 		switch (rule.GetRuleEffect())
 		{
@@ -304,6 +313,10 @@ void CardManager::UseCard(Player* target, CardEffect& cardEffect)
 		{
 			int value = rule.GetValue();
 			//自分の体力がvalue倍なら勝利
+			if (m_player->GetHp() % value == 0)
+			{
+				m_isWin = true;
+			}
 
 			break;
 		}
@@ -311,48 +324,68 @@ void CardManager::UseCard(Player* target, CardEffect& cardEffect)
 		{
 			int value = rule.GetValue();
 			// 相手の体力がvalue倍なら勝利
-
+			if (m_enemy->GetHp() % value == 0)
+			{
+				m_isWin = true;
+			}
 			break;
 		}
 		case CardEffect::RuleEffect::MySameWin:
 		{
 			int value = rule.GetValue();
 			// 自分のHPがvalueなら勝利
-
+			if (m_player->GetHp() - value == 0)
+			{
+				m_isWin = true;
+			}
 			break;
 		}
 		case CardEffect::RuleEffect::YourSameWin:
 		{
 			int value = rule.GetValue();
 			// 相手のHPがvalueなら勝利
-
+			if (m_enemy->GetHp() - value == 0)
+			{
+				m_isWin = true;
+			}
 			break;
 		}
 		case CardEffect::RuleEffect::MintoSameGrow:
 		{
 			int value = rule.GetValue();
 			// ミントのエネルギーがNなら育つ
-
+			if (m_pMinto->GetGrow() - value == 0)
+			{
+				m_isWin = true;
+			}
 			break;
 		}
 		case CardEffect::RuleEffect::MintoMltiWin:
 		{
 			int value = rule.GetValue();
 			// ミントのエネルギーがN倍なら勝利
-
+			if (m_pMinto->GetGrow() % value == 0)
+			{
+				m_isWin = true;
+			}
 			break;
 		}
 		case CardEffect::RuleEffect::Delete:
 		{
 			// 一番古いルールを削除
-			m_rules.erase(m_rules.begin());
-
+			//m_rules.erase(m_rules.begin());
+			deleteCount++;
 
 			break;
 		}
 		default:
 			break;
 		}
+	}
+
+	for (int i = 0; i < deleteCount; i++)
+	{
+		m_rules.erase(m_rules.begin());
 	}
 
 	cardEffect.SetContent("");

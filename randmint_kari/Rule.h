@@ -1,4 +1,7 @@
 ﻿#pragma once
+#include "CardEffect.h"
+#include <vector>
+
 class Rule
 {
 public:
@@ -6,6 +9,7 @@ public:
 	~Rule();
 
 private:
-
+	
+	
 };
 

@@ -80,7 +80,7 @@ CardEffect CardContent::CreateCardEffect()
 			//テキスト
 			cardEffect.SetContent(m_cardContent);
 		}
-		if (m_ContentProbability <= 1)
+		else if (m_ContentProbability <= 1)
 		{
 			m_variable = 4;
 			m_cardContent = "自分のHPが" + std::to_string(m_variable) + "の倍数になったら勝利";
@@ -92,7 +92,7 @@ CardEffect CardContent::CreateCardEffect()
 			//テキスト
 			cardEffect.SetContent(m_cardContent);
 		}
-		if (m_ContentProbability <= 2)
+		else if (m_ContentProbability <= 2)
 		{
 			m_variable = 6;
 			m_cardContent = "相手のHPが" + std::to_string(m_variable) + "の倍数になったら勝利";
@@ -104,7 +104,7 @@ CardEffect CardContent::CreateCardEffect()
 			//テキスト
 			cardEffect.SetContent(m_cardContent);
 		}
-		if (m_ContentProbability <= 3)
+		else if (m_ContentProbability <= 3)
 		{
 			m_rand = GetRand(100);
 			m_cardContent = "自分のHPが残り" + std::to_string(m_rand) + "になったら勝利";
@@ -116,7 +116,7 @@ CardEffect CardContent::CreateCardEffect()
 			//テキスト
 			cardEffect.SetContent(m_cardContent);
 		}
-		if (m_ContentProbability <= 4)
+		else if (m_ContentProbability <= 4)
 		{
 			m_rand = GetRand(100);
 			m_cardContent = "相手のHPが残り" + std::to_string(m_rand) + "になったら勝利";
@@ -128,7 +128,7 @@ CardEffect CardContent::CreateCardEffect()
 			//テキスト
 			cardEffect.SetContent(m_cardContent);
 		}
-		if (m_ContentProbability <= 5)
+		else if (m_ContentProbability <= 5)
 		{
 			m_variable = 9;
 			m_cardContent = "相手のHPが" + std::to_string(m_variable) + "の倍数になったら勝利";
@@ -140,7 +140,7 @@ CardEffect CardContent::CreateCardEffect()
 			//テキスト
 			cardEffect.SetContent(m_cardContent);
 		}
-		if (m_ContentProbability <= 6)
+		else if (m_ContentProbability <= 6)
 		{
 			m_rand = GetRand(100);
 			m_cardContent = "ミントのエネルギーが" + std::to_string(m_rand) + "になったらミントが育つ";
@@ -153,7 +153,7 @@ CardEffect CardContent::CreateCardEffect()
 			//テキスト
 			cardEffect.SetContent(m_cardContent);
 		}
-		if (m_ContentProbability <= 7)
+		else if (m_ContentProbability <= 7)
 		{
 			m_variable = 8;
 			m_cardContent = "ミントのエネルギーが" + std::to_string(m_variable) + "の倍数になったら勝利";
@@ -165,7 +165,7 @@ CardEffect CardContent::CreateCardEffect()
 			//テキスト
 			cardEffect.SetContent(m_cardContent);
 		}
-		if (m_ContentProbability <= 8)
+		else if (m_ContentProbability <= 8)
 		{
 			m_variable = 12;
 			m_cardContent = "ミントのエネルギーが" + std::to_string(m_variable) + "の倍数になったら勝利";
@@ -177,7 +177,7 @@ CardEffect CardContent::CreateCardEffect()
 			//テキスト
 			cardEffect.SetContent(m_cardContent);
 		}
-		if (m_ContentProbability <= 9)
+		else if (m_ContentProbability <= 9)
 		{
 			m_variable = 25;
 			m_cardContent = "ミントのエネルギーが" + std::to_string(m_variable) + "の倍数になったら勝利";
@@ -189,7 +189,7 @@ CardEffect CardContent::CreateCardEffect()
 			//テキスト
 			cardEffect.SetContent(m_cardContent);
 		}
-		if (m_ContentProbability <= 10)
+		else if (m_ContentProbability <= 10)
 		{
 			m_cardContent = "勝利条件の1番古い条件を削除する";
 
@@ -216,7 +216,7 @@ CardEffect CardContent::CreateCardEffect()
 			//テキスト
 			cardEffect.SetContent(m_cardContent);
 		}
-		if (m_ContentProbability <= 1)
+		else if (m_ContentProbability <= 1)
 		{
 			m_randStart = GetRand(5);
 			m_randFinish = GetRand(10);
@@ -247,7 +247,7 @@ CardEffect CardContent::CreateCardEffect()
 			//テキスト
 			cardEffect.SetContent(m_cardContent);
 		}
-		if (m_ContentProbability <= 1)
+		else if (m_ContentProbability <= 1)
 		{
 			m_randStart = GetRand(5);
 			m_randFinish = GetRand(10);
@@ -262,7 +262,7 @@ CardEffect CardContent::CreateCardEffect()
 			//テキスト
 			cardEffect.SetContent(m_cardContent);
 		}
-		if (m_ContentProbability <= 2)
+		else if (m_ContentProbability <= 2)
 		{
 			m_rand = GetRand(100);
 			m_cardContent = "相手に" + std::to_string(m_rand) + "ダメージを与える";
@@ -274,7 +274,7 @@ CardEffect CardContent::CreateCardEffect()
 			//テキスト
 			cardEffect.SetContent(m_cardContent);
 		}
-		if (m_ContentProbability <= 3)
+		else if (m_ContentProbability <= 3)
 		{
 			m_randStart = GetRand(5);
 			m_randFinish = GetRand(10);

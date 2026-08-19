@@ -54,7 +54,7 @@ void SceneMain::Update()
 	// フレームカウントの更新
 	m_frameCount++;
 
-	if (m_pCardManager->GetDead() == true || m_pCardManager->GetGrow())
+	if (m_pCardManager->GetDead() == true || m_pCardManager->GetGrow() || m_pCardManager->GetWin())
 	{
 		m_isEnd = true;
 	}
