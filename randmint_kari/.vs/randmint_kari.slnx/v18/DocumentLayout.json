@@ -1,93 +1,93 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\",
+  "WorkspaceRootPath": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\CardManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\CardManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|solutionrelative:CardManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\CardManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\CardManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|solutionrelative:CardManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\CardContent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|solutionrelative:CardContent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\CardEffect.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|solutionrelative:CardEffect.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\Card.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\Card.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|solutionrelative:Card.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\CardEffect.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|solutionrelative:CardEffect.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\SceneMain.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|solutionrelative:SceneMain.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|solutionrelative:Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\TurnManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\TurnManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|solutionrelative:TurnManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\minto.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\minto.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|solutionrelative:minto.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\SceneTitle.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|solutionrelative:SceneTitle.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\SceneMain.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|solutionrelative:SceneMain.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\minto.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\minto.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|solutionrelative:minto.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\TurnManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\CardContent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|solutionrelative:CardContent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\CardEffect.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|solutionrelative:CardEffect.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\CardEffect.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|solutionrelative:CardEffect.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\SceneMain.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|solutionrelative:SceneMain.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|solutionrelative:Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\SceneTitle.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|solutionrelative:SceneTitle.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\SceneMain.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|solutionrelative:SceneMain.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\TurnManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|solutionrelative:TurnManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\CardContent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\CardContent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|solutionrelative:CardContent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\Rule.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\Rule.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|solutionrelative:Rule.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\SceneTitle.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\SceneTitle.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|solutionrelative:SceneTitle.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|solutionrelative:Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\Card.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\Card.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|solutionrelative:Card.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|solutionrelative:Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\Rule.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\Rule.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|solutionrelative:Rule.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
@@ -97,311 +97,284 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 197,
-          "SelectedChildIndex": 8,
+          "DockedWidth": 194,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "SceneMain.cpp",
-              "DocumentMoniker": "C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\SceneMain.cpp",
-              "RelativeDocumentMoniker": "SceneMain.cpp",
-              "ToolTip": "C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\SceneMain.cpp",
-              "RelativeToolTip": "SceneMain.cpp",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAADwAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-07-17T00:48:39.927Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Player.cpp",
-              "DocumentMoniker": "C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\Player.cpp",
-              "RelativeDocumentMoniker": "Player.cpp",
-              "ToolTip": "C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\Player.cpp",
-              "RelativeToolTip": "Player.cpp",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAABQAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-08-05T07:42:53.225Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "main.cpp",
-              "DocumentMoniker": "C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\main.cpp",
-              "RelativeDocumentMoniker": "main.cpp",
-              "ToolTip": "C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\main.cpp",
-              "RelativeToolTip": "main.cpp",
-              "ViewState": "AgIAAD0AAAAAAAAAAAAowE4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-07-28T02:56:24.942Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "SceneTitle.cpp",
-              "DocumentMoniker": "C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\SceneTitle.cpp",
-              "RelativeDocumentMoniker": "SceneTitle.cpp",
-              "ToolTip": "C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\SceneTitle.cpp",
-              "RelativeToolTip": "SceneTitle.cpp",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-08-07T07:14:39.437Z"
-            },
-            {
-              "$type": "Document",
-<<<<<<< Updated upstream
-=======
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "CardManager.cpp",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\CardManager.cpp",
               "RelativeDocumentMoniker": "CardManager.cpp",
               "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\CardManager.cpp",
               "RelativeToolTip": "CardManager.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEBAAACAAAAAAAAAA==",
+              "ViewState": "AgIAAJYAAAAAAAAAAAAAwCgBAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-07-28T02:34:05.608Z"
-            },
-            {
-              "$type": "Document",
->>>>>>> Stashed changes
-              "DocumentIndex": 9,
-              "Title": "minto.cpp",
-              "DocumentMoniker": "C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\minto.cpp",
-              "RelativeDocumentMoniker": "minto.cpp",
-              "ToolTip": "C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\minto.cpp",
-              "RelativeToolTip": "minto.cpp",
-              "ViewState": "AgIAADkAAAAAAAAAAAAAAEgAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-08-07T03:13:23.591Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "Card.cpp",
-              "DocumentMoniker": "C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\Card.cpp",
-              "RelativeDocumentMoniker": "Card.cpp",
-              "ToolTip": "C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\Card.cpp",
-              "RelativeToolTip": "Card.cpp",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAcAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-07-28T13:04:24.128Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "TurnManager.cpp",
-              "DocumentMoniker": "C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\TurnManager.cpp",
-              "RelativeDocumentMoniker": "TurnManager.cpp",
-              "ToolTip": "C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\TurnManager.cpp",
-              "RelativeToolTip": "TurnManager.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-08-13T15:34:44.727Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "CardEffect.cpp",
-              "DocumentMoniker": "C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\CardEffect.cpp",
-              "RelativeDocumentMoniker": "CardEffect.cpp",
-              "ToolTip": "C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\CardEffect.cpp",
-              "RelativeToolTip": "CardEffect.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-<<<<<<< Updated upstream
-              "WhenOpened": "2026-08-07T03:00:31.195Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CardManager.cpp",
-              "DocumentMoniker": "C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\CardManager.cpp",
-              "RelativeDocumentMoniker": "CardManager.cpp",
-              "ToolTip": "C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\CardManager.cpp",
-              "RelativeToolTip": "CardManager.cpp",
-              "ViewState": "AgIAAPkAAAAAAAAAAAAAABMBAAADAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-07-28T02:34:05.608Z",
-              "EditorCaption": ""
-=======
-              "WhenOpened": "2026-08-07T03:00:31.195Z"
->>>>>>> Stashed changes
-            }
-          ]
-        },
-        {
-          "DockedWidth": 203,
-          "SelectedChildIndex": 12,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "Rule.h",
-              "DocumentMoniker": "C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\Rule.h",
-              "RelativeDocumentMoniker": "Rule.h",
-              "ToolTip": "C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\Rule.h",
-              "RelativeToolTip": "Rule.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-08-07T05:27:32.317Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "Player.h",
-              "DocumentMoniker": "C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\Player.h",
-              "RelativeDocumentMoniker": "Player.h",
-              "ToolTip": "C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\Player.h",
-              "RelativeToolTip": "Player.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-08-05T07:42:00.505Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "Rule.cpp",
-              "DocumentMoniker": "C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\Rule.cpp",
-              "RelativeDocumentMoniker": "Rule.cpp",
-              "ToolTip": "C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\Rule.cpp",
-              "RelativeToolTip": "Rule.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-08-14T04:20:28.158Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "SceneTitle.h",
-              "DocumentMoniker": "C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\SceneTitle.h",
-              "RelativeDocumentMoniker": "SceneTitle.h",
-              "ToolTip": "C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\SceneTitle.h",
-              "RelativeToolTip": "SceneTitle.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-08-07T07:13:41.589Z",
+              "WhenOpened": "2026-08-21T15:21:53.594Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
-              "Title": "SceneMain.h",
-              "DocumentMoniker": "C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\SceneMain.h",
-              "RelativeDocumentMoniker": "SceneMain.h",
-              "ToolTip": "C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\SceneMain.h",
-              "RelativeToolTip": "SceneMain.h",
-              "ViewState": "AgIAABsAAAAAAAAAAAAAACcAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-07-28T13:04:30.223Z"
+              "Title": "SceneTitle.cpp",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\SceneTitle.cpp",
+              "RelativeDocumentMoniker": "SceneTitle.cpp",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\SceneTitle.cpp",
+              "RelativeToolTip": "SceneTitle.cpp",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-08-21T15:21:53.538Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "Game.h",
-              "DocumentMoniker": "C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\Game.h",
-              "RelativeDocumentMoniker": "Game.h",
-              "ToolTip": "C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\Game.h",
-              "RelativeToolTip": "Game.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-07-28T13:03:51.134Z",
+              "DocumentIndex": 14,
+              "Title": "main.cpp",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\main.cpp",
+              "RelativeDocumentMoniker": "main.cpp",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\main.cpp",
+              "RelativeToolTip": "main.cpp",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAowE4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-08-21T15:21:53.538Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Player.cpp",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\Player.cpp",
+              "RelativeDocumentMoniker": "Player.cpp",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\Player.cpp",
+              "RelativeToolTip": "Player.cpp",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAABQAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-08-21T15:21:53.537Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "SceneMain.cpp",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\SceneMain.cpp",
+              "RelativeDocumentMoniker": "SceneMain.cpp",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\SceneMain.cpp",
+              "RelativeToolTip": "SceneMain.cpp",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAADwAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-08-21T15:21:53.514Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "minto.cpp",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\minto.cpp",
+              "RelativeDocumentMoniker": "minto.cpp",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\minto.cpp",
+              "RelativeToolTip": "minto.cpp",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAADEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-08-21T15:21:53.539Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "CardContent.h",
-              "DocumentMoniker": "C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\CardContent.h",
-              "RelativeDocumentMoniker": "CardContent.h",
-              "ToolTip": "C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\CardContent.h",
-              "RelativeToolTip": "CardContent.h",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAACIAAAARAAAAAAAAAA==",
+              "DocumentIndex": 19,
+              "Title": "Card.cpp",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\Card.cpp",
+              "RelativeDocumentMoniker": "Card.cpp",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\Card.cpp",
+              "RelativeToolTip": "Card.cpp",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAcAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-08-21T15:21:53.54Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TurnManager.cpp",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\TurnManager.cpp",
+              "RelativeDocumentMoniker": "TurnManager.cpp",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\TurnManager.cpp",
+              "RelativeToolTip": "TurnManager.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-08-21T15:21:53.54Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CardEffect.cpp",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\CardEffect.cpp",
+              "RelativeDocumentMoniker": "CardEffect.cpp",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\CardEffect.cpp",
+              "RelativeToolTip": "CardEffect.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-08-21T15:21:53.541Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 206,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "minto.h",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\minto.h",
+              "RelativeDocumentMoniker": "minto.h",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\minto.h",
+              "RelativeToolTip": "minto.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-07-30T02:03:34.808Z",
+              "WhenOpened": "2026-08-21T15:21:53.675Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "CardContent.cpp",
-              "DocumentMoniker": "C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\CardContent.cpp",
-              "RelativeDocumentMoniker": "CardContent.cpp",
-              "ToolTip": "C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\CardContent.cpp",
-              "RelativeToolTip": "CardContent.cpp",
-              "ViewState": "AgIAAP8AAAAAAAAAAAAAADYAAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-07-29T07:52:44.172Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "minto.h",
-              "DocumentMoniker": "C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\minto.h",
-              "RelativeDocumentMoniker": "minto.h",
-              "ToolTip": "C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\minto.h",
-              "RelativeToolTip": "minto.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-08-07T03:13:30.111Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CardEffect.h",
-              "DocumentMoniker": "C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\CardEffect.h",
-              "RelativeDocumentMoniker": "CardEffect.h",
-              "ToolTip": "C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\CardEffect.h",
-              "RelativeToolTip": "CardEffect.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-08-18T04:28:03.023Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
               "Title": "Card.h",
-              "DocumentMoniker": "C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\Card.h",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\Card.h",
               "RelativeDocumentMoniker": "Card.h",
-              "ToolTip": "C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\Card.h",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\Card.h",
               "RelativeToolTip": "Card.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAiwBUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-07-28T13:04:28.487Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "TurnManager.h",
-              "DocumentMoniker": "C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\TurnManager.h",
-              "RelativeDocumentMoniker": "TurnManager.h",
-              "ToolTip": "C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\TurnManager.h",
-              "RelativeToolTip": "TurnManager.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-08-13T15:25:22.981Z",
+              "WhenOpened": "2026-08-21T15:21:53.676Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "CardManager.h",
-              "DocumentMoniker": "C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\CardManager.h",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\CardManager.h",
               "RelativeDocumentMoniker": "CardManager.h",
-              "ToolTip": "C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\CardManager.h",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\CardManager.h",
               "RelativeToolTip": "CardManager.h",
-              "ViewState": "AgIAAD4AAAAAAAAAAAAlwD0AAAABAAAAAAAAAA==",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAAC4AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-07-30T06:05:09.43Z",
+              "WhenOpened": "2026-08-21T15:21:53.679Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Rule.h",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\Rule.h",
+              "RelativeDocumentMoniker": "Rule.h",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\Rule.h",
+              "RelativeToolTip": "Rule.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-08-21T15:21:53.671Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Player.h",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\Player.h",
+              "RelativeDocumentMoniker": "Player.h",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\Player.h",
+              "RelativeToolTip": "Player.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-08-21T15:21:53.671Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Rule.cpp",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\Rule.cpp",
+              "RelativeDocumentMoniker": "Rule.cpp",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\Rule.cpp",
+              "RelativeToolTip": "Rule.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-08-21T15:21:53.672Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "SceneTitle.h",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\SceneTitle.h",
+              "RelativeDocumentMoniker": "SceneTitle.h",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\SceneTitle.h",
+              "RelativeToolTip": "SceneTitle.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-08-21T15:21:53.673Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "SceneMain.h",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\SceneMain.h",
+              "RelativeDocumentMoniker": "SceneMain.h",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\SceneMain.h",
+              "RelativeToolTip": "SceneMain.h",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAACcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-08-21T15:21:53.673Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Game.h",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\Game.h",
+              "RelativeDocumentMoniker": "Game.h",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\Game.h",
+              "RelativeToolTip": "Game.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-08-21T15:21:53.673Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "CardContent.h",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\CardContent.h",
+              "RelativeDocumentMoniker": "CardContent.h",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\CardContent.h",
+              "RelativeToolTip": "CardContent.h",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAACIAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-08-21T15:21:53.674Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CardContent.cpp",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\CardContent.cpp",
+              "RelativeDocumentMoniker": "CardContent.cpp",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\CardContent.cpp",
+              "RelativeToolTip": "CardContent.cpp",
+              "ViewState": "AgIAAP8AAAAAAAAAAAAAADYAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-08-21T15:21:53.675Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "CardEffect.h",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\CardEffect.h",
+              "RelativeDocumentMoniker": "CardEffect.h",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\CardEffect.h",
+              "RelativeToolTip": "CardEffect.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-08-21T15:21:53.676Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "TurnManager.h",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\TurnManager.h",
+              "RelativeDocumentMoniker": "TurnManager.h",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\TurnManager.h",
+              "RelativeToolTip": "TurnManager.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-08-21T15:21:53.677Z"
             }
           ]
         }

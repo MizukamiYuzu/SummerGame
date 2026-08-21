@@ -142,9 +142,11 @@ void CardManager::Update()
 		int validCardCount = 0;
 		for (int i = 0; i < m_MyCard.size(); i++)
 		{
-			if (m_MyCard[i].GetCard())validCardCount++;
+			if (m_MyCard[i].GetCard())validCardCount++;	// カードが存在している分だけカウントする
 		}
-		bool isDiscardMode = (validCardCount > kMaxHand);
+		bool isDiscardMode = (validCardCount == kMaxHand+1);	// 手持ちに持てる最大の枚数より手札が多くあるか
+		
+
 		m_isMyHandFull = (validCardCount >= kMaxHand + 1);
 
 		int drawMyCount = 0;	// 消されていないならカウントをする
@@ -162,11 +164,14 @@ void CardManager::Update()
 			int cardMyPosX = 120 * (drawMyCount % kCardWidthMaxCount) + 50;
 			int cardMyPosY = Game::kScreenHeight / 2 + 120 * (drawMyCount / kCardWidthMaxCount) + 100;
 
+			int hitX = m_MyCard[i].GetDrawPosX();
+			int hitY = m_MyCard[i].GetDrawPosY();
+
 			// ↓手札カード
-			bool isMouseOutLeft = m_mouseX >= cardMyPosX;//カードの左側より内側にマウスがいる
-			bool isMouseOutRight = m_mouseX <= cardMyPosX + m_MyCard[i].GetCardWidth();
-			bool isMouseOutUp = m_mouseY >= cardMyPosY;
-			bool isMouseOutDown = m_mouseY <= cardMyPosY + m_MyCard[i].GetCardHeight();
+			bool isMouseOutLeft = m_mouseX >= hitX;//カードの左側より内側にマウスがいる
+			bool isMouseOutRight = m_mouseX <= hitX + m_MyCard[i].GetCardWidth();
+			bool isMouseOutUp = m_mouseY >= hitY;
+			bool isMouseOutDown = m_mouseY <= hitY + m_MyCard[i].GetCardHeight();
 			bool isInsideCard = isMouseOutLeft && isMouseOutRight && isMouseOutUp && isMouseOutDown;	// マウスカーソルがカードの上に乗っているとき
 
 			// ↓手札
@@ -333,14 +338,15 @@ void CardManager::UseCard(Player* target, CardEffect& cardEffect)
 
 	// ミントを植える
 	case CardEffect::Effect::Plant:
-		if (!m_pMinto->GetPlant())
+		if (!(m_pMinto->GetPlant()))
 		{
 			m_pMinto->SetPlant(true);
 		}
-		
+		break;
 
 	case CardEffect::Effect::Wither:
 		m_pMinto->GetWither();
+		break;
 		
 	// 成長(ミントにエネルギーを与える)
 	case CardEffect::Effect::Grow:
