@@ -7,11 +7,18 @@
 namespace
 {
 	constexpr int kFirstHandNum = 4;	// 初期の手札枚数
-	constexpr int kCardWidthMaxCount = 11;
+	constexpr int kCardWidthMaxCount = 8;	// 一行につき並べられる枚数
+	constexpr int kMaxHand = kCardWidthMaxCount * 2;	// 持つことができるカードの最大枚数
+
+
+	constexpr int kSkipGraphPosX = Game::kScreenWidth - 200;
+	constexpr int kSkipGraphPosY = Game::kScreenHeight - 72;
+	constexpr int kSkipGraphMargin = 30;
 }
 
 CardManager::CardManager() :
-	m_graphDeck(-1),
+	m_graphDeckHandle(-1),
+	m_graphSkipHandle(-1),
 	m_mouseX(0),
 	m_mouseY(0),
 	m_playerCardPosX(0),
@@ -35,7 +42,6 @@ void CardManager::Init()
 	m_pMinto->Init();
 	m_pCardContent = new CardContent;
 	m_pCardContent->Init();
-	m_graphDeck = LoadGraph("data/img/deck.png");	// 山札のハンドル
 	m_MyCard.resize(kFirstHandNum);
 	m_EnemyCard.resize(kFirstHandNum);
 	m_cardEffect.resize(kFirstHandNum);
@@ -51,7 +57,6 @@ void CardManager::End()
 {
 	m_pMinto->End();
 	m_pCardContent->End();
-	DeleteGraph(m_graphDeck);
 	for (int i = 0; i < m_MyCard.size(); i++)	// m_card.size() <- size()で配列の数を出すことができる
 	{
 		m_MyCard[i].End();
@@ -89,7 +94,20 @@ void CardManager::Update()
 		}
 	}
 	GetMousePoint(&m_mouseX, &m_mouseY);
+	/* 条件掃き出し */
+	// スキップ画像の上にマウスが乗っているかの判定
+	bool isMouseSkipInSideLeft = m_mouseX >= kSkipGraphPosX - kSkipGraphMargin;				// マウスがスキップ画像の左端より右側にいるか
+	bool isMouseSkipInsideRight = m_mouseX <= Game::kScreenWidth - kSkipGraphMargin;		// マウスがスキップ画像の右端より左にいるか
+	bool isMouseSkipInsideUp = m_mouseY >= kSkipGraphPosY - kSkipGraphMargin;				// マウスがスキップ画像の上端よりも下にいるか
+	bool isMouseSkipInsideDown = m_mouseY <= Game::kScreenHeight - kSkipGraphMargin;		// マウスがスキップ画像の下端よりも上にいるか
+	bool isMouseInsideSkip = isMouseSkipInSideLeft && isMouseSkipInsideRight && isMouseSkipInsideUp && isMouseSkipInsideDown;	// マウスがスキップ画像の上に乗っているか
+	// フレーム判定
+	bool isClickThisFrame = !m_isClickBefore && m_isClickNow;
 
+	if (isClickThisFrame && isMouseInsideSkip)
+	{
+		m_pTurnManager->SetMyTurn(false);
+	}
 	{
 		/*条件掃出し*/
 		// ↓山札カード
@@ -100,9 +118,9 @@ void CardManager::Update()
 		bool isInsideCard_y = isMouseOutLeft_y && isMouseOutRight_y && isMouseOutUp_y && isMouseOutDown_y;
 
 		//山札からカードを引いたとき
-		if (isInsideCard_y)
+		if (isInsideCard_y && !m_isMyHandFull)
 		{
-			if ((m_isClickBefore == false) && (m_isClickNow == true))
+			if ((m_isClickBefore == false) && (m_isClickNow == true) && (m_isDrewCard == false))
 			{
 				if (m_pTurnManager->GetMyTurn())
 				{
@@ -111,7 +129,7 @@ void CardManager::Update()
 					card.Init();			// 初期化するよ
 					m_MyCard.push_back(card);	// 今ある配列の後ろに一つ要素を追加する
 					// Card型の変数を入れている理由は、m_cardはcard型の動的配列で、Card型の変数を入れてあげることで、もう一つcardを用意する
-
+					m_isDrewCard = true;
 		//カードの効果を作成(中身は空)
 					CardEffect cardEffect;
 					m_cardEffect.push_back(cardEffect);
@@ -121,16 +139,28 @@ void CardManager::Update()
 			}
 		}
 		//	DrawBox(Game::kScreenWidth / 2, Game::kScreenHeight / 2-50, Game::kScreenWidth / 2 + 100, Game::kScreenHeight / 2 + 50, GetColor(255, 255, 255), true);
+		int validCardCount = 0;
+		for (int i = 0; i < m_MyCard.size(); i++)
+		{
+			if (m_MyCard[i].GetCard())validCardCount++;
+		}
+		bool isDiscardMode = (validCardCount > kMaxHand);
+		m_isMyHandFull = (validCardCount >= kMaxHand + 1);
+
 		int drawMyCount = 0;	// 消されていないならカウントをする
 		int drawEnemyCount = 0;	// 消されていないならカウントをする
+		int replaceNomber = 0;	// 
 		bool _isDeleteCard = false;	// このフレーム（ワンクリック）でカードが消されたかどうか	←　一回のクリックで一枚だけ消すようにする変数
 		// ↑ワンフレームでしか使わないからここで宣言して良き
 		for (int i = 0; i < m_MyCard.size(); i++)	// 手札を並ばせる
 		{
 			if (!m_MyCard[i].GetCard())continue;	// カードが存在してなかったら次のループに移動
+			
+			
+			
 
-			int cardMyPosX = 100 * (drawMyCount % kCardWidthMaxCount) + 50;
-			int cardMyPosY = Game::kScreenHeight / 2 + 100 * (drawMyCount / kCardWidthMaxCount) + 50;
+			int cardMyPosX = 120 * (drawMyCount % kCardWidthMaxCount) + 50;
+			int cardMyPosY = Game::kScreenHeight / 2 + 120 * (drawMyCount / kCardWidthMaxCount) + 100;
 
 			// ↓手札カード
 			bool isMouseOutLeft = m_mouseX >= cardMyPosX;//カードの左側より内側にマウスがいる
@@ -144,6 +174,7 @@ void CardManager::Update()
 			if (isInsideCard)
 			{
 				cardMyPosY -= 10;
+				
 
 				bool isClickThisFrame = !m_isClickBefore && m_isClickNow;	// このフレームでクリックされた
 
@@ -151,34 +182,63 @@ void CardManager::Update()
 				{
 					if (m_pTurnManager->GetMyTurn())
 					{
-						//カードを使う処理(敵に対して)
-						UseCard(m_enemy, m_cardEffect[i]);
+						if (isDiscardMode)
+						{
+							// カードを無効にする
+							m_MyCard[i].SetCard(false); // m_card[i]に引数をぶち込む
+							m_cardEffect[i].SetContent("");
 
-						// カードを無効にする
-						m_MyCard[i].SetCard(false); // m_card[i]に引数をぶち込む
-						//m_cardContent.erase(m_cardContent.begin() + i);
+							//m_cardContent.erase(m_cardContent.begin() + i);
 
-						_isDeleteCard = true;
-						m_pTurnManager->SetMyTurn(false);
-						
+							_isDeleteCard = true;
+
+							m_isMyHandFull = false;
+						}
+						else
+						{
+							
+							
+							//カードを使う処理(敵に対して)
+							UseCard(m_enemy, m_cardEffect[i]);
+							// カードを無効にする
+							m_MyCard[i].SetCard(false); // m_card[i]に引数をぶち込む
+							//m_cardContent.erase(m_cardContent.begin() + i);
+
+							_isDeleteCard = true;
+							m_pTurnManager->SetMyTurn(false);
+						}											
 					}
-					
+
 				}
 			}
-			m_MyCard[i].SetDrawPos(cardMyPosX, cardMyPosY);
+			if (!(drawMyCount >= kMaxHand))
+			{
+				m_MyCard[i].SetDrawPos(cardMyPosX, cardMyPosY);
+			}
+			else
+			{
+				m_MyCard[i].SetDrawPos(50, 50);
+			}
+			
 			drawMyCount++;
+			if (drawMyCount >= kMaxHand + 1)
+			{
+				m_isMyHandFull = true;
+			}
 
 		}
 		for (int i = 0; i < m_EnemyCard.size(); i++)	// 手札を並ばせる
 		{
+			
 			if (!m_EnemyCard[i].GetCard())continue;	// カードが存在してなかったら次のループに移動
 
-			int cardEnemyPosX = Game::kScreenWidth-200 - (100 * (drawEnemyCount % kCardWidthMaxCount) - 50);
-			int cardEnemyPosY =( Game::kScreenHeight / 2-200 -( 100 *(drawEnemyCount / kCardWidthMaxCount) -50));
+			int cardEnemyPosX = Game::kScreenWidth-200 - (120 * (drawEnemyCount % kCardWidthMaxCount) - 50);
+			int cardEnemyPosY =( Game::kScreenHeight / 2-200 -( 120 *(drawEnemyCount / kCardWidthMaxCount) -50));
 
 			
 			if (CheckHitKey(KEY_INPUT_UP))
 			{
+				m_isDrewCard = false;
 				m_pTurnManager->SetMyTurn(true);
 			}
 
@@ -205,22 +265,33 @@ void CardManager::Draw()
 	m_pCardContent->Draw();
 	m_pMinto->Draw();
 	// 山札描画
-	DrawExtendGraph(Game::kScreenWidth / 2, Game::kScreenHeight / 2 - 50, Game::kScreenWidth / 2 + 100, Game::kScreenHeight / 2 + 50, m_graphDeck, true);	
+	DrawExtendGraph(Game::kScreenWidth / 2, Game::kScreenHeight / 2 - 50, Game::kScreenWidth / 2 + 100, Game::kScreenHeight / 2 + 50, m_graphDeckHandle, true);	
 	DrawFormatString(0, 64, GetColor(255, 255, 255), "TURN:%d", m_pTurnManager->GetMyTurn());
 	DrawFormatString(0, 96, GetColor(255, 255, 255), "HP:%d", m_enemy->GetHp());
-	// 手札描画
-	for (int i = 0; i < m_MyCard.size(); i++)
+
+	if (m_pTurnManager->GetMyTurn())
 	{
-		m_MyCard[i].Draw();
-		DrawFormatString(m_MyCard[i].GetDrawPosX() + 50, m_MyCard[i].GetDrawPosY() + 50, GetColor(255, 0, 0), "%d", i);
-		//	DrawString(100, i+100, m_pCardContent->GetContent().c_str(), GetColor(255, 255, 255));
-		DrawFormatString(100, i * 20, GetColor(255, 255, 255), m_cardEffect[i].GetContent().c_str());
-		
+		DrawGraph(kSkipGraphPosX - kSkipGraphMargin, kSkipGraphPosY - kSkipGraphMargin, m_graphSkipHandle, true);
+		if (m_isMyHandFull)
+		{
+		}
 	}
+
+	// 手札描画
+	
 	for (int i = 0; i < m_EnemyCard.size(); i++)
 	{
 		m_EnemyCard[i].Draw();
 		DrawFormatString(m_EnemyCard[i].GetDrawPosX() + 50, m_EnemyCard[i].GetDrawPosY() + 50, GetColor(255, 0, 0), "%d", i);
+		//	DrawString(100, i+100, m_pCardContent->GetContent().c_str(), GetColor(255, 255, 255));
+		DrawFormatString(100, i * 20, GetColor(255, 255, 255), m_cardEffect[i].GetContent().c_str());
+
+	}
+
+	for (int i = 0; i < m_MyCard.size(); i++)
+	{
+		m_MyCard[i].Draw();
+		DrawFormatString(m_MyCard[i].GetDrawPosX() + 50, m_MyCard[i].GetDrawPosY() + 50, GetColor(255, 0, 0), "%d", i);
 		//	DrawString(100, i+100, m_pCardContent->GetContent().c_str(), GetColor(255, 255, 255));
 		DrawFormatString(100, i * 20, GetColor(255, 255, 255), m_cardEffect[i].GetContent().c_str());
 

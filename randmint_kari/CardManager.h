@@ -28,7 +28,11 @@ public:
 
 	// セッター(変更したいときに使う)
 	// ゲッター(値を受け取りたいときに使う)
-	void SetHandleDeck(int handleDeck) { m_graphDeck = handleDeck; }	// 山札のハンドル
+
+	// 描画ハンドル
+	void SetHandleDeck(int handleDeck) { m_graphDeckHandle = handleDeck; }	// 山札のハンドル
+	void SteHandleSkip(int skipHandle) { m_graphSkipHandle = skipHandle; }	// スキップのハンドル
+
 
 	
 	//カードを使う処理
@@ -40,17 +44,22 @@ public:
 
 	bool GetWin() { return m_isWin; }
 
+	bool GetDrewCard() { return m_isDrewCard; }
+
 	void CheckRule(CardEffect& cardEffect);
 
 private:
 	// 画像の場合は
-	int m_graphDeck;	// 山札の画像ハンドル
+	int m_graphDeckHandle;	// 山札の画像ハンドル
+	int m_graphSkipHandle;
 
 	int m_mouseX;			// マウスのX座標取得するための変数
 	int m_mouseY;			// マウスのY座標取得するための変数
 
 
 	int m_playerCardPosX;
+
+	
 
 	bool m_isClickBefore;	// 1フレーム前にクリックされたかどうか
 	bool m_isClickNow;		// 現在クリックされているか
@@ -60,6 +69,10 @@ private:
 	bool m_isGrow = false;
 
 	bool m_isWin = false;
+
+	bool m_isDrewCard = false;	// そのターンにカードが引かれたかどうか
+
+	bool m_isMyHandFull = false;	// 手持ちのカードがいっぱいかどうか
 
 	
 

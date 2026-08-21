@@ -4,8 +4,8 @@
 namespace
 {
 	constexpr int handNum = 4;	// 初期の手札枚数
-	constexpr int cardWidth = 80;
-	constexpr int cardHeight = 100;
+	constexpr int cardWidth = 100;
+	constexpr int cardHeight = 120;
 }
 
 Card::Card():
