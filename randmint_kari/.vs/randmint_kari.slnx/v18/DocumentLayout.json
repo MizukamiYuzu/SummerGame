@@ -123,8 +123,7 @@
               "RelativeToolTip": "Player.cpp",
               "ViewState": "AgIAABgAAAAAAAAAAAAAABQAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-08-05T07:42:53.225Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-05T07:42:53.225Z"
             },
             {
               "$type": "Document",
@@ -149,11 +148,25 @@
               "RelativeToolTip": "SceneTitle.cpp",
               "ViewState": "AgIAABUAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-08-07T07:14:39.437Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-07T07:14:39.437Z"
             },
             {
               "$type": "Document",
+<<<<<<< Updated upstream
+=======
+              "DocumentIndex": 4,
+              "Title": "CardManager.cpp",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\CardManager.cpp",
+              "RelativeDocumentMoniker": "CardManager.cpp",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\SummerGame\\randmint_kari\\CardManager.cpp",
+              "RelativeToolTip": "CardManager.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEBAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-07-28T02:34:05.608Z"
+            },
+            {
+              "$type": "Document",
+>>>>>>> Stashed changes
               "DocumentIndex": 9,
               "Title": "minto.cpp",
               "DocumentMoniker": "C:\\Users\\Yuzu\\Documents\\GitHub\\SummerGame\\randmint_kari\\minto.cpp",
@@ -162,8 +175,7 @@
               "RelativeToolTip": "minto.cpp",
               "ViewState": "AgIAADkAAAAAAAAAAAAAAEgAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-08-07T03:13:23.591Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-07T03:13:23.591Z"
             },
             {
               "$type": "Document",
@@ -188,8 +200,7 @@
               "RelativeToolTip": "TurnManager.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-08-13T15:34:44.727Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-13T15:34:44.727Z"
             },
             {
               "$type": "Document",
@@ -201,6 +212,7 @@
               "RelativeToolTip": "CardEffect.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+<<<<<<< Updated upstream
               "WhenOpened": "2026-08-07T03:00:31.195Z",
               "EditorCaption": ""
             },
@@ -216,6 +228,9 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2026-07-28T02:34:05.608Z",
               "EditorCaption": ""
+=======
+              "WhenOpened": "2026-08-07T03:00:31.195Z"
+>>>>>>> Stashed changes
             }
           ]
         },
@@ -283,8 +298,7 @@
               "RelativeToolTip": "SceneMain.h",
               "ViewState": "AgIAABsAAAAAAAAAAAAAACcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-07-28T13:04:30.223Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-28T13:04:30.223Z"
             },
             {
               "$type": "Document",
@@ -335,8 +349,7 @@
               "RelativeToolTip": "minto.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-08-07T03:13:30.111Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-07T03:13:30.111Z"
             },
             {
               "$type": "Document",
