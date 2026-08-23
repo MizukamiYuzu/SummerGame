@@ -3,11 +3,14 @@
 #include "CardContent.h"
 #include "minto.h"
 #include "TurnManager.h"
+#include "Player.h"
+#include "Enemy.h"
 #include <vector>
 
 
 class CardEffect;
 class Player;
+class Enemy;
 class CardManager
 {
 public:
@@ -36,7 +39,7 @@ public:
 
 	
 	//カードを使う処理
-	void UseCard(Player* target, CardEffect& cardEffect);
+	void UseCard(Player* target, Player* mySelf, CardEffect& cardEffect);
 
 	bool GetDead() { return m_isDead; }
 
@@ -72,6 +75,8 @@ private:
 
 	bool m_isDrewCard = false;	// そのターンにカードが引かれたかどうか
 
+	bool m_isDrewCardDeck = false;	// 山札からカードを引いたかどうか
+
 	bool m_isMyHandFull = false;	// 手持ちのカードがいっぱいかどうか
 
 	
@@ -79,7 +84,7 @@ private:
 	//プレイヤー
 	Player* m_player;
 	//敵
-	Player* m_enemy;
+	Enemy* m_enemy;	// プレイヤーを継承した子クラスEnemy
 
 	// ミント
 	minto* m_pMinto;
@@ -89,7 +94,8 @@ private:
 
 
 
-	std::vector<CardEffect> m_cardEffect;	// カードの効果が入る動的配列
+	std::vector<CardEffect> m_myCardEffect;	// 自分のカードの効果が入る動的配列
+	std::vector<CardEffect> m_enemyCardEffect;	// カードの効果が入る動的配列
 
 	//ルール
 	std::vector<CardEffect> m_rules;

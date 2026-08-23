@@ -1,11 +1,11 @@
 {
     "Version": "1.2",
     "Data": {
-        "Source": "c:\\users\\yuzu\\documents\\github\\summergame\\randmint_kari\\player.cpp",
+        "Source": "c:\\users\\user\\documents\\github\\summergame\\randmint_kari\\player.cpp",
         "ProvidedModule": "",
         "Includes": [
-            "c:\\users\\yuzu\\documents\\github\\summergame\\randmint_kari\\player.h",
-            "c:\\users\\yuzu\\documents\\github\\summergame\\randmint_kari\\turnmanager.h"
+            "c:\\users\\user\\documents\\github\\summergame\\randmint_kari\\player.h",
+            "c:\\users\\user\\documents\\github\\summergame\\randmint_kari\\turnmanager.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

@@ -39,4 +39,9 @@ void Player::Damage(int damage)
 
 void Player::Heal(int heal)
 {
+	m_hp += heal;
+	if (m_hp > 100)
+	{
+		m_hp = 100;
+	}
 }

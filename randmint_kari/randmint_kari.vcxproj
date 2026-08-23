@@ -159,6 +159,7 @@
     <ClCompile Include="CardContent.cpp" />
     <ClCompile Include="CardEffect.cpp" />
     <ClCompile Include="CardManager.cpp" />
+    <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="minto.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -172,6 +173,7 @@
     <ClInclude Include="CardContent.h" />
     <ClInclude Include="CardEffect.h" />
     <ClInclude Include="CardManager.h" />
+    <ClInclude Include="Enemy.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="minto.h" />
     <ClInclude Include="Player.h" />
