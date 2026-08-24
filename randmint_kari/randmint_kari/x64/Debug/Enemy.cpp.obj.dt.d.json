@@ -1,13 +1,13 @@
 {
     "Version": "1.2",
     "Data": {
-        "Source": "c:\\users\\user\\documents\\github\\summergame\\randmint_kari\\enemy.cpp",
+        "Source": "c:\\users\\yuzu\\documents\\github\\summergame\\randmint_kari\\enemy.cpp",
         "ProvidedModule": "",
         "Includes": [
-            "c:\\users\\user\\documents\\github\\summergame\\randmint_kari\\enemy.h",
-            "c:\\users\\user\\documents\\github\\summergame\\randmint_kari\\player.h",
-            "c:\\users\\user\\documents\\github\\summergame\\randmint_kari\\turnmanager.h",
-            "c:\\users\\user\\documents\\github\\summergame\\randmint_kari\\cardeffect.h",
+            "c:\\users\\yuzu\\documents\\github\\summergame\\randmint_kari\\enemy.h",
+            "c:\\users\\yuzu\\documents\\github\\summergame\\randmint_kari\\player.h",
+            "c:\\users\\yuzu\\documents\\github\\summergame\\randmint_kari\\turnmanager.h",
+            "c:\\users\\yuzu\\documents\\github\\summergame\\randmint_kari\\cardeffect.h",
             "c:\\program files\\microsoft visual studio\\18\\community\\vc\\tools\\msvc\\14.51.36231\\include\\string",
             "c:\\program files\\microsoft visual studio\\18\\community\\vc\\tools\\msvc\\14.51.36231\\include\\yvals_core.h",
             "c:\\program files\\microsoft visual studio\\18\\community\\vc\\tools\\msvc\\14.51.36231\\include\\vcruntime.h",

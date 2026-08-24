@@ -30,6 +30,8 @@ int Enemy::ThinkAction(const std::vector<int>& validIndices, int playerHp, int e
     // 選んだ数の要素番号にアクセスし要素をrandomIndexに代入する    <- 要素はリストに入っている中身のこと、要素番号は個々の箱を指す数字
     // validIndices.size() -1で-1をする理由は、validIndices.size()で返されるのは要素数なので、
     // 0~4の要素番号があったとするなら要素数は5,要素番号5はないため-1をしてあげる必要がある
-    int randomIndex = GetRand(validIndices.size() -1);
+    // ただ要素番号の最大値(上の例を使用するなら要素番号は5)のときはスキップをしたいためそのまま使用する
+    int randomIndex = GetRand(validIndices.size()-1);
     return validIndices[randomIndex];
 }
+

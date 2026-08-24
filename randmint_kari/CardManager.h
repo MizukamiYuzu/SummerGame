@@ -47,7 +47,7 @@ public:
 
 	bool GetWin() { return m_isWin; }
 
-	bool GetDrewCard() { return m_isDrewCard; }
+	bool GetDrewCard() { return m_isPlayerDrewCard; }
 
 	void CheckRule(CardEffect& cardEffect);
 
@@ -73,11 +73,14 @@ private:
 
 	bool m_isWin = false;
 
-	bool m_isDrewCard = false;	// そのターンにカードが引かれたかどうか
+	bool m_isPlayerDrewCard = false;	// そのターンにカードが引かれたかどうか
+	bool m_isEnemyDrewCard = false;
 
 	bool m_isDrewCardDeck = false;	// 山札からカードを引いたかどうか
 
 	bool m_isMyHandFull = false;	// 手持ちのカードがいっぱいかどうか
+
+	bool m_isEnemyHandFull = false;
 
 	
 

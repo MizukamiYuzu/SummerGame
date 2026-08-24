@@ -107,7 +107,7 @@ void CardManager::Update()
 		//山札からカードを引いたとき
 		if (isInsideCard_y && !m_isMyHandFull)
 		{
-			if ((m_isClickBefore == false) && (m_isClickNow == true) && (m_isDrewCard == false))
+			if ((m_isClickBefore == false) && (m_isClickNow == true) && (m_isPlayerDrewCard == false))
 			{
 				if (m_pTurnManager->GetMyTurn())
 				{
@@ -116,8 +116,8 @@ void CardManager::Update()
 					card.Init();			// 初期化するよ
 					m_MyCard.push_back(card);	// 今ある配列の後ろに一つ要素を追加する
 					// Card型の変数を入れている理由は、m_cardはcard型の動的配列で、Card型の変数を入れてあげることで、もう一つcardを用意する
-					m_isDrewCard = true;
-		//カードの効果を作成(中身は空)
+					m_isPlayerDrewCard = true;
+					//カードの効果を作成(中身は空)
 					CardEffect cardEffect;
 					m_myCardEffect.push_back(cardEffect);
 					m_isDrewCardDeck = true;
@@ -125,6 +125,19 @@ void CardManager::Update()
 				
 
 			}
+			
+		}
+		if (!m_pTurnManager->GetMyTurn() && m_isEnemyDrewCard == false)
+		{
+			//カード作成
+			Card card;				// 新しくCard型の変数を宣言(push_backに追加する時にしか使わない)
+			card.Init();			// 初期化するよ
+			m_EnemyCard.push_back(card);	// 今ある配列の後ろに一つ要素を追加する
+			// Card型の変数を入れている理由は、m_cardはcard型の動的配列で、Card型の変数を入れてあげることで、もう一つcardを用意する
+			m_isEnemyDrewCard = true;
+			//カードの効果を作成(中身は空)
+			CardEffect cardEffect;
+			m_enemyCardEffect.push_back(cardEffect);
 		}
 
 
@@ -142,20 +155,28 @@ void CardManager::Update()
 		if (isClickThisFrame && isMouseInsideSkip && m_isDrewCardDeck)
 		{
 			m_isDrewCardDeck = false;
+			m_isEnemyDrewCard = false;
 			m_pTurnManager->SetMyTurn(false);
 		}
 
 		// プレイヤー
 		//	DrawBox(Game::kScreenWidth / 2, Game::kScreenHeight / 2-50, Game::kScreenWidth / 2 + 100, Game::kScreenHeight / 2 + 50, GetColor(255, 255, 255), true);
-		int validCardCount = 0;
+		
+		int validMyCardCount = 0;
 		for (int i = 0; i < m_MyCard.size(); i++)
 		{
-			if (m_MyCard[i].GetCard())validCardCount++;	// カードが存在している分だけカウントする
+			if (m_MyCard[i].GetCard())validMyCardCount++;	// カードが存在している分だけカウントする
 		}
-		bool isDiscardMode = (validCardCount == kMaxHand+1);	// 手持ちに持てる最大の枚数より手札が多くあるか
-		
+		bool isPlayerDiscardMode = (validMyCardCount == kMaxHand+1);	// 手持ちに持てる最大の枚数より手札が多くあるか
+		//int validEnemyCardCount = 0;
+		//for (int i = 0; i < m_EnemyCard.size(); i++)
+		//{
+		//	if (m_EnemyCard[i].GetCard())validEnemyCardCount++;	// カードが存在している分だけカウントする
+		//}
+		//bool isEnemyDiscardMode = (validEnemyCardCount == kMaxHand + 1);	// 手持ちに持てる最大の枚数より手札が多くあるか
 
-		m_isMyHandFull = (validCardCount >= kMaxHand + 1);
+		m_isMyHandFull = (validMyCardCount >= kMaxHand + 1);
+		/*m_isEnemyHandFull = (validEnemyCardCount >= kMaxHand + 1);*/
 
 		int drawMyCount = 0;	// 消されていないならカウントをする
 		int drawEnemyCount = 0;	// 消されていないならカウントをする
@@ -195,7 +216,7 @@ void CardManager::Update()
 				{
 					if (m_pTurnManager->GetMyTurn())
 					{
-						if (isDiscardMode)
+						if (isPlayerDiscardMode)
 						{
 							// カードを無効にする
 							m_MyCard[i].SetCard(false); // m_card[i]に引数をぶち込む
@@ -216,6 +237,7 @@ void CardManager::Update()
 							m_MyCard[i].SetCard(false); // m_card[i]に引数をぶち込む
 							//m_cardContent.erase(m_cardContent.begin() + i);
 
+							m_isEnemyDrewCard = false;
 							_isDeleteCard = true;
 							m_isDrewCardDeck = false;
 							m_pTurnManager->SetMyTurn(false);
@@ -253,7 +275,7 @@ void CardManager::Update()
 			
 			if (CheckHitKey(KEY_INPUT_UP))
 			{
-				m_isDrewCard = false;
+				m_isPlayerDrewCard = false;
 				m_pTurnManager->SetMyTurn(true);
 			}
 
@@ -279,23 +301,25 @@ void CardManager::Update()
 					validIndices.push_back(i);
 				}
 			}
-			if (!validIndices.empty())	// もしvalidIndicesが空じゃなければ(empty<-空という意味)
+			if (!validIndices.empty() && m_isEnemyDrewCard)	// もしvalidIndicesが空じゃなければ(empty<-空という意味)
 			{
 				// 返ってきた数(何番目のカードを使うか)を代入
 				int useCardIndex = m_enemy->ThinkAction(validIndices, m_player->GetHp(), m_enemy->GetHp(), m_pMinto->GetGrow());
-				if (useCardIndex != -1)	// useCardIndex == -1のときは考えているとき　(m_thinkTimer--中)
+				if (useCardIndex != -1  // useCardIndex == -1のときは考えているとき　(m_thinkTimer--中)
+				//	&& !useCardIndex == validIndices.size()
+					) // 
 				{
 					UseCard(m_player, m_enemy, m_enemyCardEffect[useCardIndex]);
 					m_EnemyCard[useCardIndex].SetCard(false);
-					m_isDrewCard = false;
+					m_isPlayerDrewCard = false;
+					m_pTurnManager->SetMyTurn(true);
+				}
+				else if(useCardIndex != -1 && useCardIndex == validIndices.size())
+				{
+					m_isPlayerDrewCard = false;
 					m_pTurnManager->SetMyTurn(true);
 				}
 				
-			}
-			else 
-			{
-				m_isDrewCard = false;
-				m_pTurnManager->SetMyTurn(true);
 			}
 		}
 		if (m_player->GetHp() <= 0 || m_enemy->GetHp() <= 0)
