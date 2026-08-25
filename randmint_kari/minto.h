@@ -10,7 +10,6 @@ public:
 
 	void Init();
 	void End();
-	void Update(); 
 	void Draw();
 
 	void SetPlant(bool plant) { m_plant = plant; }

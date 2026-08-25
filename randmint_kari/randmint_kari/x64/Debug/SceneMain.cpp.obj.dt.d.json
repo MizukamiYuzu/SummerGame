@@ -376,7 +376,8 @@
             "c:\\users\\user\\documents\\github\\summergame\\randmint_kari\\turnmanager.h",
             "c:\\users\\user\\documents\\github\\summergame\\randmint_kari\\player.h",
             "c:\\users\\user\\documents\\github\\summergame\\randmint_kari\\enemy.h",
-            "c:\\users\\user\\documents\\github\\summergame\\randmint_kari\\cardeffect.h"
+            "c:\\users\\user\\documents\\github\\summergame\\randmint_kari\\cardeffect.h",
+            "c:\\users\\user\\documents\\github\\summergame\\randmint_kari\\timer.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

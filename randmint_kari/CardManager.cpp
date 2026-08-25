@@ -36,8 +36,14 @@ void CardManager::Init()
 	m_player = new Player();
 	m_enemy = new Enemy();
 	m_pTurnManager = new TurnManager();
-
+	// ミント作成
 	m_pMinto = new minto();
+	// タイマー作成
+	m_pTimer = new Timer();
+
+	m_player->Init();
+	m_enemy->Init();
+
 	m_pMinto->Init();
 	m_pCardContent = new CardContent;
 	m_pCardContent->Init();
@@ -129,15 +135,21 @@ void CardManager::Update()
 		}
 		if (!m_pTurnManager->GetMyTurn() && m_isEnemyDrewCard == false)
 		{
-			//カード作成
-			Card card;				// 新しくCard型の変数を宣言(push_backに追加する時にしか使わない)
-			card.Init();			// 初期化するよ
-			m_EnemyCard.push_back(card);	// 今ある配列の後ろに一つ要素を追加する
-			// Card型の変数を入れている理由は、m_cardはcard型の動的配列で、Card型の変数を入れてあげることで、もう一つcardを用意する
-			m_isEnemyDrewCard = true;
-			//カードの効果を作成(中身は空)
-			CardEffect cardEffect;
-			m_enemyCardEffect.push_back(cardEffect);
+			if (m_pTimer->IsTimeOver())
+			{
+				//カード作成
+				Card card;				// 新しくCard型の変数を宣言(push_backに追加する時にしか使わない)
+				card.Init();			// 初期化するよ
+				m_EnemyCard.push_back(card);	// 今ある配列の後ろに一つ要素を追加する
+				// Card型の変数を入れている理由は、m_cardはcard型の動的配列で、Card型の変数を入れてあげることで、もう一つcardを用意する
+				m_isEnemyDrewCard = true;
+				//カードの効果を作成(中身は空)
+				CardEffect cardEffect;
+				m_enemyCardEffect.push_back(cardEffect);
+
+				m_pTimer->SetReset(60);
+			}
+			
 		}
 
 
@@ -241,6 +253,7 @@ void CardManager::Update()
 							_isDeleteCard = true;
 							m_isDrewCardDeck = false;
 							m_pTurnManager->SetMyTurn(false);
+							m_pTimer->SetReset(60);
 						}
 					}
 
@@ -304,17 +317,15 @@ void CardManager::Update()
 			if (!validIndices.empty() && m_isEnemyDrewCard)	// もしvalidIndicesが空じゃなければ(empty<-空という意味)
 			{
 				// 返ってきた数(何番目のカードを使うか)を代入
-				int useCardIndex = m_enemy->ThinkAction(validIndices, m_player->GetHp(), m_enemy->GetHp(), m_pMinto->GetGrow());
-				if (useCardIndex != -1  // useCardIndex == -1のときは考えているとき　(m_thinkTimer--中)
-				//	&& !useCardIndex == validIndices.size()
-					) // 
+				int useCardIndex = m_enemy->ThinkAction(validIndices, m_player->GetHp(), m_enemy->GetHp(), m_pMinto->GetGrow(), m_enemyCardEffect, m_rules);
+				if (useCardIndex != -1 && useCardIndex != -2)  // useCardIndex == -1のときは考えているとき　(m_thinkTimer--中)
 				{
 					UseCard(m_player, m_enemy, m_enemyCardEffect[useCardIndex]);
 					m_EnemyCard[useCardIndex].SetCard(false);
 					m_isPlayerDrewCard = false;
 					m_pTurnManager->SetMyTurn(true);
 				}
-				else if(useCardIndex != -1 && useCardIndex == validIndices.size())
+				else if(useCardIndex == -2)	// スキップ
 				{
 					m_isPlayerDrewCard = false;
 					m_pTurnManager->SetMyTurn(true);
@@ -334,6 +345,7 @@ void CardManager::Update()
 	}
 
 }
+
 
 void CardManager::Draw()
 {
@@ -464,7 +476,7 @@ void CardManager::CheckRule(CardEffect& cardEffect)
 		{
 			int value = rule.GetValue();
 			//自分の体力がvalue倍なら勝利
-			if (m_player->GetHp() % value == 0 && m_player->GetHp() !=0)
+			if (value != 0 && m_player->GetHp() % value == 0 && m_player->GetHp() !=0)
 			{
 				m_isWin = true;
 			}
@@ -475,7 +487,7 @@ void CardManager::CheckRule(CardEffect& cardEffect)
 		{
 			int value = rule.GetValue();
 			// 相手の体力がvalue倍なら勝利
-			if (m_enemy->GetHp() % value == 0 && m_enemy->GetHp() != 0)
+			if (value != 0 && m_enemy->GetHp() % value == 0 && m_enemy->GetHp() != 0)
 			{
 				m_isWin = true;
 			}
@@ -515,7 +527,7 @@ void CardManager::CheckRule(CardEffect& cardEffect)
 		{
 			int value = rule.GetValue();
 			// ミントのエネルギーがN倍なら勝利
-			if (m_pMinto->GetGrow() % value == 0 && m_pMinto->GetGrow() != 0)
+			if (value != 0 && m_pMinto->GetGrow() % value == 0 && m_pMinto->GetGrow() != 0)
 			{
 				m_isWin = true;
 			}

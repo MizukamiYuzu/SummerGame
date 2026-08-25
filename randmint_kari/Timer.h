@@ -7,11 +7,13 @@ public:
 
 
 	
-	bool EnemyThinkTimer();
+	bool IsTimeOver();
+	void SetReset(int timer);
+	
 
 private:
-	int m_thinkTimer = 60;
+	int m_timer = 60;
 
-	bool m_thinking = false;	// 考えている最中
+	bool m_isTimeOver = false;	// 考えている最中
 };
 

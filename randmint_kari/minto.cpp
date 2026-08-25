@@ -25,9 +25,6 @@ void minto::End()
 	DeleteGraph(m_handle);
 }
 
-void minto::Update()
-{
-}
 
 void minto::Draw()
 {
@@ -50,12 +47,14 @@ void minto::Draw()
 	if(m_plant)
 	{
 		DrawRectRotaGraph
-		(Game::kScreenWidth / 2 - 100, Game::kScreenHeight / 2 - 50,
+		(
+		Game::kScreenWidth / 2 - 100, Game::kScreenHeight / 2 - 50,
 		//	0,0,
 		//	posX * kWidth, posY * kHeight,
-			kWidth * posX + 50, kHeight * posY,
-			kWidth, kHeight, 0.4, 0,
-			m_handle, true);
+		kWidth * posX + 50, kHeight * posY,
+		kWidth, kHeight, 0.4, 0,
+		m_handle, true
+		);
 	}
 	
 

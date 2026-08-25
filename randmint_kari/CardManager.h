@@ -5,6 +5,7 @@
 #include "TurnManager.h"
 #include "Player.h"
 #include "Enemy.h"
+#include "timer.h"
 #include <vector>
 
 
@@ -94,6 +95,9 @@ private:
 
 	// ターンマネージャー
 	TurnManager* m_pTurnManager;
+
+	// タイマー
+	Timer* m_pTimer;
 
 
 

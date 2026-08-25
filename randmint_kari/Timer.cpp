@@ -8,17 +8,25 @@ Timer::~Timer()
 {
 }
 
-bool Timer::EnemyThinkTimer()
+bool Timer::IsTimeOver()
 {
-    // タイマーを減らす(考え中なら-1を返す)
-    m_thinkTimer--;
-    if (m_thinkTimer > 0)
+    // タイマーを減らす
+    
+    if (m_timer > 0)
     {
-        return -1;
+        m_timer--;
+        m_isTimeOver = false;
     }
     else
     {
-        m_thinking = false;
+        m_isTimeOver = true;
     }
+    return m_isTimeOver;
+}
+
+void Timer::SetReset(int timer)
+{
+    m_timer = timer;
+    m_isTimeOver = false;
 
 }
