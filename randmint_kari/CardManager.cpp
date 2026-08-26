@@ -75,7 +75,6 @@ void CardManager::End()
 
 void CardManager::Update()
 {
-	m_pMinto->Update();
 	m_pCardContent->Update();
 	m_isClickBefore = m_isClickNow;
 	m_isClickNow = (GetMouseInput() & MOUSE_INPUT_LEFT);

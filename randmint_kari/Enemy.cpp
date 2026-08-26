@@ -130,7 +130,32 @@ int Enemy::ThinkAction(const std::vector<int>& validIndices, int playerHp, int e
                 score += 20;
             }
         }
-        // ルール追加カードの評価から
+        // --- 4. ルール追加カードの評価 ---
+        else if (effect.GetEffect() == CardEffect::Effect::Rule) 
+        {
+            score += 15;
+        }
+        // --- 5. ルール達成チェック(特殊勝利判定) ---
+        for (const auto& rule : rules)
+        {
+            if (rule.GetRuleEffect() == CardEffect::RuleEffect::YourMltiWin)
+            {
+                int val = rule.GetValue();
+                if (val > 0 && effect.GetEffect() == CardEffect::Effect::Damage)
+                {
+                    int predictedHp = playerHp - effect.GetValue();
+                    if (predictedHp > 0 && predictedHp % val == 0)
+                    {
+                        score += 800;
+                    }
+                }
+            }
+            if (rule.GetRuleEffect() == CardEffect::RuleEffect::MyMltiWin) 
+            {
+
+            }
+            
+        }
     }
 }
 
