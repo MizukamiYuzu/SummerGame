@@ -17,6 +17,8 @@ public:
 
 private:
 
+	int m_soundHandle;
+
 	bool m_isEnd;
 	bool m_isKeyDownBefore;
 

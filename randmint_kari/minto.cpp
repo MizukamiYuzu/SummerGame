@@ -16,6 +16,7 @@ minto::~minto()
 
 void minto::Init()
 {
+	m_fontHandle = CreateFontToHandle("クラフト明朝", 20, 9, -1);
 	m_handle = LoadGraph("data/img/minto_1.png");
 	SetHandle(m_handle);
 }
@@ -55,10 +56,20 @@ void minto::Draw()
 		kWidth, kHeight, 0.6, 0,
 		m_handle, true
 		);
+		DrawBox(Game::kScreenWidth / 2 - 201, Game::kScreenHeight / 2 -1, Game::kScreenWidth / 2 - 9, Game::kScreenHeight / 2 + 51, GetColor(0, 0, 0), false);
+		SetDrawBlendMode(DX_BLENDMODE_ALPHA, 230);
+		DrawBox(Game::kScreenWidth / 2 -200, Game::kScreenHeight / 2 , Game::kScreenWidth / 2 - 10, Game::kScreenHeight / 2 + 50, GetColor(255,255,255), true);
+		SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
+		DrawFormatStringToHandle(Game::kScreenWidth / 2 - 200, Game::kScreenHeight / 2 ,
+			GetColor(0, 255, 0), m_fontHandle, "現在のエネルギー量");
+		DrawFormatStringToHandle(Game::kScreenWidth / 2 - 150, Game::kScreenHeight / 2 +20,
+			GetColor(0, 255, 0), m_fontHandle, "%d / 100", m_energy);
+
 	}
 	
 
 	DrawFormatString(0, 32, GetColor(255, 255, 255), "minto : %d", m_energy);
+	
 
 	
 	

@@ -17,15 +17,21 @@ void SceneTitle::Init()
 	
 	// タイトル背景画像グラフ
 	m_BgTitleGraph = LoadGraph("data/img/RandoMitoTitle.jpeg");
+
+	// サウンド
+	m_soundHandle = LoadSoundMem("data/sound/TitleSceneBgm.mp3");
+	PlaySoundMem(m_soundHandle, DX_PLAYTYPE_LOOP);
 }
 
 void SceneTitle::End()
 {
 	DeleteGraph(m_BgTitleGraph);
+	DeleteSoundMem(m_soundHandle);
 }
 
 void SceneTitle::Update()
 {
+	
 	bool isKeyDownNow = (CheckHitKey(KEY_INPUT_RETURN) != 0);
 	bool isKeyPressedThisFrame = (!m_isKeyDownBefore) && isKeyDownNow;
 	if (isKeyPressedThisFrame)

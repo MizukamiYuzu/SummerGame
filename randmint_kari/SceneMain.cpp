@@ -36,8 +36,10 @@ void SceneMain::Init()
 	// カードの背景
 	m_graphCardBgHandle = LoadGraph("data/img/serihuwaku.png");
 
-	m_fontHandle = CreateFontToHandle("クラフト明朝", 48, 48, -1);
+	m_fontHandle = CreateFontToHandle("クラフト明朝", 48, -1, -1);
 
+	m_soundMainBgHandle = LoadSoundMem("data/sound/MainSceneBgm.mp3");
+	PlaySoundMem(m_soundMainBgHandle, DX_PLAYTYPE_LOOP);
 
 	m_isEnd = false;
 	m_isKeyDownBefore = false;
@@ -60,6 +62,10 @@ void SceneMain::Init()
 	m_frameCount = 0;
 
 	
+
+
+
+	
 }
 
 void SceneMain::End()
@@ -69,6 +75,8 @@ void SceneMain::End()
 	DeleteGraph(m_skipGraphHandle);
 	DeleteGraph(m_graphBgMainHandle);
 	DeleteGraph(m_graphCardBgHandle);
+
+	DeleteSoundMem(m_soundMainBgHandle);
 }
 
 void SceneMain::Update()
@@ -151,42 +159,47 @@ void SceneMain::Draw()
 	{
 		DrawFormatString(Game::kScreenWidth/2, Game::kScreenHeight/2, GetColor(0, 0, 0), "%d", m_pTimer->GetTimer());
 		DrawBox(100, Game::kScreenHeight / 2 - 50, Game::kScreenWidth - 100, Game::kScreenHeight / 2 + 100, GetColor(255, 255, 255), true);
-		
+		int posX = 100;
 		if (m_pCardManager->GetDead() == true)
 		{
 			if (m_pCardManager->GetWhoWin())
 			{
-				m_WinText = "あなたの勝利";
+				m_WinText = "あなたはミント王になるために皆殺しにした";
 			}
 			else
 			{
-				m_WinText = "NPCの勝利";
+				m_WinText = "NPCはミント王になるために皆殺しにした";
 			}
+			posX = 500;
 			
 		}
 		else if (m_pCardManager->GetGrow())
 		{
 			if (m_pCardManager->GetWhoWin())
 			{
-				m_WinText = "あなたはミントを育てることができた";
+				m_WinText = "あなたはミント王になった";
 			}
 			else
 			{
-				m_WinText = "NPCはミントを育てることができた";
+				m_WinText = "NPCはミント王になった";
 			}
+
+			posX = 300;
 		}
 		else
 		{
 			if (m_pCardManager->GetWhoWin())
 			{
-				m_WinText = "あなたは特殊勝利条件で勝利した";
+				m_WinText = "あなたは特殊な方法でミント王になった";
 			}
 			else
 			{
-				m_WinText = "NPCは特殊勝利条件で勝利した";
+				m_WinText = "NPCは特殊な方法でミント王になった";
 			}
+			posX = 450;
 		}
-		DrawFormatStringToHandle(100, Game::kScreenHeight / 2, GetColor(0, 0, 0), m_fontHandle, m_WinText.c_str());
+		DrawFormatStringToHandle(Game::kScreenWidth / 2 - posX, Game::kScreenHeight / 2, GetColor(0, 0, 0), m_fontHandle,"%s", m_WinText.c_str());
+		
 		
 			
 	}

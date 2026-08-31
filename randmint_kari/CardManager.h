@@ -55,6 +55,8 @@ public:
 	// プレイヤーの勝利かどうか
 	bool GetWhoWin() { return m_isMyWin; }
 
+	void DrawTrunText();
+
 private:
 	// 画像の場合は
 	int m_graphDeckHandle;		// 山札の画像ハンドル
@@ -75,10 +77,18 @@ private:
 
 	int m_selectCardIndex = -1;	// マウスが乗っているカードの番号
 
+
 	
 
 	bool m_isClickBefore;	// 1フレーム前にクリックされたかどうか
 	bool m_isClickNow;		// 現在クリックされているか
+
+
+	// ターン判定用変数
+	bool m_isMyTurnBefore = false;
+	bool m_isMyTurnNow = false;
+	bool m_isEnemyTurnBefore = false;
+	bool m_isEnemyTurnNow = false;
 
 	bool m_isDead = false;
 	
@@ -96,6 +106,10 @@ private:
 	bool m_isEnemyHandFull = false;
 
 	bool m_isMyWin = false;	// プレイヤーが勝利したかどうか
+
+	bool m_isTimerStart = false;	// タイマーが発動したかどうか
+
+	bool m_isStartText = true;	// ゲーム開始時のテキスト表示中かどうか
 	
 
 	

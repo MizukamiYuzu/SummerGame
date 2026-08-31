@@ -25,6 +25,8 @@ public:
 
 private:
 	int m_energy = 0;	// エネルギー
+
+	int m_fontHandle;	// フォント
 	
 	bool m_plant = true;
 

@@ -68,6 +68,28 @@ void CardManager::Init()
 		m_EnemyCard[i].SetHandleHand(m_cardBackGraphHandle);
 	}
 
+	// 先攻後攻決め
+
+	int turn = GetRand(1);
+
+	if (turn <= 0)
+	{
+		m_pTurnManager->SetMyTurn(true);
+		m_pTurnManager->SetEnemyTurn(false);
+
+		m_isMyTurnBefore = false;
+		m_isEnemyTurnBefore = true;
+	}
+	else
+	{
+		m_pTurnManager->SetMyTurn(false);
+		m_pTurnManager->SetEnemyTurn(true);
+
+		m_isMyTurnBefore = true;
+		m_isEnemyTurnBefore = false;
+	}
+
+
 }
 
 void CardManager::End()
@@ -89,10 +111,57 @@ void CardManager::End()
 
 void CardManager::Update()
 {
-	
+
 	m_pCardContent->Update();
+
+	// 現状のターンの状態を取得
+	m_isMyTurnNow = m_pTurnManager->GetMyTurn();	
+	m_isEnemyTurnNow = m_pTurnManager->GetEnemyTurn();
+
+	
+	if ((!m_isMyTurnNow && !m_isEnemyTurnNow) || m_isStartText)	// このときはターンの入れ替え時(ターンの情報を入力しないようにする)またはゲーム開始時
+	{
+		if (!m_isTimerStart)	// テキスト表示するためタイマーを使う
+		{
+			m_pTimer->SetReset(120);
+			m_isTimerStart = true;
+			if (m_pMinto->GetPlant())	// 毎ターンミントを1蓄積する
+			{
+				m_pMinto->GetAddEnergy(1);
+			}
+
+		}
+		if (m_pTimer->IsTimeOver())	// テキスト表示のタイマーがすぎたら
+		{
+			m_isTimerStart = false;
+
+			if (m_isStartText)	// ゲーム開始時のテキスト表示が終わった
+			{
+				m_isStartText = false;
+			}
+			if (m_isMyTurnBefore)
+			{
+				m_pTurnManager->SetEnemyTurn(true);
+			}
+			else if (m_isEnemyTurnBefore)
+			{
+				m_pTurnManager->SetMyTurn(true);
+			}
+		}
+		
+		
+	}
+	else  // このときはターンの切り替えではないのでデータを上書きする
+	{
+		m_isMyTurnBefore = m_isMyTurnNow;
+		m_isEnemyTurnBefore = m_isEnemyTurnNow;
+	}
+
+
+	// クリックの判定
 	m_isClickBefore = m_isClickNow;
 	m_isClickNow = (GetMouseInput() & MOUSE_INPUT_LEFT);
+
 	for (int i = 0; i < m_MyCard.size(); i++)
 	{
 		if (!m_MyCard[i].GetCard())continue;
@@ -185,7 +254,7 @@ void CardManager::Update()
 			m_isDrewCardDeck = false;
 			m_isEnemyDrewCard = false;
 			m_pTurnManager->SetMyTurn(false);
-			m_pMinto->GetAddEnergy(1);
+			
 		}
 
 		// プレイヤー
@@ -249,7 +318,11 @@ void CardManager::Update()
 						{
 							// カードを無効にする
 							m_MyCard[i].SetCard(false); // m_card[i]に引数をぶち込む
-							m_pMinto->GetAddEnergy(1);
+							if (m_pMinto->GetPlant())
+							{
+								m_pMinto->GetAddEnergy(1);
+							}
+							
 							m_myCardEffect[i].SetContent("");
 
 							//m_cardContent.erase(m_cardContent.begin() + i);
@@ -259,8 +332,11 @@ void CardManager::Update()
 						}
 						else
 						{
+							if (m_pMinto->GetPlant())
+							{
+								m_pMinto->GetAddEnergy(1);
+							}
 							
-							m_pMinto->GetAddEnergy(1);
 							//カードを使う処理(敵に対して)
 							UseCard(m_enemy, m_player, m_myCardEffect[i]);
 							// カードを無効にする
@@ -273,7 +349,6 @@ void CardManager::Update()
 							m_isEnemyDrewCard = false;
 							_isDeleteCard = true;
 							m_isDrewCardDeck = false;
-							m_pMinto->GetAddEnergy(1);
 							m_pTurnManager->SetMyTurn(false);
 							m_pTimer->SetReset(60);
 						}
@@ -308,18 +383,12 @@ void CardManager::Update()
 			int cardEnemyPosY =( Game::kScreenHeight / 2-200 -( 120 *(drawEnemyCount / kCardWidthMaxCount) +30));
 
 			
-			if (CheckHitKey(KEY_INPUT_UP))
-			{
-				m_pMinto->GetAddEnergy(1);
-				m_isPlayerDrewCard = false;
-				m_pTurnManager->SetMyTurn(true);
-			}
 
 			m_EnemyCard[i].SetDrawPos(cardEnemyPosX, cardEnemyPosY);
 			drawEnemyCount++;
 
 		}
-		if (!m_pTurnManager->GetMyTurn())
+		if (m_pTurnManager->GetEnemyTurn())
 		{
 			// 使用していないカードの番号を代入する
 			/*
@@ -346,14 +415,18 @@ void CardManager::Update()
 					UseCard(m_player, m_enemy, m_enemyCardEffect[useCardIndex]);
 					m_EnemyCard[useCardIndex].SetCard(false);
 					m_isPlayerDrewCard = false;
-					m_pTurnManager->SetMyTurn(true);
-					m_pMinto->GetAddEnergy(1);
+					m_pTurnManager->SetEnemyTurn(false);
+					
 				}
 				else if(useCardIndex == -2)	// スキップ
 				{
-					m_pMinto->GetAddEnergy(1);
+					if (m_pMinto->GetPlant())
+					{
+						m_pMinto->GetAddEnergy(1);
+					}
+					
 					m_isPlayerDrewCard = false;
-					m_pTurnManager->SetMyTurn(true);
+					m_pTurnManager->SetEnemyTurn(false);
 				}
 				
 			}
@@ -380,8 +453,12 @@ void CardManager::Update()
 void CardManager::Draw()
 {
 
+
 	m_pCardContent->Draw();
 	m_pMinto->Draw();
+
+	
+
 	// 山札描画
 	DrawExtendGraph(Game::kScreenWidth / 2, Game::kScreenHeight / 2 -80, Game::kScreenWidth / 2 + 150, Game::kScreenHeight / 2 + 70, m_graphDeckHandle, true);	
 #ifdef _DEBUG;
@@ -396,7 +473,6 @@ void CardManager::Draw()
 		DrawGraph(kSkipGraphPosX - kSkipGraphMargin, kSkipGraphPosY - kSkipGraphMargin, m_graphSkipHandle, true);
 		
 	}
-
 	// 手札描画
 	for (int i = 0; i < m_EnemyCard.size(); i++)
 	{
@@ -433,17 +509,28 @@ void CardManager::Draw()
 			}
 		}
 	}
+
+	// ターン交代
+	
 	if (m_selectCardIndex != -1)
 	{
-		DrawFormatString(m_selectCardIndex * 100 + 50, Game::kScreenHeight/2 + 50, GetColor(0, 0, 0), m_myCardEffect[m_selectCardIndex].GetContent().c_str());
+		int StrLen = strlen(m_myCardEffect[m_selectCardIndex].GetContent().c_str());
+		int StrWidth = GetDrawStringWidth(m_myCardEffect[m_selectCardIndex].GetContent().c_str(), StrLen);
+		SetDrawBlendMode(DX_BLENDMODE_ALPHA, 200);
+		DrawBox(m_MyCard[m_selectCardIndex].GetDrawPosX() - 10, m_MyCard[m_selectCardIndex].GetDrawPosY() - 20, m_MyCard[m_selectCardIndex].GetDrawPosX() + StrWidth, m_MyCard[m_selectCardIndex].GetDrawPosY(), GetColor(255, 255, 255), true);
+		SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
+		DrawFormatString(m_MyCard[m_selectCardIndex].GetDrawPosX()-10 , m_MyCard[m_selectCardIndex].GetDrawPosY() -20, GetColor(0, 0, 0), m_myCardEffect[m_selectCardIndex].GetContent().c_str());
 
 	}
-
+	DrawBox(0, 0, 5, 250, GetColor(0, 0, 0), true);
+	DrawBox(0, 0, 500, 5, GetColor(0, 0, 0), true);
+	DrawBox(500, 0, 505, 250, GetColor(0, 0, 0), true);
+	DrawBox(0, 250, 505, 255, GetColor(0, 0, 0), true);
 	SetDrawBlendMode(DX_BLENDMODE_ALPHA, 200);
-	DrawBox(0, 0, 500, 250, GetColor(255, 255, 255), true);
+	DrawBox(5, 5, 500, 250, GetColor(255, 255, 255), true);
 	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 	
-	DrawFormatStringToHandle(10, 10, GetColor(0, 0, 0), m_fontTitleRuleHandle, "特殊勝利条件");
+	DrawFormatStringToHandle(125, 10, GetColor(0, 0, 0), m_fontTitleRuleHandle, "特殊勝利条件");
 	
 	for (int i = 0; i < m_rules.size(); i++)
 	{
@@ -451,8 +538,23 @@ void CardManager::Draw()
 		DrawFormatStringToHandle(10, i * 20 + 50, GetColor(0, 0, 0), m_fontRuleHandle, m_rules[i].GetContent().c_str());
 	}
 	DrawFormatStringToHandle(10, Game::kScreenHeight / 2 +30, GetColor(200, 100, 100), m_fontHandle, "自分のHP：%d / 100", m_player->GetHp());
-	DrawFormatStringToHandle(Game::kScreenWidth -250, Game::kScreenHeight / 2 -70, GetColor(200, 100, 100), m_fontHandle, "相手のHP：%d / 100", m_enemy->GetHp());
-	
+	DrawFormatStringToHandle(Game::kScreenWidth -250, Game::kScreenHeight / 2 -70, GetColor(200, 100, 100), m_fontHandle, "相手のHP：%d", m_enemy->GetHp());
+	if ((!m_isMyTurnNow && !m_isEnemyTurnNow) || m_isStartText)
+	{
+
+		std::string trun = "";
+		if (m_isMyTurnBefore)
+		{
+			trun = "Enemyのターンです";
+		}
+		if (m_isEnemyTurnBefore)
+		{
+			trun = "あなたのターンです";
+		}
+		DrawBox(100, Game::kScreenHeight / 2 - 50, Game::kScreenWidth - 100, Game::kScreenHeight / 2 + 100, GetColor(255, 255, 255), true);
+		DrawFormatStringToHandle(Game::kScreenWidth / 2 - 250, Game::kScreenHeight / 2, GetColor(0, 255, 0), m_fontTitleRuleHandle, trun.c_str());
+
+	}
 }
 
 void CardManager::UseCard(Player* target, Player* mySelf, CardEffect& cardEffect)
@@ -625,3 +727,5 @@ void CardManager::CheckRule(CardEffect& cardEffect)
 
 	cardEffect.SetContent("");
 }
+
+

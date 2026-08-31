@@ -42,9 +42,12 @@ private:
 	int m_graphBgMainHandle;	// 背景画像ハンドル
 	int m_graphCardBgHandle;	// カード下に引く画像
 
+	int m_soundMainBgHandle;
+
 	// クリック判定用変数
 	bool m_isClickBefore;	// 1フレーム前にクリックされたかどうか
 	bool m_isClickNow;		// 現在クリックされているかどうか
+
 	
 
 	// 現在のシーンの実行時間(フレーム数)
