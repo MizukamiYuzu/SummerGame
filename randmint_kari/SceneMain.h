@@ -28,11 +28,19 @@ private:
 
 	bool m_isKeyDownBefore;
 
+	bool m_isTimerStart = false;
+
 	int m_skipGraphHandle;
+
+
+	// フォントのハンドル
+	int m_fontHandle;
 
 	// 画像の読み込み
 	// 山札のハンドル
 	int m_deckHandle;
+	int m_graphBgMainHandle;	// 背景画像ハンドル
+	int m_graphCardBgHandle;	// カード下に引く画像
 
 	// クリック判定用変数
 	bool m_isClickBefore;	// 1フレーム前にクリックされたかどうか
@@ -41,8 +49,15 @@ private:
 
 	// 現在のシーンの実行時間(フレーム数)
 	int m_frameCount;
+
+	// 勝利した時のテキスト表示
+	std::string m_WinText;
+
 	// カードマネージャーのポインター
 	CardManager* m_pCardManager;
+
+	// タイマーのポインター
+	Timer* m_pTimer;
 	
 };
 

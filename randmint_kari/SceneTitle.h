@@ -1,4 +1,5 @@
 ﻿#pragma once
+#include "Game.h"
 #include "Dxlib.h"
 
 class SceneTitle
@@ -18,5 +19,8 @@ private:
 
 	bool m_isEnd;
 	bool m_isKeyDownBefore;
+
+	// タイトル背景画像
+	int m_BgTitleGraph;
 };
 

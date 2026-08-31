@@ -52,16 +52,28 @@ public:
 
 	void CheckRule(CardEffect& cardEffect);
 
+	// プレイヤーの勝利かどうか
+	bool GetWhoWin() { return m_isMyWin; }
+
 private:
 	// 画像の場合は
-	int m_graphDeckHandle;	// 山札の画像ハンドル
-	int m_graphSkipHandle;
+	int m_graphDeckHandle;		// 山札の画像ハンドル
+	int m_graphSkipHandle;		// スキップの画像
+	int m_cardGraphHandle;	// 手札のハンドル変数
+	int m_cardBackGraphHandle;
+	
+	int m_fontHandle;
+	int m_fontRuleHandle;
+	int m_fontTitleRuleHandle;
+
 
 	int m_mouseX;			// マウスのX座標取得するための変数
 	int m_mouseY;			// マウスのY座標取得するための変数
 
 
 	int m_playerCardPosX;
+
+	int m_selectCardIndex = -1;	// マウスが乗っているカードの番号
 
 	
 
@@ -82,6 +94,9 @@ private:
 	bool m_isMyHandFull = false;	// 手持ちのカードがいっぱいかどうか
 
 	bool m_isEnemyHandFull = false;
+
+	bool m_isMyWin = false;	// プレイヤーが勝利したかどうか
+	
 
 	
 
@@ -108,6 +123,7 @@ private:
 	std::vector<CardEffect> m_rules;
 
 	CardContent* m_pCardContent;
+
 
 	std::vector<Card> m_MyCard;		// カードの持ってるか持ってないかの配列
 									// vectorは動的配列

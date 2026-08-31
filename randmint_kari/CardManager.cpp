@@ -32,6 +32,15 @@ CardManager::~CardManager()
 
 void CardManager::Init()
 {
+	// 画像ハンドル
+	m_cardGraphHandle = LoadGraph("data/img/hand.png");	// 手札のハンドル
+	m_cardBackGraphHandle = LoadGraph("data/img/cardBack.png");
+
+	// フォント作成
+	m_fontHandle = CreateFontToHandle("クラフト明朝", 30, 48, -1);
+	m_fontRuleHandle = CreateFontToHandle("クラフト明朝", 20, 20, -1);
+	m_fontTitleRuleHandle = CreateFontToHandle("クラフト明朝", 40, 20, -1);
+
 	//プレイヤーと敵作成
 	m_player = new Player();
 	m_enemy = new Enemy();
@@ -55,12 +64,17 @@ void CardManager::Init()
 	{
 		m_MyCard[i].Init();
 		m_EnemyCard[i].Init();
+		m_MyCard[i].SetHandleHand(m_cardGraphHandle);
+		m_EnemyCard[i].SetHandleHand(m_cardBackGraphHandle);
 	}
 
 }
 
 void CardManager::End()
 {
+	// 画像ハンドル削除
+	DeleteGraph(m_cardGraphHandle);
+
 	m_pMinto->End();
 	m_pCardContent->End();
 	for (int i = 0; i < m_MyCard.size(); i++)	// m_card.size() <- size()で配列の数を出すことができる
@@ -75,6 +89,7 @@ void CardManager::End()
 
 void CardManager::Update()
 {
+	
 	m_pCardContent->Update();
 	m_isClickBefore = m_isClickNow;
 	m_isClickNow = (GetMouseInput() & MOUSE_INPUT_LEFT);
@@ -119,6 +134,7 @@ void CardManager::Update()
 					//カード作成
 					Card card;				// 新しくCard型の変数を宣言(push_backに追加する時にしか使わない)
 					card.Init();			// 初期化するよ
+					card.SetHandleHand(m_cardGraphHandle);
 					m_MyCard.push_back(card);	// 今ある配列の後ろに一つ要素を追加する
 					// Card型の変数を入れている理由は、m_cardはcard型の動的配列で、Card型の変数を入れてあげることで、もう一つcardを用意する
 					m_isPlayerDrewCard = true;
@@ -139,6 +155,7 @@ void CardManager::Update()
 				//カード作成
 				Card card;				// 新しくCard型の変数を宣言(push_backに追加する時にしか使わない)
 				card.Init();			// 初期化するよ
+				card.SetHandleHand(m_cardBackGraphHandle);
 				m_EnemyCard.push_back(card);	// 今ある配列の後ろに一つ要素を追加する
 				// Card型の変数を入れている理由は、m_cardはcard型の動的配列で、Card型の変数を入れてあげることで、もう一つcardを用意する
 				m_isEnemyDrewCard = true;
@@ -151,7 +168,7 @@ void CardManager::Update()
 			
 		}
 
-
+		m_selectCardIndex = -1;
 		// スキップ
 		/* 条件掃き出し */
 		// スキップ画像の上にマウスが乗っているかの判定
@@ -168,6 +185,7 @@ void CardManager::Update()
 			m_isDrewCardDeck = false;
 			m_isEnemyDrewCard = false;
 			m_pTurnManager->SetMyTurn(false);
+			m_pMinto->GetAddEnergy(1);
 		}
 
 		// プレイヤー
@@ -202,7 +220,7 @@ void CardManager::Update()
 			
 
 			int cardMyPosX = 120 * (drawMyCount % kCardWidthMaxCount) + 50;
-			int cardMyPosY = Game::kScreenHeight / 2 + 120 * (drawMyCount / kCardWidthMaxCount) + 100;
+			int cardMyPosY = Game::kScreenHeight / 2 + 100 * (drawMyCount / kCardWidthMaxCount) + 100;
 
 			int hitX = m_MyCard[i].GetDrawPosX();
 			int hitY = m_MyCard[i].GetDrawPosY();
@@ -219,7 +237,7 @@ void CardManager::Update()
 			if (isInsideCard)
 			{
 				cardMyPosY -= 10;
-				
+				m_selectCardIndex = i;
 
 				bool isClickThisFrame = !m_isClickBefore && m_isClickNow;	// このフレームでクリックされた
 
@@ -231,6 +249,7 @@ void CardManager::Update()
 						{
 							// カードを無効にする
 							m_MyCard[i].SetCard(false); // m_card[i]に引数をぶち込む
+							m_pMinto->GetAddEnergy(1);
 							m_myCardEffect[i].SetContent("");
 
 							//m_cardContent.erase(m_cardContent.begin() + i);
@@ -241,16 +260,20 @@ void CardManager::Update()
 						else
 						{
 							
-							
+							m_pMinto->GetAddEnergy(1);
 							//カードを使う処理(敵に対して)
 							UseCard(m_enemy, m_player, m_myCardEffect[i]);
 							// カードを無効にする
 							m_MyCard[i].SetCard(false); // m_card[i]に引数をぶち込む
 							//m_cardContent.erase(m_cardContent.begin() + i);
-
+							if (m_pMinto->GetGrow() >= 100)
+							{
+								m_isMyWin = true;
+							}
 							m_isEnemyDrewCard = false;
 							_isDeleteCard = true;
 							m_isDrewCardDeck = false;
+							m_pMinto->GetAddEnergy(1);
 							m_pTurnManager->SetMyTurn(false);
 							m_pTimer->SetReset(60);
 						}
@@ -281,12 +304,13 @@ void CardManager::Update()
 			
 			if (!m_EnemyCard[i].GetCard())continue;	// カードが存在してなかったら次のループに移動
 
-			int cardEnemyPosX = Game::kScreenWidth-200 - (120 * (drawEnemyCount % kCardWidthMaxCount) - 50);
-			int cardEnemyPosY =( Game::kScreenHeight / 2-200 -( 120 *(drawEnemyCount / kCardWidthMaxCount) -50));
+			int cardEnemyPosX = Game::kScreenWidth-200 - (70 * (drawEnemyCount % kCardWidthMaxCount) - 50);
+			int cardEnemyPosY =( Game::kScreenHeight / 2-200 -( 120 *(drawEnemyCount / kCardWidthMaxCount) +30));
 
 			
 			if (CheckHitKey(KEY_INPUT_UP))
 			{
+				m_pMinto->GetAddEnergy(1);
 				m_isPlayerDrewCard = false;
 				m_pTurnManager->SetMyTurn(true);
 			}
@@ -323,9 +347,11 @@ void CardManager::Update()
 					m_EnemyCard[useCardIndex].SetCard(false);
 					m_isPlayerDrewCard = false;
 					m_pTurnManager->SetMyTurn(true);
+					m_pMinto->GetAddEnergy(1);
 				}
 				else if(useCardIndex == -2)	// スキップ
 				{
+					m_pMinto->GetAddEnergy(1);
 					m_isPlayerDrewCard = false;
 					m_pTurnManager->SetMyTurn(true);
 				}
@@ -335,6 +361,10 @@ void CardManager::Update()
 		if (m_player->GetHp() <= 0 || m_enemy->GetHp() <= 0)
 		{
 			m_isDead = true;
+			if (m_enemy->GetHp() <= 0)
+			{
+				m_isMyWin = true;
+			}
 		}
 	}
 	
@@ -342,6 +372,7 @@ void CardManager::Update()
 	{
 		m_isGrow = true;
 	}
+
 
 }
 
@@ -352,10 +383,13 @@ void CardManager::Draw()
 	m_pCardContent->Draw();
 	m_pMinto->Draw();
 	// 山札描画
-	DrawExtendGraph(Game::kScreenWidth / 2, Game::kScreenHeight / 2 - 50, Game::kScreenWidth / 2 + 100, Game::kScreenHeight / 2 + 50, m_graphDeckHandle, true);	
-	DrawFormatString(0, 64, GetColor(255, 255, 255), "TURN:%d", m_pTurnManager->GetMyTurn());
-	DrawFormatString(0, 96, GetColor(255, 255, 255), "ENEMY_HP:%d", m_enemy->GetHp());
-	DrawFormatString(0, 128, GetColor(255, 255, 255), "PLAYER_HP:%d", m_player->GetHp());
+	DrawExtendGraph(Game::kScreenWidth / 2, Game::kScreenHeight / 2 -80, Game::kScreenWidth / 2 + 150, Game::kScreenHeight / 2 + 70, m_graphDeckHandle, true);	
+#ifdef _DEBUG;
+	DrawFormatString(0, 64, GetColor(0, 0, 0), "TURN:%d", m_pTurnManager->GetMyTurn());
+	DrawFormatString(0, 96, GetColor(0, 0, 0), "ENEMY_HP:%d", m_enemy->GetHp());
+	DrawFormatString(0, 128, GetColor(0, 0, 0), "PLAYER_HP:%d", m_player->GetHp());
+#endif // _DEBUG;
+
 
 	if (m_pTurnManager->GetMyTurn())
 	{
@@ -364,29 +398,61 @@ void CardManager::Draw()
 	}
 
 	// 手札描画
-	
 	for (int i = 0; i < m_EnemyCard.size(); i++)
 	{
 		m_EnemyCard[i].Draw();
-		DrawFormatString(m_EnemyCard[i].GetDrawPosX() + 50, m_EnemyCard[i].GetDrawPosY() + 50, GetColor(255, 0, 0), "%d", i);
+		// DrawFormatString(m_EnemyCard[i].GetDrawPosX() + 50, m_EnemyCard[i].GetDrawPosY() + 50, GetColor(255, 0, 0), "%d", i);
 		//	DrawString(100, i+100, m_pCardContent->GetContent().c_str(), GetColor(255, 255, 255));
-		DrawFormatString(Game::kScreenWidth -500, i * 20, GetColor(255, 255, 255), m_enemyCardEffect[i].GetContent().c_str());
+		DrawFormatString(Game::kScreenWidth -500, i * 20, GetColor(0, 0, 0), m_enemyCardEffect[i].GetContent().c_str());
 
 	}
 
 	for (int i = 0; i < m_MyCard.size(); i++)
 	{
+		
 		m_MyCard[i].Draw();
-		DrawFormatString(m_MyCard[i].GetDrawPosX() + 50, m_MyCard[i].GetDrawPosY() + 50, GetColor(255, 0, 0), "%d", i);
+		// DrawFormatString(m_MyCard[i].GetDrawPosX() + 50, m_MyCard[i].GetDrawPosY() + 50, GetColor(255, 0, 0), "%d", i);
 		//	DrawString(100, i+100, m_pCardContent->GetContent().c_str(), GetColor(255, 255, 255));
-		DrawFormatString(100, i * 20, GetColor(255, 255, 255), m_myCardEffect[i].GetContent().c_str());
+		//DrawFormatString(100, i * 20, GetColor(255, 255, 255), m_myCardEffect[i].GetContent().c_str());
+		if (m_MyCard[i].GetCard())
+		{
+			DrawFormatString(m_MyCard[i].GetDrawPosX() + 10, m_MyCard[i].GetDrawPosY() + 10, GetColor(0, 0, 0), m_myCardEffect[i].GetTitle().c_str());
+			if (m_myCardEffect[i].GetValue() > 0 && m_myCardEffect[i].GetTitle() != "ルール変更"
+				&& m_myCardEffect[i].GetContent() != "ミントを植える"
+				&& m_myCardEffect[i].GetContent() != "ミントを枯らす")
+			{
+				// カードValueの表示
+				DrawFormatString(m_MyCard[i].GetDrawPosX() + 10, m_MyCard[i].GetDrawPosY() + 50, GetColor(0, 0, 0), "%d", m_myCardEffect[i].GetValue());
+			}
+			else if (m_myCardEffect[i].GetRandFinish() > 0)
+			{
+				// カードGetStartとGetFinishの表示
+				DrawFormatString(m_MyCard[i].GetDrawPosX() + 10, m_MyCard[i].GetDrawPosY() + 50, GetColor(0, 0, 0), "%d", m_myCardEffect[i].GetRandStart());
+				DrawFormatString(m_MyCard[i].GetDrawPosX() + 30, m_MyCard[i].GetDrawPosY() + 50, GetColor(0, 0, 0), "～");
+				DrawFormatString(m_MyCard[i].GetDrawPosX() + 50, m_MyCard[i].GetDrawPosY() + 50, GetColor(0, 0, 0), "%d", m_myCardEffect[i].GetRandFinish());
+			}
+		}
+	}
+	if (m_selectCardIndex != -1)
+	{
+		DrawFormatString(m_selectCardIndex * 100 + 50, Game::kScreenHeight/2 + 50, GetColor(0, 0, 0), m_myCardEffect[m_selectCardIndex].GetContent().c_str());
 
 	}
+
+	SetDrawBlendMode(DX_BLENDMODE_ALPHA, 200);
+	DrawBox(0, 0, 500, 250, GetColor(255, 255, 255), true);
+	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
+	
+	DrawFormatStringToHandle(10, 10, GetColor(0, 0, 0), m_fontTitleRuleHandle, "特殊勝利条件");
+	
 	for (int i = 0; i < m_rules.size(); i++)
 	{
-		DrawFormatString(900, i * 20, GetColor(255, 255, 255), m_rules[i].GetContent().c_str());
+	//	DrawFormatString(900, i * 20, GetColor(0, 0, 0), m_rules[i].GetContent().c_str());
+		DrawFormatStringToHandle(10, i * 20 + 50, GetColor(0, 0, 0), m_fontRuleHandle, m_rules[i].GetContent().c_str());
 	}
-
+	DrawFormatStringToHandle(10, Game::kScreenHeight / 2 +30, GetColor(200, 100, 100), m_fontHandle, "自分のHP：%d / 100", m_player->GetHp());
+	DrawFormatStringToHandle(Game::kScreenWidth -250, Game::kScreenHeight / 2 -70, GetColor(200, 100, 100), m_fontHandle, "相手のHP：%d / 100", m_enemy->GetHp());
+	
 }
 
 void CardManager::UseCard(Player* target, Player* mySelf, CardEffect& cardEffect)

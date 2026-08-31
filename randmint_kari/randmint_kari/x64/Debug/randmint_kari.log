@@ -1,8 +1,4 @@
 ﻿cl : コマンド ライン  warning D9025: '/sdl' より '/GS-' が優先されます。
   CardManager.cpp
-  Enemy.cpp
-C:\Users\Yuzu\Documents\GitHub\SummerGame\randmint_kari\Enemy.cpp(40,48): warning C4267: '引数': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
-  minto.cpp
-  コードを生成中...
-  LINK : 前回のインクリメンタル リンクで C:\Users\Yuzu\Documents\GitHub\SummerGame\randmint_kari\x64\Debug\randmint_kari.exe が見つからなかったか、ビルドされませんでした。フル リンクを行います。
-  randmint_kari.vcxproj -> C:\Users\Yuzu\Documents\GitHub\SummerGame\randmint_kari\x64\Debug\randmint_kari.exe
+C:\Users\user\Documents\GitHub\SummerGame\randmint_kari\CardManager.cpp(387,1): warning C4067: プリプロセッサ ディレクティブの後に余分な文字がありました - 改行が必要です
+  randmint_kari.vcxproj -> C:\Users\user\Documents\GitHub\SummerGame\randmint_kari\x64\Debug\randmint_kari.exe

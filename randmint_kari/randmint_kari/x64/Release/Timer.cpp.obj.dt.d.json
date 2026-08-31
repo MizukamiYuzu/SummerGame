@@ -1,0 +1,12 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\users\\user\\documents\\github\\summergame\\randmint_kari\\timer.cpp",
+        "ProvidedModule": "",
+        "Includes": [
+            "c:\\users\\user\\documents\\github\\summergame\\randmint_kari\\timer.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

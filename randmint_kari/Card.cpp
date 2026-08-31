@@ -9,7 +9,7 @@ namespace
 }
 
 Card::Card():
-	m_graphHand(-1),
+	m_cardGraphHand(-1),
 	m_mouseX(0),
 	m_mouseY(0),
 	m_drawPosX(0),
@@ -25,14 +25,12 @@ Card::~Card()
 
 void Card::Init()
 {
-	m_graphHand = LoadGraph("data/img/hand.png");	// 手札のハンドル
 	m_isCard = true;
 	m_playerCardPosX = 50;
 }
 
 void Card::End()
 {
-	DeleteGraph(m_graphHand);
 }
 
 void Card::Update()
@@ -45,7 +43,7 @@ void Card::Draw()
 
 	if (m_isCard)
 	{
-		DrawExtendGraph(m_drawPosX, m_drawPosY, m_drawPosX + cardWidth, m_drawPosY + cardHeight, m_graphHand, true);
+		DrawExtendGraph(m_drawPosX, m_drawPosY -5, m_drawPosX + cardWidth, m_drawPosY + cardHeight + 5, m_cardGraphHand, true);
 	}
 	
 	

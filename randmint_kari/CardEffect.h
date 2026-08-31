@@ -34,6 +34,10 @@ public:
 	Effect GetEffect()const { return m_effect; }
 	void SetEffect(Effect eff) { m_effect = eff; }
 
+	// カードタイトル
+	std::string GetTitle()const { return m_title; }
+	void SetTitle(std::string title) { m_title = title; }
+
 	//効果量
 	int GetValue()const { return m_value; }
 	void SetValue(int value) { m_value = value; }
@@ -56,6 +60,9 @@ public:
 private:
 	//カードの効果
 	Effect m_effect = Effect::None;
+
+	// カードタイトル
+	std::string m_title = "";
 
 	//効果量
 	int m_value = 0;

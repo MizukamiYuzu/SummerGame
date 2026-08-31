@@ -9,6 +9,7 @@ public:
 	
 	bool IsTimeOver();
 	void SetReset(int timer);
+	int GetTimer() { return m_timer; }
 	
 
 private:

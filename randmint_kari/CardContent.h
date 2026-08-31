@@ -44,5 +44,8 @@ private:
 //	std::vector<std::string> content;
 	std::string m_cardContent;
 
+	// カードのタイトルを保存する変数
+	std::string m_cardTitle;
+
 };
 

@@ -37,12 +37,14 @@ int Enemy::ThinkAction(const std::vector<int>& validIndices, int playerHp, int e
     // validIndices.size() -1で-1をする理由は、validIndices.size()で返されるのは要素数なので、
     // 0~4の要素番号があったとするなら要素数は5,要素番号5はないため-1をしてあげる必要がある
     // ただ要素番号の最大値(上の例を使用するなら要素番号は5)のときはスキップをしたいためそのまま使用する
-    int randomIndex = GetRand(validIndices.size());
-    if (randomIndex == validIndices.size())
-    {
-        return -2;  // スキップ
-    }
-    return validIndices[randomIndex];
+    //int randomIndex = GetRand(validIndices.size());
+    //if (randomIndex == validIndices.size())
+    //{
+    //    return -2;  // スキップ
+    //}
+    //return validIndices[randomIndex];
+
+
 
     // 何番目のカードを返すか
     int bestIndex = -2; // デフォルトはスキップにするため、-2にしておく
@@ -138,24 +140,127 @@ int Enemy::ThinkAction(const std::vector<int>& validIndices, int playerHp, int e
         // --- 5. ルール達成チェック(特殊勝利判定) ---
         for (const auto& rule : rules)
         {
-            if (rule.GetRuleEffect() == CardEffect::RuleEffect::YourMltiWin)
+            if (rule.GetRuleEffect() == CardEffect::RuleEffect::YourMltiWin) // もしルールに相手のHPがN倍なら勝利があったら
             {
                 int val = rule.GetValue();
-                if (val > 0 && effect.GetEffect() == CardEffect::Effect::Damage)
+                if (val > 0 && effect.GetEffect() == CardEffect::Effect::Damage) // 自分の持っている手札がダメージなら
+                {
+                    int predictedHp = playerHp - effect.GetValue(); // カードの効果を使った時の相手のHP
+                    if (predictedHp > 0 && predictedHp % val == 0) // カードの条件に当てはまっている場合
+                    {
+                        score += 800;   
+                    }
+                }
+                if (val > 0 && effect.GetEffect() == CardEffect::Effect::Heal) //自分の持っている手札が回復なら
+                {
+                    int predictedHp = enemyHp + effect.GetValue(); // カードの効果を使った時の相手のHP
+                    if (predictedHp > 0 && predictedHp % val == 0)  // カードの条件に当てはまってしまう場合
+                    {
+                        score -= 800;
+                    }
+                }
+            }
+            if (rule.GetRuleEffect() == CardEffect::RuleEffect::MyMltiWin) // もしルールに相手のHPがN倍なら勝利があったら
+            {
+                int val = rule.GetValue();
+                if (val > 0 && effect.GetEffect() == CardEffect::Effect::Heal)  // 自分の持っている手札が回復なら
+                {
+                    int predictedHp = enemyHp + effect.GetValue();  // カードの効果を使った時の相手のHP
+                    if (predictedHp > 0 && predictedHp % val == 0)  // カードの条件に当てはまる場合
+                    {
+                        score += 800;
+                    }
+                }
+                if (val > 0 && effect.GetEffect() == CardEffect::Effect::Damage)  // 自分の持っている手札がダメージなら
                 {
                     int predictedHp = playerHp - effect.GetValue();
-                    if (predictedHp > 0 && predictedHp % val == 0)
+                    if (predictedHp > 0 && predictedHp % val == 0)  // カードの条件に当てはまってしまう場合
+                    {
+                        score -= 800;
+                    }
+                }
+
+            }
+            if (rule.GetRuleEffect() == CardEffect::RuleEffect::YourSameWin)    // もしルールに相手のHPがNなら勝利があるなら
+            {
+                int val = rule.GetValue();
+                if (val > 0 && effect.GetEffect() == CardEffect::Effect::Damage)    // 自分の持っている手札がダメージなら
+                {
+                    int predictedHp = playerHp - effect.GetValue(); // カードの効果を使った時の相手のHP
+                    if (predictedHp == val) // カードの条件に当てはまっている場合
+                    {
+                        score += 800;
+                    }
+                }
+                if (val > 0 && effect.GetEffect() == CardEffect::Effect::Heal)  // 自分の持っている手札が回復なら
+                {
+                    int predictedHp = enemyHp + effect.GetValue();  // カードの効果を使った時の自分のHP
+                    if (predictedHp == val) // カードの条件に当てはまってしまう場合
+                    {
+                        score -= 800;
+                    }
+                }
+            }
+            if (rule.GetRuleEffect() == CardEffect::RuleEffect::MySameWin)  // もしルールに自分のHPがNなら勝利があるなら
+            {
+                int val = rule.GetValue();
+                if (val > 0 && effect.GetEffect() == CardEffect::Effect::Heal)  // 自分の持っている手札が回復なら
+                {
+                    int predictecdHp = enemyHp + effect.GetValue(); 
+                    if (predictecdHp == val) // カードの条件に当てはまる場合
+                    {
+                        score += 800;
+                    }
+                }
+                if (val > 0 && effect.GetEffect() == CardEffect::Effect::Damage)    // 自分の持っている手札が回復なら
+                {
+                    int predictecdHp = playerHp - effect.GetValue();
+                    if (predictecdHp == val)    // カードの条件に当てはまってしまう場合
+                    {
+                        score -= 800;
+                    }
+                }
+            }
+            if (rule.GetRuleEffect() == CardEffect::RuleEffect::MintoSameGrow)  // もしルールにミントのエネルギーがNなら育つがあるなら
+            {
+                int val = rule.GetValue();
+                if (val > 0 && effect.GetEffect() == CardEffect::Effect::Grow)  // もし自分の持っているカードがエネルギーを与えるカードなら
+                {
+                    int predictecdMinto = mintoEnergy + effect.GetValue();
+                    if (predictecdMinto == val) // カードの条件に当てはまる場合
                     {
                         score += 800;
                     }
                 }
             }
-            if (rule.GetRuleEffect() == CardEffect::RuleEffect::MyMltiWin) 
+            if (rule.GetRuleEffect() == CardEffect::RuleEffect::MintoMltiWin)   // もしルールにミントのエネルギーがN倍なら勝利があるなら
             {
-
+                int val = rule.GetValue();
+                if (val > 0 && effect.GetEffect() == CardEffect::Effect::Grow)  // もし自分の持っているカードがエネルギーを与えるカードなら
+                {
+                    int predictedMinto = mintoEnergy + effect.GetValue();
+                    if (predictedMinto > 0 && predictedMinto % val == 0)
+                    {
+                        score += 800;
+                    }
+                }
             }
-            
+
+        }
+        
+        if (score > maxScore)
+        {
+            maxScore = score;
+            bestIndex = idx;
         }
     }
+    
+    if (maxScore < 0) return -2;
+
+    return bestIndex;
 }
+
+
+
+
 

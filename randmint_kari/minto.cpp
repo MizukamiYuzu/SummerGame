@@ -52,13 +52,14 @@ void minto::Draw()
 		//	0,0,
 		//	posX * kWidth, posY * kHeight,
 		kWidth * posX + 50, kHeight * posY,
-		kWidth, kHeight, 0.4, 0,
+		kWidth, kHeight, 0.6, 0,
 		m_handle, true
 		);
 	}
 	
 
 	DrawFormatString(0, 32, GetColor(255, 255, 255), "minto : %d", m_energy);
+
 	
 	
 	

@@ -26,7 +26,7 @@ public:
 private:
 	int m_energy = 0;	// エネルギー
 	
-	bool m_plant;
+	bool m_plant = true;
 
 	int m_handle;
 

@@ -14,7 +14,7 @@ public:
 
 	
 	
-	void SetHandleHand(int handleHand) { m_graphHand = handleHand; }	// 手札のハンドル
+	void SetHandleHand(int handleHand) { m_cardGraphHand = handleHand; }	// 手札のハンドル
 
 	bool GetCard() { return m_isCard; }	// 戻り値を渡す関数
 	void SetCard(bool card) { m_isCard = card; }	// 引数を変数に代入する関数
@@ -27,7 +27,7 @@ public:
 
 private:
 	
-	int m_graphHand;	// 手札のハンドル変数
+	int m_cardGraphHand;	// 手札のハンドル変数
 
 	int m_mouseX;			// マウスのX座標取得するための変数
 	int m_mouseY;			// マウスのY座標取得するための変数

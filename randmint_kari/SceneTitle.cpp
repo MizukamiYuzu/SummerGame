@@ -14,10 +14,14 @@ void SceneTitle::Init()
 {
 	m_isEnd = false;
 	m_isKeyDownBefore = false;
+	
+	// タイトル背景画像グラフ
+	m_BgTitleGraph = LoadGraph("data/img/RandoMitoTitle.jpeg");
 }
 
 void SceneTitle::End()
 {
+	DeleteGraph(m_BgTitleGraph);
 }
 
 void SceneTitle::Update()
@@ -33,5 +37,6 @@ void SceneTitle::Update()
 
 void SceneTitle::Draw()
 {
-	DrawFormatString(0, 0, GetColor(255, 255, 255), "nemuine");
+	DrawRectRotaGraph(0 + Game::kScreenWidth / 2, 0 + Game::kScreenHeight / 2, 0, 0,Game::kScreenWidth,Game::kScreenHeight, 1.0,0.0, m_BgTitleGraph, true);
+	
 }
