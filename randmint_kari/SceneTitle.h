@@ -19,6 +19,8 @@ private:
 
 	int m_soundHandle;
 
+	int m_fontHandle;
+
 	bool m_isEnd;
 	bool m_isKeyDownBefore;
 

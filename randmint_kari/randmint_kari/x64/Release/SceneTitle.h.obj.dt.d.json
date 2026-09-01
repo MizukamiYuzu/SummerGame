@@ -1,10 +1,10 @@
 {
     "Version": "1.2",
     "Data": {
-        "Source": "c:\\users\\user\\documents\\github\\summergame\\randmint_kari\\scenetitle.h",
+        "Source": "c:\\users\\yuzu\\documents\\github\\summergame\\randmint_kari\\scenetitle.h",
         "ProvidedModule": "",
         "Includes": [
-            "c:\\users\\user\\documents\\github\\summergame\\randmint_kari\\game.h",
+            "c:\\users\\yuzu\\documents\\github\\summergame\\randmint_kari\\game.h",
             "c:\\program files\\microsoft visual studio\\18\\community\\vc\\tools\\msvc\\14.51.36231\\include\\random",
             "c:\\program files\\microsoft visual studio\\18\\community\\vc\\tools\\msvc\\14.51.36231\\include\\yvals_core.h",
             "c:\\program files\\microsoft visual studio\\18\\community\\vc\\tools\\msvc\\14.51.36231\\include\\vcruntime.h",
