@@ -1,8 +1,9 @@
 ﻿cl : コマンド ライン  warning D9025: '/sdl' より '/GS-' が優先されます。
-  SceneTitle.cpp
+  CardManager.cpp
+C:\Users\Yuzu\Documents\GitHub\SummerGame\randmint_kari\CardManager.cpp(464,1): warning C4067: プリプロセッサ ディレクティブの後に余分な文字がありました - 改行が必要です
+C:\Users\Yuzu\Documents\GitHub\SummerGame\randmint_kari\CardManager.cpp(521,14): warning C4267: '初期化中': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
   コード生成しています。
-  2 of 433 functions ( 0.5%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    3 functions had inline decision re-evaluated but remain unchanged
+  Previous IPDB and IOBJ mismatch, fall back to full compilation.
+  All 433 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   コード生成が終了しました。
   randmint_kari.vcxproj -> C:\Users\Yuzu\Documents\GitHub\SummerGame\randmint_kari\x64\Release\randmint_kari.exe

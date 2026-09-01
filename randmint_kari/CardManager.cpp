@@ -479,7 +479,11 @@ void CardManager::Draw()
 		m_EnemyCard[i].Draw();
 		// DrawFormatString(m_EnemyCard[i].GetDrawPosX() + 50, m_EnemyCard[i].GetDrawPosY() + 50, GetColor(255, 0, 0), "%d", i);
 		//	DrawString(100, i+100, m_pCardContent->GetContent().c_str(), GetColor(255, 255, 255));
-		DrawFormatString(Game::kScreenWidth -500, i * 20, GetColor(0, 0, 0), m_enemyCardEffect[i].GetContent().c_str());
+#ifdef _DEBUG
+		DrawFormatString(Game::kScreenWidth - 500, i * 20, GetColor(0, 0, 0), m_enemyCardEffect[i].GetContent().c_str());
+#endif // _DEBUG
+
+		
 
 	}
 
