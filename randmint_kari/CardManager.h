@@ -46,7 +46,9 @@ public:
 
 	bool GetGrow() { return m_isGrow; }
 
-	bool GetWin() { return m_isWin; }
+	bool GetMyWin() { return m_isMyWin; }
+
+	bool GetEnemyWin() { return m_isEnemyWin; }
 
 	bool GetDrewCard() { return m_isPlayerDrewCard; }
 
@@ -77,8 +79,13 @@ private:
 
 	int m_selectCardIndex = -1;	// マウスが乗っているカードの番号
 
-
-	
+	int m_seDamage;
+	int m_seClick;
+	int m_seFlip;
+	int m_seHeal;
+	int m_seGrow;
+	int m_seWither;
+	int m_sePlant;
 
 	bool m_isClickBefore;	// 1フレーム前にクリックされたかどうか
 	bool m_isClickNow;		// 現在クリックされているか
@@ -94,7 +101,9 @@ private:
 	
 	bool m_isGrow = false;
 
-	bool m_isWin = false;
+	bool m_isMyWin = false;		// プレイヤーが勝利したかどうか
+	bool m_isEnemyWin = false;
+
 
 	bool m_isPlayerDrewCard = false;	// そのターンにカードが引かれたかどうか
 	bool m_isEnemyDrewCard = false;
@@ -103,9 +112,6 @@ private:
 
 	bool m_isMyHandFull = false;	// 手持ちのカードがいっぱいかどうか
 
-	bool m_isEnemyHandFull = false;
-
-	bool m_isMyWin = false;	// プレイヤーが勝利したかどうか
 
 	bool m_isTimerStart = false;	// タイマーが発動したかどうか
 

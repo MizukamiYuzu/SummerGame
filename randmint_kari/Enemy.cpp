@@ -92,6 +92,10 @@ int Enemy::ThinkAction(const std::vector<int>& validIndices, int playerHp, int e
                 score += 500 + expectedHeal;    
                 
             }
+            else if (enemyHp >= 100)
+            {
+                score -= 200;
+            }
             else
             {
                 score += expectedHeal / 2;  // ピンチじゃないときは回復カードの価値を半減にする
@@ -103,7 +107,7 @@ int Enemy::ThinkAction(const std::vector<int>& validIndices, int playerHp, int e
             {
                 score += 500;
             }
-            score += 0;
+            score -= 200;
         }
         else if (effect.GetEffect() == CardEffect::Effect::Grow)
         {
@@ -120,12 +124,20 @@ int Enemy::ThinkAction(const std::vector<int>& validIndices, int playerHp, int e
                     score += expectedMinto;
                 }
             }
+            else
+            {
+                score -= 200;
+            }
         }
         else if (effect.GetEffect() == CardEffect::Effect::Wither)
         {
             if (m_pMinto->GetGrow() >= 70)  // ミントが育つのに必要なエネルギーが少なかったら
             {
                 score += 1000;
+            }
+            else if (!m_pMinto->GetPlant())
+            {
+                score -= 200;
             }
             else
             {

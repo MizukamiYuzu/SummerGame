@@ -30,6 +30,8 @@ private:
 
 	bool m_isTimerStart = false;
 
+	bool m_isMusicStart = false;	// BGMが停止した時、ほかの音楽が流れたかどうか
+
 	int m_skipGraphHandle;
 
 
@@ -43,6 +45,9 @@ private:
 	int m_graphCardBgHandle;	// カード下に引く画像
 
 	int m_soundMainBgHandle;
+	int m_soundLoseHandle;
+	int m_soundWinHandle;
+	int m_soundMyDethHandle;
 
 	// クリック判定用変数
 	bool m_isClickBefore;	// 1フレーム前にクリックされたかどうか

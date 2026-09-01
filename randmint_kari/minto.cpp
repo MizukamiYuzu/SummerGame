@@ -61,18 +61,13 @@ void minto::Draw()
 		DrawBox(Game::kScreenWidth / 2 -200, Game::kScreenHeight / 2 , Game::kScreenWidth / 2 - 10, Game::kScreenHeight / 2 + 50, GetColor(255,255,255), true);
 		SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 		DrawFormatStringToHandle(Game::kScreenWidth / 2 - 200, Game::kScreenHeight / 2 ,
-			GetColor(0, 255, 0), m_fontHandle, "現在のエネルギー量");
+		GetColor(0, 255, 0), m_fontHandle, "現在のエネルギー量");
 		DrawFormatStringToHandle(Game::kScreenWidth / 2 - 150, Game::kScreenHeight / 2 +20,
-			GetColor(0, 255, 0), m_fontHandle, "%d / 100", m_energy);
-
+		GetColor(0, 255, 0), m_fontHandle, "%d / 100", m_energy);
 	}
 	
 
 	DrawFormatString(0, 32, GetColor(255, 255, 255), "minto : %d", m_energy);
-	
-
-	
-	
 	
 }
 

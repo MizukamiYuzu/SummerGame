@@ -41,6 +41,10 @@ void SceneMain::Init()
 	m_soundMainBgHandle = LoadSoundMem("data/sound/MainSceneBgm.mp3");
 	PlaySoundMem(m_soundMainBgHandle, DX_PLAYTYPE_LOOP);
 
+	m_soundLoseHandle = LoadSoundMem("data/sound/Lose.mp3");
+	m_soundWinHandle = LoadSoundMem("data/sound/Win.mp3");
+	m_soundMyDethHandle = LoadSoundMem("data/sound/MyDeth.mp3");
+
 	m_isEnd = false;
 	m_isKeyDownBefore = false;
 	// カードマネージャーの作成
@@ -77,6 +81,9 @@ void SceneMain::End()
 	DeleteGraph(m_graphCardBgHandle);
 
 	DeleteSoundMem(m_soundMainBgHandle);
+	DeleteSoundMem(m_soundLoseHandle);
+	DeleteSoundMem(m_soundWinHandle);
+	DeleteSoundMem(m_soundMyDethHandle);
 }
 
 void SceneMain::Update()
@@ -89,13 +96,44 @@ void SceneMain::Update()
 	m_isClickBefore = m_isClickNow;
 	m_isClickNow = (GetMouseInput() & MOUSE_INPUT_LEFT);
 
-	if (!(m_pCardManager->GetDead() == true || m_pCardManager->GetGrow() || m_pCardManager->GetWin()))
+	if (!(m_pCardManager->GetDead() == true || m_pCardManager->GetGrow() || m_pCardManager->GetMyWin() || m_pCardManager->GetEnemyWin()))
 	{
 		// カードマネージャーの更新
 		m_pCardManager->Update();
 	}
 	else
 	{
+		StopSoundMem(m_graphBgMainHandle);
+		if (!m_isMusicStart)
+		{
+			m_isMusicStart = true;
+			if (m_pCardManager->GetDead())
+			{
+				if (m_pCardManager->GetMyWin())
+				{
+					PlaySoundMem(m_soundWinHandle, DX_PLAYTYPE_BACK);
+				}
+				else
+				{
+					PlaySoundMem(m_soundMyDethHandle, DX_PLAYTYPE_BACK);
+				}
+			}
+			else
+			{
+				if (m_pCardManager->GetMyWin())
+				{
+
+					PlaySoundMem(m_soundWinHandle, DX_PLAYTYPE_BACK);
+				}
+				else
+				{
+
+					PlaySoundMem(m_soundLoseHandle, DX_PLAYTYPE_BACK);
+				}
+			}
+		}
+		
+
 		if (!m_isTimerStart)
 		{
 			m_pTimer->SetReset(300);
@@ -155,7 +193,7 @@ void SceneMain::Draw()
 	DrawFormatString(0, 16, GetColor(255, 255, 255), "FRAME:%d", m_frameCount);
 #endif // _DEBUG
 	
-	if (m_pCardManager->GetDead() == true || m_pCardManager->GetGrow() || m_pCardManager->GetWin())
+	if (m_pCardManager->GetDead() == true || m_pCardManager->GetGrow() || m_pCardManager->GetMyWin() || m_pCardManager->GetEnemyWin())
 	{
 		DrawFormatString(Game::kScreenWidth/2, Game::kScreenHeight/2, GetColor(0, 0, 0), "%d", m_pTimer->GetTimer());
 		DrawBox(100, Game::kScreenHeight / 2 - 50, Game::kScreenWidth - 100, Game::kScreenHeight / 2 + 100, GetColor(255, 255, 255), true);

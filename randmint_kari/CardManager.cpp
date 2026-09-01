@@ -41,6 +41,17 @@ void CardManager::Init()
 	m_fontRuleHandle = CreateFontToHandle("クラフト明朝", 20, 20, -1);
 	m_fontTitleRuleHandle = CreateFontToHandle("クラフト明朝", 40, 20, -1);
 
+	m_seDamage = LoadSoundMem("data/sound/Damage.mp3");
+	m_seClick = LoadSoundMem("data/sound/Click.mp3");
+	m_seFlip = LoadSoundMem("data/sound/Flip.mp3");
+	m_seHeal = LoadSoundMem("data/sound/Heal.mp3");
+	m_seGrow = LoadSoundMem("data/sound/Grow.mp3");
+	m_seWither = LoadSoundMem("data/sound/Wither.mp3");
+	m_sePlant = LoadSoundMem("data/sound/Plant.mp3");
+
+	ChangeVolumeSoundMem(255 * 60 / 100, m_seGrow);
+
+
 	//プレイヤーと敵作成
 	m_player = new Player();
 	m_enemy = new Enemy();
@@ -97,6 +108,14 @@ void CardManager::End()
 	// 画像ハンドル削除
 	DeleteGraph(m_cardGraphHandle);
 
+	DeleteSoundMem(m_seDamage);
+	DeleteSoundMem(m_seClick);
+	DeleteSoundMem(m_seFlip);
+	DeleteSoundMem(m_seHeal);
+	DeleteSoundMem(m_seGrow);
+	DeleteSoundMem(m_seWither);
+	DeleteSoundMem(m_sePlant);
+
 	m_pMinto->End();
 	m_pCardContent->End();
 	for (int i = 0; i < m_MyCard.size(); i++)	// m_card.size() <- size()で配列の数を出すことができる
@@ -111,6 +130,7 @@ void CardManager::End()
 
 void CardManager::Update()
 {
+
 
 	m_pCardContent->Update();
 
@@ -198,8 +218,10 @@ void CardManager::Update()
 		{
 			if ((m_isClickBefore == false) && (m_isClickNow == true) && (m_isPlayerDrewCard == false))
 			{
+				PlaySoundMem(m_seClick, DX_PLAYTYPE_BACK);
 				if (m_pTurnManager->GetMyTurn())
 				{
+					PlaySoundMem(m_seFlip, DX_PLAYTYPE_BACK);
 					//カード作成
 					Card card;				// 新しくCard型の変数を宣言(push_backに追加する時にしか使わない)
 					card.Init();			// 初期化するよ
@@ -221,6 +243,7 @@ void CardManager::Update()
 		{
 			if (m_pTimer->IsTimeOver())
 			{
+				PlaySoundMem(m_seFlip, DX_PLAYTYPE_BACK);
 				//カード作成
 				Card card;				// 新しくCard型の変数を宣言(push_backに追加する時にしか使わない)
 				card.Init();			// 初期化するよ
@@ -251,10 +274,10 @@ void CardManager::Update()
 
 		if (isClickThisFrame && isMouseInsideSkip && m_isDrewCardDeck)
 		{
+			PlaySoundMem(m_seClick, DX_PLAYTYPE_BACK);
 			m_isDrewCardDeck = false;
 			m_isEnemyDrewCard = false;
 			m_pTurnManager->SetMyTurn(false);
-			
 		}
 
 		// プレイヤー
@@ -312,6 +335,8 @@ void CardManager::Update()
 
 				if (isClickThisFrame && _isDeleteCard == false && m_isDrewCardDeck)
 				{
+
+					PlaySoundMem(m_seClick, DX_PLAYTYPE_BACK);
 					if (m_pTurnManager->GetMyTurn())
 					{
 						if (isPlayerDiscardMode)
@@ -412,6 +437,7 @@ void CardManager::Update()
 				int useCardIndex = m_enemy->ThinkAction(validIndices, m_player->GetHp(), m_enemy->GetHp(), m_pMinto->GetGrow(), m_enemyCardEffect, m_rules);
 				if (useCardIndex != -1 && useCardIndex != -2)  // useCardIndex == -1のときは考えているとき　(m_thinkTimer--中)
 				{
+
 					UseCard(m_player, m_enemy, m_enemyCardEffect[useCardIndex]);
 					m_EnemyCard[useCardIndex].SetCard(false);
 					m_isPlayerDrewCard = false;
@@ -567,6 +593,8 @@ void CardManager::UseCard(Player* target, Player* mySelf, CardEffect& cardEffect
 	{
 	// ダメージ
 	case CardEffect::Effect::Damage:
+
+		PlaySoundMem(m_seDamage, DX_PLAYTYPE_BACK);
 		if (cardEffect.GetRandStart() == 0 && cardEffect.GetRandFinish() == 0)
 		{
 			//固定値
@@ -581,6 +609,8 @@ void CardManager::UseCard(Player* target, Player* mySelf, CardEffect& cardEffect
 
 	// 回復
 	case CardEffect::Effect::Heal:
+
+		PlaySoundMem(m_seHeal, DX_PLAYTYPE_BACK);
 		if (cardEffect.GetRandStart() == 0 && cardEffect.GetRandFinish() == 0)
 		{
 			//固定値
@@ -597,18 +627,26 @@ void CardManager::UseCard(Player* target, Player* mySelf, CardEffect& cardEffect
 	case CardEffect::Effect::Plant:
 		if (!(m_pMinto->GetPlant()))
 		{
+
+			PlaySoundMem(m_sePlant, DX_PLAYTYPE_BACK);
 			m_pMinto->SetPlant(true);
 		}
 		break;
 
 	case CardEffect::Effect::Wither:
-		m_pMinto->GetWither();
+		if (m_pMinto->GetPlant())
+		{
+			PlaySoundMem(m_seWither, DX_PLAYTYPE_BACK);
+			m_pMinto->GetWither();
+		}
 		break;
 		
 	// 成長(ミントにエネルギーを与える)
 	case CardEffect::Effect::Grow:
+
 		if (m_pMinto->GetPlant())
 		{
+			PlaySoundMem(m_seGrow, DX_PLAYTYPE_BACK);
 			if (cardEffect.GetRandStart() == 0 && cardEffect.GetRandFinish() == 0)
 			{
 				//固定値
@@ -649,9 +687,12 @@ void CardManager::CheckRule(CardEffect& cardEffect)
 			//自分の体力がvalue倍なら勝利
 			if (value != 0 && m_player->GetHp() % value == 0 && m_player->GetHp() !=0)
 			{
-				m_isWin = true;
+				m_isMyWin = true;
 			}
-
+			if (value != 0 && m_enemy->GetHp() % value == 0 && m_enemy->GetHp() != 0)
+			{
+				m_isEnemyWin = true;
+			}
 			break;
 		}
 		case CardEffect::RuleEffect::YourMltiWin:
@@ -660,7 +701,11 @@ void CardManager::CheckRule(CardEffect& cardEffect)
 			// 相手の体力がvalue倍なら勝利
 			if (value != 0 && m_enemy->GetHp() % value == 0 && m_enemy->GetHp() != 0)
 			{
-				m_isWin = true;
+				m_isMyWin = true;
+			}
+			if (value != 0 && m_player->GetHp() % value == 0 && m_player->GetHp() != 0)
+			{
+				m_isEnemyWin = true;
 			}
 			break;
 		}
@@ -670,7 +715,11 @@ void CardManager::CheckRule(CardEffect& cardEffect)
 			// 自分のHPがvalueなら勝利
 			if (m_player->GetHp() - value == 0)
 			{
-				m_isWin = true;
+				m_isMyWin = true;
+			}
+			if (m_enemy->GetHp() - value == 0)
+			{
+				m_isEnemyWin = true;
 			}
 			break;
 		}
@@ -680,7 +729,11 @@ void CardManager::CheckRule(CardEffect& cardEffect)
 			// 相手のHPがvalueなら勝利
 			if (m_enemy->GetHp() - value == 0)
 			{
-				m_isWin = true;
+				m_isMyWin = true;
+			}
+			if (m_player->GetHp() - value == 0)
+			{
+				m_isEnemyWin = true;
 			}
 			break;
 		}
@@ -688,9 +741,13 @@ void CardManager::CheckRule(CardEffect& cardEffect)
 		{
 			int value = rule.GetValue();
 			// ミントのエネルギーがNなら育つ
-			if (m_pMinto->GetGrow() - value == 0)
+			if (m_pMinto->GetGrow() - value == 0 && (m_pTurnManager->GetMyTurn()|| m_isEnemyTurnBefore && !m_isEnemyTurnNow))
 			{
-				m_isWin = true;
+				m_isMyWin = true;
+			}
+			if (m_pMinto->GetGrow() - value == 0 && (m_pTurnManager->GetEnemyTurn() || m_isMyTurnBefore && !m_isMyTurnNow))
+			{
+				m_isEnemyWin = true;
 			}
 			break;
 		}
@@ -698,9 +755,13 @@ void CardManager::CheckRule(CardEffect& cardEffect)
 		{
 			int value = rule.GetValue();
 			// ミントのエネルギーがN倍なら勝利
-			if (value != 0 && m_pMinto->GetGrow() % value == 0 && m_pMinto->GetGrow() != 0)
+			if (value != 0 && m_pMinto->GetGrow() % value == 0 && m_pMinto->GetGrow() != 0 && (m_pTurnManager->GetMyTurn() || m_isEnemyTurnBefore && !m_isEnemyTurnNow))
 			{
-				m_isWin = true;
+				m_isMyWin = true;
+			}
+			if (value != 0 && m_pMinto->GetGrow() % value == 0 && m_pMinto->GetGrow() != 0 && (m_pTurnManager->GetEnemyTurn() || m_isMyTurnBefore && !m_isMyTurnNow))
+			{
+				m_isEnemyWin = true;
 			}
 			break;
 		}
