@@ -1,5 +1,5 @@
 ﻿cl : コマンド ライン  warning D9025: '/sdl' より '/GS-' が優先されます。
   CardManager.cpp
-C:\Users\Yuzu\Documents\GitHub\SummerGame\randmint_kari\CardManager.cpp(500,1): warning C4067: プリプロセッサ ディレクティブの後に余分な文字がありました - 改行が必要です
-C:\Users\Yuzu\Documents\GitHub\SummerGame\randmint_kari\CardManager.cpp(557,14): warning C4267: '初期化中': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
-  randmint_kari.vcxproj -> C:\Users\Yuzu\Documents\GitHub\SummerGame\randmint_kari\x64\Debug\randmint_kari.exe
+C:\Users\Lemi\Documents\GitHub\SummerGame\randmint_kari\CardManager.cpp(515,1): warning C4067: プリプロセッサ ディレクティブの後に余分な文字がありました - 改行が必要です
+C:\Users\Lemi\Documents\GitHub\SummerGame\randmint_kari\CardManager.cpp(621,14): warning C4267: '初期化中': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+  randmint_kari.vcxproj -> C:\Users\Lemi\Documents\GitHub\SummerGame\randmint_kari\x64\Debug\randmint_kari.exe

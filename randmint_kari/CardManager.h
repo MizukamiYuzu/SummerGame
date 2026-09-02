@@ -79,6 +79,9 @@ private:
 
 	int m_selectCardIndex = -1;	// マウスが乗っているカードの番号
 
+	int m_enemyPlayingCardIndex = -1;	// エネミーがカードを選択したときに演出中かどうかを判定する変数 (-1の時は出演なし)
+
+
 	int m_seDamage;
 	int m_seClick;
 	int m_seFlip;
@@ -117,7 +120,7 @@ private:
 
 	bool m_isStartText = true;	// ゲーム開始時のテキスト表示中かどうか
 	
-
+	
 	
 
 	//プレイヤー
@@ -133,6 +136,8 @@ private:
 
 	// タイマー
 	Timer* m_pTimer;
+	Timer* m_pActionTimer;
+
 
 
 

@@ -1,10 +1,10 @@
 {
     "Version": "1.2",
     "Data": {
-        "Source": "c:\\users\\user\\documents\\github\\summergame\\randmint_kari\\cardcontent.cpp",
+        "Source": "c:\\users\\lemi\\documents\\github\\summergame\\randmint_kari\\cardcontent.cpp",
         "ProvidedModule": "",
         "Includes": [
-            "c:\\users\\user\\documents\\github\\summergame\\randmint_kari\\cardcontent.h",
+            "c:\\users\\lemi\\documents\\github\\summergame\\randmint_kari\\cardcontent.h",
             "c:\\program files\\microsoft visual studio\\18\\community\\vc\\tools\\msvc\\14.51.36231\\include\\vector",
             "c:\\program files\\microsoft visual studio\\18\\community\\vc\\tools\\msvc\\14.51.36231\\include\\yvals_core.h",
             "c:\\program files\\microsoft visual studio\\18\\community\\vc\\tools\\msvc\\14.51.36231\\include\\vcruntime.h",
@@ -333,7 +333,7 @@
             "c:\\program files (x86)\\windows kits\\10\\include\\10.0.26100.0\\shared\\poppack.h",
             "c:\\program files (x86)\\windows kits\\10\\include\\10.0.26100.0\\um\\dpa_dsa.h",
             "c:\\dxlib_vc\\プロジェクトに追加すべきファイル_vc用\\dxfunctionwin.h",
-            "c:\\users\\user\\documents\\github\\summergame\\randmint_kari\\cardeffect.h"
+            "c:\\users\\lemi\\documents\\github\\summergame\\randmint_kari\\cardeffect.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

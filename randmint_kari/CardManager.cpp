@@ -13,6 +13,10 @@ namespace
 	constexpr int kSkipGraphPosX = Game::kScreenWidth - 200;
 	constexpr int kSkipGraphPosY = Game::kScreenHeight - 72;
 	constexpr int kSkipGraphMargin = 30;
+
+
+	constexpr int cardWidth = 100;
+	constexpr int cardHeight = 120;
 }
 
 CardManager::CardManager() :
@@ -60,6 +64,7 @@ void CardManager::Init()
 	m_pMinto = new minto();
 	// タイマー作成
 	m_pTimer = new Timer();
+	m_pActionTimer = new Timer;
 
 	m_player->Init();
 	m_enemy->Init();
@@ -239,9 +244,9 @@ void CardManager::Update()
 			}
 			
 		}
-		if (!m_pTurnManager->GetMyTurn() && m_isEnemyDrewCard == false)
+		if (m_pTurnManager->GetEnemyTurn() && m_isEnemyDrewCard == false && !m_isStartText)
 		{
-			if (m_pTimer->IsTimeOver())
+			if (m_pActionTimer->IsTimeOver())
 			{
 				PlaySoundMem(m_seFlip, DX_PLAYTYPE_BACK);
 				//カード作成
@@ -255,7 +260,7 @@ void CardManager::Update()
 				CardEffect cardEffect;
 				m_enemyCardEffect.push_back(cardEffect);
 
-				m_pTimer->SetReset(60);
+				m_pActionTimer->SetReset(60);
 			}
 			
 		}
@@ -404,6 +409,8 @@ void CardManager::Update()
 			
 			if (!m_EnemyCard[i].GetCard())continue;	// カードが存在してなかったら次のループに移動
 
+			if (i == m_enemyPlayingCardIndex)continue;	// 演出中のカードは手札の座標に持ってこない(上書き防止)
+
 			int cardEnemyPosX = Game::kScreenWidth-200 - (70 * (drawEnemyCount % kCardWidthMaxCount) - 50);
 			int cardEnemyPosY =( Game::kScreenHeight / 2-200 -( 120 *(drawEnemyCount / kCardWidthMaxCount) +30));
 
@@ -437,20 +444,28 @@ void CardManager::Update()
 				int useCardIndex = m_enemy->ThinkAction(validIndices, m_player->GetHp(), m_enemy->GetHp(), m_pMinto->GetGrow(), m_enemyCardEffect, m_rules);
 				if (useCardIndex != -1 && useCardIndex != -2)  // useCardIndex == -1のときは考えているとき　(m_thinkTimer--中)
 				{
-					m_EnemyCard[useCardIndex].SetDrawPos(Game::kScreenWidth / 2, Game::kScreenHeight / 2);
+					// 演出するカード
+					m_enemyPlayingCardIndex = useCardIndex;
+					// 画面の中央に描画する
+					m_EnemyCard[useCardIndex].SetHandleHand(m_cardGraphHandle);
+					m_EnemyCard[useCardIndex].SetDrawPos(Game::kScreenWidth / 2 - cardWidth/2, Game::kScreenHeight / 2 - cardHeight / 2);
 					if (!m_isTimerStart)
 					{
-						m_pTimer->SetReset(300);
-						m_isTimerStart = true;
+						m_pActionTimer->SetReset(5);
+						m_isTimerStart  = true;
+						
 					}
-					else if(m_pTimer->IsTimeOver())
+					if(m_pActionTimer->IsTimeOver())
 					{
 						UseCard(m_player, m_enemy, m_enemyCardEffect[useCardIndex]);
 						m_EnemyCard[useCardIndex].SetCard(false);
 						m_isPlayerDrewCard = false;
 						m_pTurnManager->SetEnemyTurn(false);
+						m_isEnemyDrewCard = false;
+						m_isTimerStart = false;
+						// 演出終了
+						m_enemyPlayingCardIndex = -1;
 					}
-
 					
 				}
 				else if(useCardIndex == -2)	// スキップ
@@ -461,6 +476,7 @@ void CardManager::Update()
 					}
 					
 					m_isPlayerDrewCard = false;
+					m_isEnemyDrewCard = false;
 					m_pTurnManager->SetEnemyTurn(false);
 				}
 				
@@ -512,6 +528,7 @@ void CardManager::Draw()
 	for (int i = 0; i < m_EnemyCard.size(); i++)
 	{
 		m_EnemyCard[i].Draw();
+		
 		// DrawFormatString(m_EnemyCard[i].GetDrawPosX() + 50, m_EnemyCard[i].GetDrawPosY() + 50, GetColor(255, 0, 0), "%d", i);
 		//	DrawString(100, i+100, m_pCardContent->GetContent().c_str(), GetColor(255, 255, 255));
 #ifdef _DEBUG
@@ -520,6 +537,41 @@ void CardManager::Draw()
 
 		
 
+	}
+	if (m_enemyPlayingCardIndex != -1)
+	{
+		if (m_EnemyCard[m_enemyPlayingCardIndex].GetCard())
+		{
+			DrawFormatString(m_EnemyCard[m_enemyPlayingCardIndex].GetDrawPosX() + 10, m_EnemyCard[m_enemyPlayingCardIndex].GetDrawPosY() + 10, GetColor(0, 0, 0), m_enemyCardEffect[m_enemyPlayingCardIndex].GetTitle().c_str());
+			if (m_enemyCardEffect[m_enemyPlayingCardIndex].GetValue() > 0 && m_enemyCardEffect[m_enemyPlayingCardIndex].GetTitle() != "ルール変更"
+				&& m_enemyCardEffect[m_enemyPlayingCardIndex].GetContent() != "ミントを植える"
+				&& m_enemyCardEffect[m_enemyPlayingCardIndex].GetContent() != "ミントを枯らす")
+			{
+				// カードValueの表示
+				DrawFormatString(m_EnemyCard[m_enemyPlayingCardIndex].GetDrawPosX() + 10, m_EnemyCard[m_enemyPlayingCardIndex].GetDrawPosY() + 50, GetColor(0, 0, 0), "%d", m_enemyCardEffect[m_enemyPlayingCardIndex].GetValue());
+			}
+			else if (m_enemyCardEffect[m_enemyPlayingCardIndex].GetRandFinish() > 0)
+			{
+				// カードGetStartとGetFinishの表示
+				DrawFormatString(m_EnemyCard[m_enemyPlayingCardIndex].GetDrawPosX() + 10, m_EnemyCard[m_enemyPlayingCardIndex].GetDrawPosY() + 50, GetColor(0, 0, 0), "%d", m_enemyCardEffect[m_enemyPlayingCardIndex].GetRandStart());
+				DrawFormatString(m_EnemyCard[m_enemyPlayingCardIndex].GetDrawPosX() + 30, m_EnemyCard[m_enemyPlayingCardIndex].GetDrawPosY() + 50, GetColor(0, 0, 0), "～");
+				DrawFormatString(m_EnemyCard[m_enemyPlayingCardIndex].GetDrawPosX() + 50, m_EnemyCard[m_enemyPlayingCardIndex].GetDrawPosY() + 50, GetColor(0, 0, 0), "%d", m_enemyCardEffect[m_enemyPlayingCardIndex].GetRandFinish());
+			}
+			else if (m_enemyCardEffect[m_enemyPlayingCardIndex].GetContent() == "ミントを植える"
+			|| m_enemyCardEffect[m_enemyPlayingCardIndex].GetContent() == "ミントを枯らす")
+			{
+				std::string text = "";
+				if (m_enemyCardEffect[m_enemyPlayingCardIndex].GetContent() == "ミントを植える")
+				{
+					text = "植える";
+				}
+				else
+				{
+					text = "枯らす";
+				}
+				DrawFormatString(m_EnemyCard[m_enemyPlayingCardIndex].GetDrawPosX() + 10, m_EnemyCard[m_enemyPlayingCardIndex].GetDrawPosY() + 50, GetColor(0, 0, 0), text.c_str());
+			}
+		}
 	}
 
 	for (int i = 0; i < m_MyCard.size(); i++)
@@ -546,10 +598,23 @@ void CardManager::Draw()
 				DrawFormatString(m_MyCard[i].GetDrawPosX() + 30, m_MyCard[i].GetDrawPosY() + 50, GetColor(0, 0, 0), "～");
 				DrawFormatString(m_MyCard[i].GetDrawPosX() + 50, m_MyCard[i].GetDrawPosY() + 50, GetColor(0, 0, 0), "%d", m_myCardEffect[i].GetRandFinish());
 			}
+			else if (m_myCardEffect[i].GetContent() == "ミントを植える"
+				|| m_myCardEffect[i].GetContent() == "ミントを枯らす")
+			{
+				std::string text = "";
+				if (m_myCardEffect[i].GetContent() == "ミントを植える")
+				{
+					text = "植える";
+				}
+				else
+				{
+					text = "枯らす";
+				}
+				DrawFormatString(m_MyCard[i].GetDrawPosX() + 10, m_MyCard[i].GetDrawPosY() + 50, GetColor(0, 0, 0),text.c_str());
+			}
 		}
 	}
 
-	// ターン交代
 	
 	if (m_selectCardIndex != -1)
 	{
@@ -592,8 +657,9 @@ void CardManager::Draw()
 		}
 		DrawBox(100, Game::kScreenHeight / 2 - 50, Game::kScreenWidth - 100, Game::kScreenHeight / 2 + 100, GetColor(255, 255, 255), true);
 		DrawFormatStringToHandle(Game::kScreenWidth / 2 - 250, Game::kScreenHeight / 2, GetColor(0, 255, 0), m_fontTitleRuleHandle, trun.c_str());
-
+		
 	}
+	DrawFormatString(0, Game::kScreenHeight / 2, GetColor(0, 0, 0), "%d",m_pActionTimer->GetTimer());
 }
 
 void CardManager::UseCard(Player* target, Player* mySelf, CardEffect& cardEffect)
