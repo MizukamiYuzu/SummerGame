@@ -437,11 +437,20 @@ void CardManager::Update()
 				int useCardIndex = m_enemy->ThinkAction(validIndices, m_player->GetHp(), m_enemy->GetHp(), m_pMinto->GetGrow(), m_enemyCardEffect, m_rules);
 				if (useCardIndex != -1 && useCardIndex != -2)  // useCardIndex == -1のときは考えているとき　(m_thinkTimer--中)
 				{
+					m_EnemyCard[useCardIndex].SetDrawPos(Game::kScreenWidth / 2, Game::kScreenHeight / 2);
+					if (!m_isTimerStart)
+					{
+						m_pTimer->SetReset(300);
+						m_isTimerStart = true;
+					}
+					else if(m_pTimer->IsTimeOver())
+					{
+						UseCard(m_player, m_enemy, m_enemyCardEffect[useCardIndex]);
+						m_EnemyCard[useCardIndex].SetCard(false);
+						m_isPlayerDrewCard = false;
+						m_pTurnManager->SetEnemyTurn(false);
+					}
 
-					UseCard(m_player, m_enemy, m_enemyCardEffect[useCardIndex]);
-					m_EnemyCard[useCardIndex].SetCard(false);
-					m_isPlayerDrewCard = false;
-					m_pTurnManager->SetEnemyTurn(false);
 					
 				}
 				else if(useCardIndex == -2)	// スキップ
