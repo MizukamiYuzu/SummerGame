@@ -451,7 +451,7 @@ void CardManager::Update()
 					m_EnemyCard[useCardIndex].SetDrawPos(Game::kScreenWidth / 2 - cardWidth/2, Game::kScreenHeight / 2 - cardHeight / 2);
 					if (!m_isTimerStart)
 					{
-						m_pActionTimer->SetReset(5);
+						m_pActionTimer->SetReset(3);
 						m_isTimerStart  = true;
 						
 					}

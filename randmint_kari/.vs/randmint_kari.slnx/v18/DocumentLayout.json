@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|solutionrelative:CardManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\Lemi\\Documents\\GitHub\\SummerGame\\randmint_kari\\CardManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|solutionrelative:CardManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\Lemi\\Documents\\GitHub\\SummerGame\\randmint_kari\\SceneMain.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|solutionrelative:SceneMain.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\Lemi\\Documents\\GitHub\\SummerGame\\randmint_kari\\CardManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|solutionrelative:CardManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8BF0E341-F37D-4CDC-BA59-F26099A672D7}|randmint_kari.vcxproj|C:\\Users\\Lemi\\Documents\\GitHub\\SummerGame\\randmint_kari\\SceneMain.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -124,7 +124,7 @@
               "RelativeDocumentMoniker": "CardManager.cpp",
               "ToolTip": "C:\\Users\\Lemi\\Documents\\GitHub\\SummerGame\\randmint_kari\\CardManager.cpp",
               "RelativeToolTip": "CardManager.cpp",
-              "ViewState": "AgIAAO0AAAAAAAAAAAAowPYAAABIAAAAAAAAAA==",
+              "ViewState": "AgIAANABAAAAAAAAAAAAAMUBAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2026-08-21T15:21:53.594Z",
               "EditorCaption": ""
@@ -152,18 +152,17 @@
               "RelativeToolTip": "Timer.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-08-24T07:48:16.231Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-24T07:48:16.231Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "SceneMain.cpp",
               "DocumentMoniker": "C:\\Users\\Lemi\\Documents\\GitHub\\SummerGame\\randmint_kari\\SceneMain.cpp",
               "RelativeDocumentMoniker": "SceneMain.cpp",
               "ToolTip": "C:\\Users\\Lemi\\Documents\\GitHub\\SummerGame\\randmint_kari\\SceneMain.cpp",
               "RelativeToolTip": "SceneMain.cpp",
-              "ViewState": "AgIAACcAAAAAAAAAAAAAADcAAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAADcAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2026-08-21T15:21:53.514Z",
               "EditorCaption": ""
@@ -178,8 +177,7 @@
               "RelativeToolTip": "Card.cpp",
               "ViewState": "AgIAACcAAAAAAAAAAAAAAAYAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-08-21T15:21:53.54Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-21T15:21:53.54Z"
             },
             {
               "$type": "Document",
@@ -270,18 +268,17 @@
               "RelativeToolTip": "SceneMain.h",
               "ViewState": "AgIAADMAAAAAAAAAAAAowEQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-08-21T15:21:53.673Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-21T15:21:53.673Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "CardManager.h",
               "DocumentMoniker": "C:\\Users\\Lemi\\Documents\\GitHub\\SummerGame\\randmint_kari\\CardManager.h",
               "RelativeDocumentMoniker": "CardManager.h",
               "ToolTip": "C:\\Users\\Lemi\\Documents\\GitHub\\SummerGame\\randmint_kari\\CardManager.h",
               "RelativeToolTip": "CardManager.h",
-              "ViewState": "AgIAAFsAAAAAAAAAAAAowIsAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAGoAAAAAAAAAAAAowIsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2026-08-21T15:21:53.679Z",
               "EditorCaption": ""
@@ -296,8 +293,7 @@
               "RelativeToolTip": "CardContent.h",
               "ViewState": "AgIAABUAAAAAAAAAAAAkwC4AAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-08-21T15:21:53.674Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-21T15:21:53.674Z"
             },
             {
               "$type": "Document",
@@ -309,8 +305,7 @@
               "RelativeToolTip": "CardContent.cpp",
               "ViewState": "AgIAAEsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-08-27T18:44:13.398Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-27T18:44:13.398Z"
             },
             {
               "$type": "Document",
@@ -322,8 +317,7 @@
               "RelativeToolTip": "CardEffect.h",
               "ViewState": "AgIAAB4AAAAAAAAAAAAUwC0AAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-08-21T15:21:53.676Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-21T15:21:53.676Z"
             },
             {
               "$type": "Document",
@@ -347,8 +341,7 @@
               "RelativeToolTip": "Timer.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-08-24T07:44:05.646Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-24T07:44:05.646Z"
             },
             {
               "$type": "Document",
