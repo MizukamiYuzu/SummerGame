@@ -659,7 +659,6 @@ void CardManager::Draw()
 		DrawFormatStringToHandle(Game::kScreenWidth / 2 - 250, Game::kScreenHeight / 2, GetColor(0, 255, 0), m_fontTitleRuleHandle, trun.c_str());
 		
 	}
-	DrawFormatString(0, Game::kScreenHeight / 2, GetColor(0, 0, 0), "%d",m_pActionTimer->GetTimer());
 }
 
 void CardManager::UseCard(Player* target, Player* mySelf, CardEffect& cardEffect)
